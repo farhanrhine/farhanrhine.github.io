@@ -1,11 +1,584 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Farhan | AI Engineer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farhan - AI/ML Engineer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background: #f5f1e8;
+            color: #2e2620;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(245, 241, 232, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #8b7355, #a0826d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #5c4a3a;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #8b7355;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 6rem 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #8b7355, #a0826d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #6b5647;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8b7355, #a0826d);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(139, 115, 85, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #8b7355;
+            color: #8b7355;
+        }
+
+        .btn-secondary:hover {
+            background: #8b7355;
+            color: #fff;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #8b7355;
+        }
+
+        .about-text p {
+            line-height: 1.8;
+            color: #5c4a3a;
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(139, 115, 85, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(139, 115, 85, 0.2);
+        }
+
+        .skill-card h3 {
+            margin-bottom: 0.5rem;
+            color: #8b7355;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(250, 245, 235, 0.8));
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s;
+            border: 1px solid rgba(139, 115, 85, 0.2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.25);
+        }
+
+        .project-card h3 {
+            color: #8b7355;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: #5c4a3a;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-tag {
+            background: rgba(139, 115, 85, 0.15);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #8b7355;
+            border: 1px solid rgba(139, 115, 85, 0.2);
+        }
+
+        .contact-container {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 3rem;
+            color: #8b7355;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(139, 115, 85, 0.2);
+            border-radius: 50px;
+            text-decoration: none;
+            color: #5c4a3a;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: rgba(139, 115, 85, 0.15);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(245, 241, 232, 0.9);
+            color: #6b5647;
+            border-top: 1px solid rgba(139, 115, 85, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #8b7355;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .about-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
-  <h1>Assalamu Alaikum 👋</h1>
-  <p>I am Farhan. This is my first free website.</p>
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="content">
+        <nav>
+            <div class="logo">FARHAN</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <section id="home" class="hero">
+            <h1>Mohammad Farhan Alam</h1>
+            <p class="subtitle">⚡ AI/ML Engineer | Agentic AI Builder</p>
+            <p class="subtitle">🔮 Transforming Ideas into Intelligent Systems</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>About Me</h2>
+                    <p>AI/ML Engineer skilled in Machine Learning, Deep Learning, MLOps, LLMOps, and Generative AI. Experienced in building end-to-end pipelines, reasoning-based AI assistants, and scalable systems.</p>
+                    <p>Currently focused on building Agentic AI Systems using LangGraph, LangChain, RAG, and modern LLM tooling. I specialize in accuracy, reliability, and production-grade engineering.</p>
+                    <p><strong>📍 Location:</strong> Building the Future 🌍</p>
+                    <p><strong>🎓 Education:</strong> B.E. Computer Science, Chandigarh University (2026)</p>
+                    <p><strong>☕ Fun Fact:</strong> I turn coffee into AI models ☕→🤖</p>
+                </div>
+                <div class="about-stats">
+                    <div class="skill-card">
+                        <h3>90%</h3>
+                        <p>Model Accuracy</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>10+</h3>
+                        <p>Projects Built</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>5+</h3>
+                        <p>Tech Stacks</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div>
+                <h2 class="section-title">Tech Arsenal</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>🤖 AI/ML</h3>
+                        <p>LangChain, LangGraph, RAG, LLMs, MCP</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>🧠 Deep Learning</h3>
+                        <p>PyTorch, TensorFlow, Scikit-Learn</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>⚡ Backend</h3>
+                        <p>FastAPI, Pydantic, Python</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>🐳 DevOps</h3>
+                        <p>Docker, Jenkins, CI/CD</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>☁️ Cloud</h3>
+                        <p>AWS, GCP, Linux</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>🗄️ Databases</h3>
+                        <p>PostgreSQL, Pinecone, ChromaDB</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>📊 Data Science</h3>
+                        <p>NumPy, Pandas, Matplotlib</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>🔄 MLOps</h3>
+                        <p>MLflow, Airflow, DVC</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Khalil AI</h3>
+                        <p>Multi-agent AI system eliminating hallucinations with reasoning framework, multi-tool orchestration, and verification layers for YouTube links and sources.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">LangGraph</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">FAISS</span>
+                            <span class="tech-tag">SQLite</span>
+                            <span class="tech-tag">Streamlit</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>AI Anime Recommender RAG</h3>
+                        <p>Intelligent recommendation system using RAG architecture for personalized anime suggestions based on user preferences.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">RAG</span>
+                            <span class="tech-tag">Vector DB</span>
+                            <span class="tech-tag">LLM</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Paytm Local MCP Server</h3>
+                        <p>Model Context Protocol server integration for Paytm local services with scalable architecture.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">MCP</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Python</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Airline Satisfaction MLOps</h3>
+                        <p>End-to-end ML pipeline predicting customer satisfaction with automated ETL, experiment tracking, and CI/CD deployment.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Airflow</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">MLflow</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">AWS</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Insurance Premium Prediction</h3>
+                        <p>ML model for insurance premium prediction with FastAPI backend, Docker containerization, and AWS deployment.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">ML</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>Multilingual Language Detection</h3>
+                        <p>Deep learning model achieving 90% accuracy across 5 Indic languages using LSTM and GRU architectures.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">LSTM</span>
+                            <span class="tech-tag">GRU</span>
+                            <span class="tech-tag">TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="contact-container">
+                <h2>Let's Connect</h2>
+                <p style="color: #6b5647; margin-bottom: 2rem;">Building the future of AI together</p>
+                <div class="contact-links">
+                    <a href="https://github.com/farhanrhine" class="contact-link" target="_blank">
+                        <span>🐙</span> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/farhanrhine" class="contact-link" target="_blank">
+                        <span>💼</span> LinkedIn
+                    </a>
+                    <a href="mailto:mohammadfarhanalam09@gmail.com" class="contact-link">
+                        <span>📧</span> Email
+                    </a>
+                    <a href="tel:+917321944622" class="contact-link">
+                        <span>📱</span> Phone
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>"The goal of AI is not to replace human intelligence, but to amplify it."</p>
+            <p>&copy; 2024 Mohammad Farhan Alam. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Three.js Background Animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.position.z = 30;
+
+        // Create particles
+        const geometry = new THREE.BufferGeometry();
+        const particles = 1500;
+        const positions = new Float32Array(particles * 3);
+        const colors = new Float32Array(particles * 3);
+
+        for (let i = 0; i < particles * 3; i += 3) {
+            positions[i] = (Math.random() - 0.5) * 100;
+            positions[i + 1] = (Math.random() - 0.5) * 100;
+            positions[i + 2] = (Math.random() - 0.5) * 100;
+
+            colors[i] = 0.55;     // R (coffee brown)
+            colors[i + 1] = 0.45; // G
+            colors[i + 2] = 0.33; // B
+        }
+
+        geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+        const material = new THREE.PointsMaterial({
+            size: 0.5,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.8
+        });
+
+        const points = new THREE.Points(geometry, material);
+        scene.add(points);
+
+        // Add connecting lines
+        const lineGeometry = new THREE.BufferGeometry();
+        const lineMaterial = new THREE.LineBasicMaterial({
+            color: 0x8b7355,
+            transparent: true,
+            opacity: 0.1
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            points.rotation.x += 0.0005;
+            points.rotation.y += 0.0008;
+
+            const positions = geometry.attributes.position.array;
+            for (let i = 1; i < positions.length; i += 3) {
+                positions[i] += Math.sin(Date.now() * 0.001 + i) * 0.01;
+            }
+            geometry.attributes.position.needsUpdate = true;
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            points.rotation.x = scrolled * 0.0001;
+            points.rotation.y = scrolled * 0.0002;
+        });
+    </script>
 </body>
 </html>

@@ -61,6 +61,13 @@
                     },
                     animation: {
                         'spin-slow': 'spin 12s linear infinite',
+                        'cursor-blink': 'blink 1s step-end infinite',
+                    },
+                    keyframes: {
+                        blink: {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        }
                     }
                 }
             }
@@ -102,8 +109,14 @@
         /* Custom Selection - Pure White */
         ::selection { background: #EAEAEA; color: #000000; }
         
-        /* Utility for Text Reveal */
-        .clip-text-parent { overflow: hidden; display: inline-block; vertical-align: bottom; }
+        /* Utility for Text Reveal - Fix for cutting off descenders */
+        .clip-text-parent { 
+            overflow: hidden; 
+            display: inline-block; 
+            vertical-align: bottom; 
+            padding-bottom: 0.15em; /* Buffer for 'g', 'j', 'y', etc. */
+            margin-bottom: -0.15em; /* Compensate for layout shift */
+        }
 
         /* Mobile Cursor Reset */
         @media (max-width: 768px) {
@@ -116,7 +129,7 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect, useRef, useLayoutEffect } = React;
+        const { useState, useEffect, useRef, useLayoutEffect, useCallback } = React;
         const { motion, useScroll, useTransform, useSpring, AnimatePresence } = window.Motion;
 
         // --- 0. Loader Component ---
@@ -125,12 +138,12 @@
                 <motion.div
                     initial={{ opacity: 1 }}
                     animate={{ opacity: 0 }}
-                    transition={{ duration: 1.0, delay: 1.0, ease: "easeInOut" }}
+                    transition={{ duration: 1.0, delay: 1.5, ease: "easeInOut" }}
                     onAnimationComplete={() => document.body.style.overflowY = 'auto'}
                     className="fixed inset-0 z-[10000] bg-black flex items-center justify-center pointer-events-none"
                 >
-                    <div className="font-mono text-xs tracking-[0.25em] text-[#EAEAEA]/80 uppercase">
-                        Initialized
+                    <div className="font-mono text-xs tracking-[0.25em] text-[#EAEAEA]/80 uppercase min-h-[20px]">
+                        <StreamingText text="Initialized" speed={100} delay={0.2} />
                     </div>
                 </motion.div>
             );
@@ -246,6 +259,40 @@
             );
         };
 
+        // --- 3.5 Streaming Text (Fixed Visibility + No Sound + No Cursor) ---
+        const StreamingText = ({ text, speed = 50, className, delay = 0 }) => {
+            const [displayedText, setDisplayedText] = useState("");
+            const [started, setStarted] = useState(false);
+            const ref = useRef(null);
+            // Adjusted margin and added min-height in CSS to ensure visibility trigger
+            const isInView = window.Motion.useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+
+            useEffect(() => {
+                if (isInView) {
+                    const timer = setTimeout(() => setStarted(true), delay * 1000);
+                    return () => clearTimeout(timer);
+                }
+            }, [isInView, delay]);
+
+            useEffect(() => {
+                if (!started) return;
+                
+                if (displayedText.length < text.length) {
+                    const timeout = setTimeout(() => {
+                        setDisplayedText(text.slice(0, displayedText.length + 1));
+                    }, speed);
+                    return () => clearTimeout(timeout);
+                }
+            }, [started, displayedText, text, speed]);
+
+            return (
+                <span ref={ref} className={`${className} inline-flex items-center min-h-[1.5em] align-middle`}>
+                    {displayedText}
+                    {/* Blinking cursor removed for calmer feel */}
+                </span>
+            );
+        };
+
         // --- 4. 3D Wireframe Sculpture (Subtle) ---
         const WireframeSculpture = () => {
             const mountRef = useRef(null);
@@ -341,12 +388,14 @@
             useEffect(() => {
                 const interval = setInterval(() => {
                     setTextIndex((prev) => (prev + 1) % texts.length);
-                }, 4000); // Slow, calm cycle every 4 seconds
+                }, 4000); 
                 return () => clearInterval(interval);
             }, []);
 
             return (
-                <div className="font-bold text-lg tracking-tighter font-sans min-w-[150px] relative h-7 overflow-hidden cursor-default">
+                <div 
+                    className="font-bold text-lg tracking-tighter font-sans min-w-[150px] relative h-7 overflow-hidden cursor-default hover:text-white transition-colors"
+                >
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={textIndex}
@@ -421,9 +470,9 @@
                                 transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
                                 className="h-[1px] bg-[#EAEAEA]" // White line
                             />
-                            <TextReveal className="font-mono text-[10px] tracking-widest uppercase text-[#EAEAEA]/60" delay={0.6}>
+                            <div className="font-mono text-[10px] tracking-widest uppercase text-[#EAEAEA]/60 min-h-[20px] flex items-center">
                                 I Build, Deploy & Monitor AI/ML Models
-                            </TextReveal>
+                            </div>
                         </div>
                         
                         <h1 className="text-6xl md:text-8xl lg:text-9xl font-sans font-light leading-[0.95] text-[#EAEAEA] mb-12 tracking-tighter">
@@ -585,22 +634,24 @@
         };
 
         // --- Tech Stack Component ---
-        const TechCategory = ({ title, skills }) => (
-            <div className="mb-12">
-                <h4 className="font-mono text-[10px] uppercase tracking-widest text-[#EAEAEA]/30 mb-6 pb-2 border-b border-[#EAEAEA]/10 w-fit pr-12">{title}</h4>
-                <div className="flex flex-wrap gap-x-8 gap-y-3">
-                    {skills.map((skill, i) => (
-                        <motion.span 
-                            key={i}
-                            whileHover={{ color: "#FFFFFF" }}
-                            className="hover-target text-sm font-light text-[#EAEAEA]/60 cursor-none transition-colors duration-200"
-                        >
-                            {skill}
-                        </motion.span>
-                    ))}
+        const TechCategory = ({ title, skills }) => {
+            return (
+                <div className="mb-12">
+                    <h4 className="font-mono text-[10px] uppercase tracking-widest text-[#EAEAEA]/30 mb-6 pb-2 border-b border-[#EAEAEA]/10 w-fit pr-12">{title}</h4>
+                    <div className="flex flex-wrap gap-x-8 gap-y-3">
+                        {skills.map((skill, i) => (
+                            <motion.span 
+                                key={i}
+                                whileHover={{ color: "#FFFFFF" }}
+                                className="hover-target text-sm font-light text-[#EAEAEA]/60 cursor-none transition-colors duration-200"
+                            >
+                                {skill}
+                            </motion.span>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        };
 
         const TechStack = () => {
             return (
@@ -698,33 +749,35 @@
             );
         };
 
-        const Footer = () => (
-            <section id="contact" className="py-32 px-6 lg:px-24 bg-[#050505] text-[#EAEAEA] relative overflow-hidden z-10 border-t border-[#EAEAEA]/5">
-                <div className="max-w-4xl mx-auto text-center relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <h2 className="text-5xl md:text-7xl font-sans font-light mb-8 tracking-tight">Let's build intelligence.</h2>
-                        
-                        <p className="text-sm font-light opacity-50 mb-12">I optimize for correctness before cleverness.</p>
+        const Footer = () => {
+            return (
+                <section id="contact" className="py-32 px-6 lg:px-24 bg-[#050505] text-[#EAEAEA] relative overflow-hidden z-10 border-t border-[#EAEAEA]/5">
+                    <div className="max-w-4xl mx-auto text-center relative z-10">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <h2 className="text-5xl md:text-7xl font-sans font-light mb-8 tracking-tight">Let's build intelligence.</h2>
+                            
+                            <p className="text-sm font-light opacity-50 mb-12">I optimize for correctness before cleverness.</p>
 
-                        <div className="flex flex-col md:flex-row justify-center gap-12 mb-20">
-                            <a href="mailto:mohammadfarhanalam09@gmail.com" className="text-sm font-mono uppercase tracking-widest hover:text-white transition-colors cursor-none opacity-60 hover:opacity-100">Email</a>
-                            <a href="https://linkedin.com/in/farhanrhine" className="text-sm font-mono uppercase tracking-widest hover:text-white transition-colors cursor-none opacity-60 hover:opacity-100">LinkedIn</a>
-                            <a href="https://github.com/farhanrhine" className="text-sm font-mono uppercase tracking-widest hover:text-white transition-colors cursor-none opacity-60 hover:opacity-100">GitHub</a>
-                        </div>
-                        
-                        <div className="pt-12">
-                            <p className="font-mono text-[10px] text-[#EAEAEA]/20 uppercase tracking-widest">
-                                Farhan • AI/ML Engineer • {new Date().getFullYear()}
-                            </p>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-        );
+                            <div className="flex flex-col md:flex-row justify-center gap-12 mb-20">
+                                <a href="mailto:mohammadfarhanalam09@gmail.com" className="text-sm font-mono uppercase tracking-widest hover:text-white transition-colors cursor-none opacity-60 hover:opacity-100">Email</a>
+                                <a href="https://linkedin.com/in/farhanrhine" className="text-sm font-mono uppercase tracking-widest hover:text-white transition-colors cursor-none opacity-60 hover:opacity-100">LinkedIn</a>
+                                <a href="https://github.com/farhanrhine" className="text-sm font-mono uppercase tracking-widest hover:text-white transition-colors cursor-none opacity-60 hover:opacity-100">GitHub</a>
+                            </div>
+                            
+                            <div className="pt-12">
+                                <p className="font-mono text-[10px] text-[#EAEAEA]/20 uppercase tracking-widest">
+                                    Farhan • AI/ML Engineer • {new Date().getFullYear()}
+                                </p>
+                            </div>
+                        </motion.div>
+                    </div>
+                </section>
+            );
+        }
 
         const App = () => {
             return (

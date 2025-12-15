@@ -336,7 +336,7 @@
 
         const Logo = () => {
             const [textIndex, setTextIndex] = useState(0);
-            const texts = ["Farhan.", "Hi.", "It's Farhan."];
+            const texts = ["Farhan.", "Salam.", "Hi.", "اسمي Farhan."];
 
             useEffect(() => {
                 const interval = setInterval(() => {
@@ -346,7 +346,7 @@
             }, []);
 
             return (
-                <div className="font-bold text-lg tracking-tighter font-sans min-w-[120px] relative h-7 overflow-hidden cursor-default">
+                <div className="font-bold text-lg tracking-tighter font-sans min-w-[150px] relative h-7 overflow-hidden cursor-default">
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={textIndex}

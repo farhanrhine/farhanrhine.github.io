@@ -155,19 +155,20 @@
 
             return (
                 <motion.div
-                    className="custom-cursor fixed top-0 left-0 rounded-full border border-black pointer-events-none z-[9999]"
+                    className="custom-cursor fixed top-0 left-0 rounded-full pointer-events-none z-[9999]"
+                    style={{ mixBlendMode: 'difference' }}
                     animate={{
                         x: mousePosition.x - (cursorVariant === "hover" ? 32 : 6),
                         y: mousePosition.y - (cursorVariant === "hover" ? 32 : 6),
                         width: cursorVariant === "hover" ? 64 : 12,
                         height: cursorVariant === "hover" ? 64 : 12,
-                        backgroundColor: cursorVariant === "hover" ? "rgba(255, 255, 255, 0)" : "rgba(0, 0, 0, 1)",
-                        mixBlendMode: cursorVariant === "hover" ? "difference" : "normal"
+                        backgroundColor: "white", 
+                        opacity: cursorVariant === "hover" ? 0.3 : 1
                     }}
                     transition={{
                         type: "spring",
-                        stiffness: 150,
-                        damping: 15,
+                        stiffness: 1000,
+                        damping: 50,
                         mass: 0.1
                     }}
                 />

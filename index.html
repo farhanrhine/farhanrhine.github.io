@@ -226,7 +226,7 @@
                 if (!mountRef.current) return;
                 
                 const scene = new THREE.Scene();
-                // Match the new Antique White background color for fog
+                // Match the Antique White background
                 scene.fog = new THREE.FogExp2(0xFAEBD7, 0.05);
                 
                 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -246,23 +246,28 @@
                 
                 sketchGroup.scale.set(1.1, 1.1, 1.1);
 
-                // --- Materials (Hopeful Palette) ---
-                const coreMaterial = new THREE.LineBasicMaterial({ color: 0xcf0f47, transparent: true, opacity: 1.0 });
-                const ringMaterialOuter = new THREE.LineBasicMaterial({ color: 0x00cec9, transparent: true, opacity: 0.9 });
-                const ringMaterialBlue = new THREE.LineBasicMaterial({ color: 0x2e86de, transparent: true, opacity: 0.8 });
+                // --- Materials ---
+                // Restored the Deep Crimson & Cyan palette you liked
+                const coreMaterial = new THREE.LineBasicMaterial({ color: 0xcf0f47, transparent: true, opacity: 1.0 }); // Deep Crimson
+                const ringMaterialOuter = new THREE.LineBasicMaterial({ color: 0x00cec9, transparent: true, opacity: 0.9 }); // Bright Cyan
+                const ringMaterialBlue = new THREE.LineBasicMaterial({ color: 0x2e86de, transparent: true, opacity: 0.8 }); // Deep Blue
                 const structureMaterial = new THREE.LineBasicMaterial({ color: 0x576574, transparent: true, opacity: 0.5 }); // Pencil Grey
 
-                // --- Geometry ---
+                // --- Geometry: RESTORED ARC REACTOR ---
+
+                // 1. Central Power Core (Dense Sphere)
                 const coreGeo = new THREE.IcosahedronGeometry(3.2, 2);
                 const coreEdges = new THREE.EdgesGeometry(coreGeo);
                 const core = new THREE.LineSegments(coreEdges, coreMaterial);
                 sketchGroup.add(core);
 
+                // 2. Main Reactor Ring (Thick Torus)
                 const innerRingGeo = new THREE.TorusGeometry(6.0, 0.6, 16, 50);
                 const innerRingEdges = new THREE.EdgesGeometry(innerRingGeo);
                 const innerRing = new THREE.LineSegments(innerRingEdges, ringMaterialOuter);
                 sketchGroup.add(innerRing);
 
+                // 4. Structural Spokes (Connecting Core to Ring)
                 const spokesGroup = new THREE.Group();
                 sketchGroup.add(spokesGroup);
                 for (let i = 0; i < 8; i++) {
@@ -289,7 +294,7 @@
                     requestAnimationFrame(animate);
                     const time = Date.now() * 0.001;
 
-                    // Heartbeat Pulse
+                    // Heartbeat Pulse Animation
                     const speed = 1.8;
                     const pulseRaw = Math.sin(time * speed); 
                     const energy = (pulseRaw + 1) / 2;
@@ -302,11 +307,13 @@
 
                     core.scale.set(currentScale + buzz, currentScale + buzz, currentScale + buzz);
 
+                    // Rotation
                     core.rotation.y += 0.005 + (energy * 0.01); 
                     core.rotation.z += 0.002 + (energy * 0.005);
                     
                     innerRing.rotation.z -= 0.002;
 
+                    // Jitter Effect
                     if (energy > 0.9) {
                         sketchGroup.position.x = (Math.random() - 0.5) * 0.01;
                         sketchGroup.position.y = (Math.random() - 0.5) * 0.01;
@@ -317,6 +324,7 @@
 
                     spokesGroup.rotation.z -= 0.001;
 
+                    // Parallax
                     parallaxGroup.rotation.x += (mouseY * 0.3 - parallaxGroup.rotation.x) * 0.05;
                     parallaxGroup.rotation.y += (mouseX * 0.3 - parallaxGroup.rotation.y) * 0.05;
 
@@ -335,8 +343,11 @@
                     if (mountRef.current) mountRef.current.removeChild(renderer.domElement);
                     window.removeEventListener('mousemove', onMouseMove);
                     window.removeEventListener('resize', handleResize);
+                    
+                    // Cleanup
                     coreGeo.dispose(); coreMaterial.dispose(); coreEdges.dispose();
-                    innerRingGeo.dispose(); ringMaterialBlue.dispose(); innerRingEdges.dispose();
+                    innerRingGeo.dispose(); ringMaterialOuter.dispose(); innerRingEdges.dispose();
+                    ringMaterialBlue.dispose(); 
                     structureMaterial.dispose();
                 };
             }, []);
@@ -761,7 +772,7 @@
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="font-display text-5xl md:text-7xl text-ink mb-8">Let's build <span className="text-bluePen relative inline-block">intelligence.<ScribbleUnderline /></span></h2>
                     
-                    <p className="font-body text-2xl text-pencil mb-12">I optimize for correctness before cleverness. (And I doodle a lot).</p>
+                    <p className="font-body text-2xl text-pencil mb-12">I optimize for correctness before cleverness.</p>
 
                     <div className="flex flex-wrap justify-center gap-8 mb-16">
                         <a href="mailto:mohammadfarhanalam09@gmail.com" className="wobbly-box px-6 py-2 bg-white hover:bg-highlight text-ink font-bold text-xl transition-all">Email Me</a>

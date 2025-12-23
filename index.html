@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farhan | AI/ML Engineer</title>
+    <title>Farhan | AI/ML Engineer (Sketch Edition)</title>
     <meta name="description" content="Farhan | AI Engineer & System Architect specializing in Agentic AI, LLMs, and MLOps.">
-    <meta name="keywords" content="AI Engineer, MLOps, LLM, Agentic AI, Python, React, Portfolio">
     
     <!-- React & ReactDOM -->
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     
-    <!-- Babel for JSX -->
+    <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     <!-- Tailwind CSS -->
@@ -29,99 +28,98 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Fonts: Manrope (Primary) & DotGothic16 (Metadata) -->
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Manrope:wght@200;300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-
-    <!-- Visualization & Content Choices:
-         - Aesthetic: Pure Monochrome (White/Black/Grey). No accents.
-         - Typography: Manrope (Sans) for primary, DotGothic16 (Mono) for meta.
-         - Interaction: Opacity-based hierarchy (Active = 100%, Inactive = 40%).
-         - Motion: Ultra-slow ease [0.16, 1, 0.3, 1] for "inevitable" feel.
-    -->
+    <!-- Handwritten Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Patrick+Hand&family=Gloria+Hallelujah&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Manrope', 'sans-serif'], // Primary: Headlines & Body
-                        mono: ['DotGothic16', 'monospace'], // Utility: Metadata & Labels
-                        code: ['Fira Code', 'monospace'], // Code snippets if needed
+                        sans: ['"Architects Daughter"', 'cursive'],
+                        body: ['"Patrick Hand"', 'cursive'],
+                        display: ['"Gloria Hallelujah"', 'cursive'],
                     },
                     colors: {
-                        mono: {
-                            50: '#0a0a0a',   // Deep Black
-                            100: '#171717',  // Soft Black
-                            200: '#262626',
-                            300: '#404040',
-                            800: '#D4D4D4',
-                            900: '#EAEAEA',  // Off-White Text
-                        },
-                        // Removed Red Accent. Using pure monochrome scales.
+                        paper: '#fdfbf7',
+                        ink: '#2c3e50',
+                        pencil: '#57606f',
+                        highlight: '#ffeaa7',
+                        redPen: '#ff4757',
+                        bluePen: '#3742fa',
                     },
-                    animation: {
-                        'spin-slow': 'spin 12s linear infinite',
-                        'cursor-blink': 'blink 1s step-end infinite',
-                    },
-                    keyframes: {
-                        blink: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0' },
-                        }
-                    }
                 }
             }
         }
     </script>
     <style>
-        /* Nothing-Style Base Styles */
+        /* Graph Paper / Math Grid Background */
         body { 
             margin: 0; 
-            background-color: #050505; /* Deepest Black */
-            color: #EAEAEA;            /* Off-White Text */
-            overflow-x: hidden; 
-            cursor: none;
-            letter-spacing: 0.01em;    /* Slightly tighter for editorial feel */
-            font-weight: 300;          /* Manrope 300 Light */
-            font-family: 'Manrope', sans-serif;
-            -webkit-font-smoothing: antialiased;
+            background-color: #fdfbf7;
+            /* Math Grid Pattern */
+            background-image: 
+                linear-gradient(#e5e7eb 1px, transparent 1px),
+                linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #2c3e50;
+            overflow-x: hidden;
+            font-family: 'Patrick Hand', cursive;
         }
-        canvas { position: fixed; top: 0; left: 0; z-index: -1; }
-        
-        /* Grain Overlay */
-        .grain {
+
+        /* The Red Margin Line (Optional for graph paper, but keeps the notebook feel) */
+        body::before {
+            content: '';
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 1; 
-            opacity: 0.04; 
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            mix-blend-mode: overlay;
+            top: 0;
+            bottom: 0;
+            left: 4rem;
+            width: 2px;
+            background-color: #ffb8b8; /* Pink/Red margin line */
+            z-index: -1;
         }
 
-        /* Smooth Scroll styling */
-        html.lenis { height: auto; }
-        .lenis.lenis-smooth { scroll-behavior: auto; }
-        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
-        .lenis.lenis-stopped { overflow: hidden; }
-        .lenis.lenis-scrolling iframe { pointer-events: none; }
-
-        /* Custom Selection - Pure White */
-        ::selection { background: #EAEAEA; color: #000000; }
-        
-        /* Utility for Text Reveal - Fix for cutting off descenders */
-        .clip-text-parent { 
-            overflow: hidden; 
-            display: inline-block; 
-            vertical-align: bottom; 
-            padding-bottom: 0.15em; /* Buffer for 'g', 'j', 'y', etc. */
-            margin-bottom: -0.15em; /* Compensate for layout shift */
-        }
-
-        /* Mobile Cursor Reset */
         @media (max-width: 768px) {
-            body { cursor: auto; }
-            .custom-cursor { display: none !important; }
+            body::before { left: 1.5rem; }
+        }
+
+        canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.6; }
+
+        /* Scribble selection */
+        ::selection { background: #ffeaa7; color: #2c3e50; }
+
+        /* Wobbly Borders Class */
+        .wobbly-box {
+            border: 2px solid #2c3e50;
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+        .wobbly-box:hover {
+            border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
+            transform: scale(1.02) rotate(-1deg);
+        }
+
+        /* Sticky Note Class */
+        .sticky-note {
+            background: #fff9c4;
+            box-shadow: 2px 4px 6px rgba(0,0,0,0.1);
+            transform: rotate(-1deg);
+            transition: transform 0.2s;
+        }
+        .sticky-note:hover {
+            transform: rotate(0deg) scale(1.02);
+            box-shadow: 4px 6px 12px rgba(0,0,0,0.15);
+        }
+
+        /* SVG Doodle Animations */
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+        .draw-path {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 2s ease-in-out forwards;
         }
     </style>
 </head>
@@ -129,90 +127,82 @@
     <div id="root"></div>
 
     <script type="text/babel">
-        const { useState, useEffect, useRef, useLayoutEffect, useCallback } = React;
-        const { motion, useScroll, useTransform, useSpring, AnimatePresence } = window.Motion;
+        const { useState, useEffect, useRef } = React;
+        const { motion, useScroll, useTransform, AnimatePresence } = window.Motion;
 
-        // --- 0. Loader Component ---
+        // --- 0. Doodle Icons (Using SVG) ---
+        // Restored these components which were causing ReferenceErrors
+        const ScribbleUnderline = () => (
+            <svg className="absolute -bottom-2 left-0 w-full h-4 z-[-1]" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2.00026 6.99997C38.5003 3.49998 75.0003 2.00001 111.5 2.00001C148 2.00001 198 4.5 198 4.5" stroke="#ff4757" strokeWidth="3" strokeLinecap="round" className="draw-path" />
+            </svg>
+        );
+
+        const StarDoodle = ({ className }) => (
+            <svg className={className} width="30" height="30" viewBox="0 0 50 50" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M25 2L28 18L48 18L32 28L38 48L25 35L12 48L18 28L2 18L22 18L25 2Z" strokeLinejoin="round" />
+            </svg>
+        );
+
+        const ArrowDoodle = ({ className }) => (
+            <svg className={className} width="40" height="40" viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+                <path d="M10 50 C 30 40, 70 40, 90 50" />
+                <path d="M90 50 L 75 35" />
+                <path d="M90 50 L 75 65" />
+            </svg>
+        );
+
+        // --- 1. Loader (Tech Sketching) ---
         const Loader = () => {
             return (
                 <motion.div
                     initial={{ opacity: 1 }}
                     animate={{ opacity: 0 }}
-                    transition={{ duration: 1.0, delay: 1.5, ease: "easeInOut" }}
+                    transition={{ duration: 1.0, delay: 2.5, ease: "easeInOut" }}
                     onAnimationComplete={() => document.body.style.overflowY = 'auto'}
-                    className="fixed inset-0 z-[10000] bg-black flex items-center justify-center pointer-events-none"
+                    className="fixed inset-0 z-[10000] bg-[#fdfbf7] flex flex-col items-center justify-center pointer-events-none"
+                    style={{
+                        backgroundImage: "linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px)",
+                        backgroundSize: "20px 20px"
+                    }}
                 >
-                    <div className="font-mono text-xs tracking-[0.25em] text-[#EAEAEA]/80 uppercase min-h-[20px]">
-                        <StreamingText text="Initialized" speed={100} delay={0.2} />
+                    <motion.div 
+                        animate={{ 
+                            scale: [1, 1.1, 1],
+                            rotate: [0, 5, -5, 0]
+                        }}
+                        transition={{ repeat: Infinity, duration: 2 }}
+                        className="text-6xl mb-6"
+                    >
+                        🤖
+                    </motion.div>
+                    
+                    <div className="font-display text-3xl text-ink font-bold tracking-widest uppercase mb-4">
+                        System Initializing...
+                    </div>
+
+                    {/* Hand-drawn Loading Bar */}
+                    <div className="w-64 h-6 border-2 border-ink rounded-lg p-1 relative">
+                        <motion.div 
+                            initial={{ width: "0%" }}
+                            animate={{ width: "100%" }}
+                            transition={{ duration: 2, ease: "easeInOut" }}
+                            className="h-full bg-redPen opacity-80 rounded-sm"
+                            style={{
+                                backgroundImage: "linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent)",
+                                backgroundSize: "20px 20px"
+                            }}
+                        />
+                    </div>
+                    
+                    <div className="mt-2 font-mono text-xs text-pencil">
+                        Loading neural pathways...
                     </div>
                 </motion.div>
             );
         };
 
-        // --- 1. Custom Cursor (Refined: Blend Mode + Click) ---
-        const CustomCursor = () => {
-            const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-            const [cursorVariant, setCursorVariant] = useState("default");
-            const [isClicking, setIsClicking] = useState(false);
-
-            useEffect(() => {
-                const updateMousePosition = (e) => {
-                    setMousePosition({ x: e.clientX, y: e.clientY });
-                };
-
-                const handleMouseOver = (e) => {
-                    const target = e.target;
-                    // Check if hovering interactive elements
-                    if (target.closest('a') || target.closest('button') || target.closest('.hover-target')) {
-                        setCursorVariant("hover");
-                    } 
-                    // Check if hovering text
-                    else if (target.closest('h1') || target.closest('h2') || target.closest('p') || target.closest('span')) {
-                        setCursorVariant("text"); 
-                    } else {
-                        setCursorVariant("default");
-                    }
-                };
-
-                const handleMouseDown = () => setIsClicking(true);
-                const handleMouseUp = () => setIsClicking(false);
-
-                window.addEventListener('mousemove', updateMousePosition);
-                window.addEventListener('mouseover', handleMouseOver);
-                window.addEventListener('mousedown', handleMouseDown);
-                window.addEventListener('mouseup', handleMouseUp);
-
-                return () => {
-                    window.removeEventListener('mousemove', updateMousePosition);
-                    window.removeEventListener('mouseover', handleMouseOver);
-                    window.removeEventListener('mousedown', handleMouseDown);
-                    window.removeEventListener('mouseup', handleMouseUp);
-                };
-            }, []);
-
-            return (
-                <motion.div
-                    className="custom-cursor fixed top-0 left-0 rounded-full pointer-events-none z-[9999] bg-[#EAEAEA]"
-                    style={{ mixBlendMode: 'difference' }} 
-                    animate={{
-                        x: mousePosition.x - (cursorVariant === "hover" ? 30 : 6), // Center based on size
-                        y: mousePosition.y - (cursorVariant === "hover" ? 30 : 6),
-                        width: cursorVariant === "hover" ? 60 : 12,
-                        height: cursorVariant === "hover" ? 60 : 12,
-                        opacity: 1, 
-                        scale: isClicking ? 0.8 : 1, 
-                    }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 800,
-                        damping: 40,
-                        mass: 0.1
-                    }}
-                />
-            );
-        };
-
-        // --- 2. Smooth Scroll Setup (Lenis) ---
+        // --- 2. Smooth Scroll ---
         const SmoothScroll = ({ children }) => {
             useEffect(() => {
                 const lenis = new window.Lenis({
@@ -221,142 +211,143 @@
                     direction: 'vertical',
                     smooth: true,
                 });
-
-                function raf(time) {
-                    lenis.raf(time);
-                    requestAnimationFrame(raf);
-                }
+                function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
                 requestAnimationFrame(raf);
                 return () => lenis.destroy();
             }, []);
             return <div>{children}</div>;
         };
 
-        // --- 3. Advanced Text Reveal (Calmer Timing, Reduced Y) ---
-        const TextReveal = ({ children, className, delay = 0 }) => {
-            const ref = useRef(null);
-            
-            return (
-                <motion.div
-                    ref={ref}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-10%" }}
-                    className={className}
-                >
-                    {children.split(" ").map((word, i) => (
-                        <span key={i} className="clip-text-parent mr-[0.25em]">
-                            <motion.span
-                                className="inline-block"
-                                variants={{
-                                    hidden: { opacity: 0, y: 6 }, // Reduced movement for confidence
-                                    visible: { 
-                                        opacity: 1, 
-                                        y: 0,
-                                        transition: { 
-                                            duration: 1.2, // Slower, more majestic
-                                            ease: [0.16, 1, 0.3, 1], 
-                                            delay: delay + (i * 0.05) 
-                                        } 
-                                    }
-                                }}
-                            >
-                                {word}
-                            </motion.span>
-                        </span>
-                    ))}
-                </motion.div>
-            );
-        };
-
-        // --- 3.5 Streaming Text (Fixed Visibility + No Sound + No Cursor) ---
-        const StreamingText = ({ text, speed = 50, className, delay = 0 }) => {
-            const [displayedText, setDisplayedText] = useState("");
-            const [started, setStarted] = useState(false);
-            const ref = useRef(null);
-            // Adjusted margin and added min-height in CSS to ensure visibility trigger
-            const isInView = window.Motion.useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
-
-            useEffect(() => {
-                if (isInView) {
-                    const timer = setTimeout(() => setStarted(true), delay * 1000);
-                    return () => clearTimeout(timer);
-                }
-            }, [isInView, delay]);
-
-            useEffect(() => {
-                if (!started) return;
-                
-                if (displayedText.length < text.length) {
-                    const timeout = setTimeout(() => {
-                        setDisplayedText(text.slice(0, displayedText.length + 1));
-                    }, speed);
-                    return () => clearTimeout(timeout);
-                }
-            }, [started, displayedText, text, speed]);
-
-            return (
-                <span ref={ref} className={`${className} inline-flex items-center min-h-[1.5em] align-middle`}>
-                    {displayedText}
-                    {/* Blinking cursor removed for calmer feel */}
-                </span>
-            );
-        };
-
-        // --- 4. 3D Wireframe Sculpture (Subtle) ---
-        const WireframeSculpture = () => {
+        // --- 3. 3D Doodle Arc Reactor (JARVIS Style) ---
+        const SketchSculpture = () => {
             const mountRef = useRef(null);
 
             useEffect(() => {
                 if (!mountRef.current) return;
                 
-                const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-                if (prefersReducedMotion) return;
-
                 const scene = new THREE.Scene();
-                // Deep black fog
-                scene.fog = new THREE.FogExp2(0x050505, 0.035);
+                scene.fog = new THREE.FogExp2(0xfdfbf7, 0.05);
                 
                 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-                camera.position.z = 8;
-                camera.position.y = 1;
-
+                camera.position.z = 20;
+                
                 const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
                 renderer.setSize(window.innerWidth, window.innerHeight);
-                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+                renderer.setPixelRatio(window.devicePixelRatio);
                 mountRef.current.appendChild(renderer.domElement);
 
-                const geometry = new THREE.IcosahedronGeometry(2.5, 1);
+                // --- Hierarchy ---
+                // 1. Parallax Group (Handles smooth mouse movement)
+                const parallaxGroup = new THREE.Group();
+                scene.add(parallaxGroup);
+
+                // 2. Sketch Group (Handles the "Core" animation & jitter)
+                const sketchGroup = new THREE.Group();
+                parallaxGroup.add(sketchGroup);
                 
-                // Solid Mesh (Black)
-                const solidMaterial = new THREE.MeshBasicMaterial({ 
-                    color: 0x050505, 
-                    polygonOffset: true, 
-                    polygonOffsetFactor: 1, 
-                    polygonOffsetUnits: 1 
-                });
-                const mesh = new THREE.Mesh(geometry, solidMaterial);
-                scene.add(mesh);
+                // Scale set to 1.1 as requested previously
+                sketchGroup.scale.set(1.1, 1.1, 1.1);
 
-                // Wireframe (Ghostly) - Reduced opacity for calmness
-                const edges = new THREE.EdgesGeometry(geometry);
-                const lineMaterial = new THREE.LineBasicMaterial({ 
-                    color: 0x606060, // Lightened slightly
-                    transparent: true,
-                    opacity: 0.15 // Very subtle, barely there
-                }); 
-                const wireframe = new THREE.LineSegments(edges, lineMaterial);
-                mesh.add(wireframe);
+                // --- Materials (Hopeful Palette) ---
+                
+                // Core: Electric Cyan/Blue - Increased Opacity for Visibility
+                const coreMaterial = new THREE.LineBasicMaterial({ color: 0x00ffff, transparent: true, opacity: 1.0 });
+                
+                // Inner Ring: Deep Sky Blue
+                const ringMaterialBlue = new THREE.LineBasicMaterial({ color: 0x2e86de, transparent: true, opacity: 0.8 });
+                
+                // Structure: Pencil Grey
+                const structureMaterial = new THREE.LineBasicMaterial({ color: 0x576574, transparent: true, opacity: 0.5 });
 
-                let requestID;
+
+                // --- Geometry ---
+
+                // 1. Central Power Core (Dense Sphere) - MASSIVE SIZE INCREASE (2.2 -> 3.2)
+                const coreGeo = new THREE.IcosahedronGeometry(3.2, 2);
+                const coreEdges = new THREE.EdgesGeometry(coreGeo);
+                const core = new THREE.LineSegments(coreEdges, coreMaterial);
+                sketchGroup.add(core);
+
+                // 2. Main Reactor Ring - INCREASED RADIUS (3.5 -> 6.0) & THICKNESS
+                const innerRingGeo = new THREE.TorusGeometry(6.0, 0.6, 16, 50);
+                const innerRingEdges = new THREE.EdgesGeometry(innerRingGeo);
+                const innerRing = new THREE.LineSegments(innerRingEdges, ringMaterialBlue);
+                sketchGroup.add(innerRing);
+
+                // 4. Structural Spokes - Adjusted to span the larger gap
+                const spokesGroup = new THREE.Group();
+                sketchGroup.add(spokesGroup);
+                for (let i = 0; i < 8; i++) {
+                    const angle = (i / 8) * Math.PI * 2;
+                    const points = [];
+                    // Adjusted start point (near core) and end point (at ring)
+                    points.push(new THREE.Vector3(Math.cos(angle) * 3.5, Math.sin(angle) * 3.5, 0));
+                    points.push(new THREE.Vector3(Math.cos(angle) * 6.5, Math.sin(angle) * 6.5, 0));
+                    const spokeGeo = new THREE.BufferGeometry().setFromPoints(points);
+                    const spoke = new THREE.Line(spokeGeo, structureMaterial);
+                    spokesGroup.add(spoke);
+                }
+
+                // --- Animation Loop ---
+                let mouseX = 0;
+                let mouseY = 0;
+                
+                const onMouseMove = (event) => {
+                    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                    mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+                };
+                window.addEventListener('mousemove', onMouseMove);
+
                 const animate = () => {
-                    requestID = requestAnimationFrame(animate);
-                    mesh.rotation.y += 0.0005;
-                    mesh.rotation.x += 0.0002;
-                    mesh.position.y = Math.sin(Date.now() * 0.0005) * 0.1;
+                    requestAnimationFrame(animate);
+                    const time = Date.now() * 0.001;
+
+                    // --- HEARTBEAT / PULSE LOGIC ---
+                    // "Grow then shrink" rhythmic cycle
+                    
+                    // 1. Create a heartbeat-like wave (Slower speed: 1.8)
+                    const speed = 1.8; // Reduced from 3.0 for a more relaxed breath/pulse
+                    const pulseRaw = Math.sin(time * speed); 
+                    // Normalize to 0...1 range roughly
+                    const energy = (pulseRaw + 1) / 2;
+
+                    // 2. Scale Calculation (Heartbeat)
+                    // Base size 1.0, grows to ~1.4
+                    const baseScale = 1.0;
+                    const growthAmount = 0.4;
+                    const currentScale = baseScale + (energy * growthAmount);
+
+                    // 3. Electric Buzz (Vibration at peak energy)
+                    const buzz = energy > 0.8 ? (Math.random() - 0.5) * 0.05 : 0;
+
+                    core.scale.set(currentScale + buzz, currentScale + buzz, currentScale + buzz);
+
+                    // 4. Rotation Logic (Significantly Slower Spin)
+                    core.rotation.y += 0.005 + (energy * 0.01); 
+                    core.rotation.z += 0.002 + (energy * 0.005);
+                    
+                    // Rings rotate continuously (Slower)
+                    innerRing.rotation.z -= 0.002;
+
+                    // 5. Position Jitter (Subtle shake on the beat)
+                    if (energy > 0.9) {
+                        sketchGroup.position.x = (Math.random() - 0.5) * 0.01; // Reduced jitter amplitude
+                        sketchGroup.position.y = (Math.random() - 0.5) * 0.01;
+                    } else {
+                        // Smooth return to center
+                        sketchGroup.position.x *= 0.9;
+                        sketchGroup.position.y *= 0.9;
+                    }
+
+                    // Spokes rotation (Slower)
+                    spokesGroup.rotation.z -= 0.001;
+
+                    // Mouse Parallax
+                    parallaxGroup.rotation.x += (mouseY * 0.3 - parallaxGroup.rotation.x) * 0.05;
+                    parallaxGroup.rotation.y += (mouseX * 0.3 - parallaxGroup.rotation.y) * 0.05;
+
                     renderer.render(scene, camera);
                 };
-
                 animate();
 
                 const handleResize = () => {
@@ -364,456 +355,465 @@
                     camera.updateProjectionMatrix();
                     renderer.setSize(window.innerWidth, window.innerHeight);
                 };
-
                 window.addEventListener('resize', handleResize);
+
                 return () => {
+                    if (mountRef.current) mountRef.current.removeChild(renderer.domElement);
+                    window.removeEventListener('mousemove', onMouseMove);
                     window.removeEventListener('resize', handleResize);
-                    cancelAnimationFrame(requestID);
-                    if (mountRef.current) {
-                        mountRef.current.removeChild(renderer.domElement);
-                    }
-                    geometry.dispose();
-                    solidMaterial.dispose();
-                    lineMaterial.dispose();
+                    coreGeo.dispose(); coreMaterial.dispose(); coreEdges.dispose();
+                    innerRingGeo.dispose(); ringMaterialBlue.dispose(); innerRingEdges.dispose();
+                    structureMaterial.dispose();
                 };
             }, []);
 
-            return <div ref={mountRef} className="fixed right-[-10%] top-[15%] pointer-events-none z-0 mix-blend-screen" />;
+            return <div ref={mountRef} className="fixed right-[-5%] top-[-5%] pointer-events-none mix-blend-multiply opacity-80" />;
         };
 
-        // --- 5. Reusable UI Components ---
-        const Icon = ({ name, className }) => {
-            useEffect(() => { 
-                if (window.lucide) {
-                    window.lucide.createIcons();
-                }
-            }, [name]);
-            return <i data-lucide={name} className={className}></i>;
+        // --- 4. UI Components ---
+
+        const NavLink = ({ href, children }) => {
+            return (
+                <a 
+                    href={href} 
+                    className="relative group px-3 py-1 font-body text-xl font-bold text-ink hover:text-redPen transition-colors cursor-pointer"
+                >
+                    {children}
+                    {/* Hand-drawn underline on hover */}
+                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-redPen scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
+                </a>
+            );
         };
 
         const Logo = () => {
-            const [textIndex, setTextIndex] = useState(0);
-            const texts = ["Farhan.", "Salam.", "Hi.", "اسمي Farhan."];
+            const [index, setIndex] = useState(0);
+            
+            // 1. Trying to use your uploaded file name (Must be in same folder)
+            // 2. Added a fallback SVG data URI (Doodle Face) if image fails to load
+            const localImage = "./newprofile-pic (5).jpg";
+            const fallbackImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='none' stroke='%232c3e50' stroke-width='3'/%3E%3Ccircle cx='35' cy='40' r='4' fill='%232c3e50'/%3E%3Ccircle cx='65' cy='40' r='4' fill='%232c3e50'/%3E%3Cpath d='M30 65 Q 50 80 70 65' stroke='%232c3e50' stroke-width='3' fill='none'/%3E%3C/svg%3E";
+
+            const items = [
+                { type: 'text', content: "Farhan." },
+                { type: 'image', content: localImage }, // Moved Image to 2nd spot so you see it sooner
+                { type: 'text', content: "Salam." },
+                { type: 'text', content: "Hi." },
+                { type: 'text', content: "اسمي Farhan." }
+            ];
 
             useEffect(() => {
-                const interval = setInterval(() => {
-                    setTextIndex((prev) => (prev + 1) % texts.length);
-                }, 4000); 
+                const interval = setInterval(() => setIndex((prev) => (prev + 1) % items.length), 3000); // Speed up slightly (3s)
                 return () => clearInterval(interval);
-            }, []);
+            }, [items.length]);
+
+            const currentItem = items[index];
 
             return (
-                <div 
-                    className="font-bold text-lg tracking-tighter font-sans min-w-[150px] relative h-7 overflow-hidden cursor-default hover:text-white transition-colors"
-                >
+                <div className="font-display text-3xl font-bold text-ink relative h-12 min-w-[200px] cursor-pointer group select-none z-50 flex items-center">
                     <AnimatePresence mode="wait">
                         <motion.div
-                            key={textIndex}
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: -20, opacity: 0 }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="absolute top-0 left-0"
+                            key={index}
+                            initial={{ y: 20, opacity: 0, rotate: -2 }}
+                            animate={{ y: 0, opacity: 1, rotate: -2 }}
+                            exit={{ y: -20, opacity: 0, rotate: -2 }}
+                            transition={{ duration: 0.5, ease: "backOut" }}
+                            className="absolute top-0 left-0 flex items-center"
                         >
-                            {texts[textIndex]}
+                            {currentItem.type === 'text' ? (
+                                <>
+                                    <span className="group-hover:text-redPen transition-colors duration-300 whitespace-nowrap">
+                                        {currentItem.content}
+                                    </span>
+                                    {/* Highlighter underline */}
+                                    <div className="absolute -z-10 bg-highlight w-[110%] h-3 bottom-2 -left-1 opacity-60 rounded-sm group-hover:scale-110 group-hover:rotate-1 transition-transform duration-300 origin-left"></div>
+                                </>
+                            ) : (
+                                /* Image Item with Error Fallback */
+                                <div className="flex items-center gap-3">
+                                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-ink bg-white shadow-sm transform -rotate-3 group-hover:rotate-0 transition-transform relative">
+                                        <img 
+                                            src={currentItem.content} 
+                                            alt="Profile" 
+                                            onError={(e) => {
+                                                e.target.onerror = null; 
+                                                e.target.src = fallbackImage;
+                                            }}
+                                            className="w-full h-full object-cover" 
+                                        />
+                                    </div>
+                                    <span className="text-xl font-body text-pencil">It's me!</span>
+                                </div>
+                            )}
                         </motion.div>
                     </AnimatePresence>
                 </div>
             );
         };
 
-        const MagneticButton = ({ children, href }) => {
-            return (
-                <motion.a 
-                    href={href}
-                    aria-label={`Maps to ${children}`}
-                    whileHover={{ backgroundColor: "#EAEAEA", color: "#000" }}
-                    whileTap={{ scale: 0.98 }}
-                    className="inline-flex items-center justify-center px-8 py-3 border border-[#EAEAEA]/20 bg-transparent text-[#EAEAEA] transition-colors cursor-none tracking-widest uppercase text-[10px] font-mono hover:border-transparent"
-                >
-                    {children}
-                </motion.a>
-            );
-        };
+        const SectionTitle = ({ number, title }) => (
+            <div className="flex items-baseline gap-4 mb-12 relative">
+                <span className="font-display text-4xl text-redPen opacity-50">{number}</span>
+                <h2 className="font-display text-5xl md:text-6xl text-ink relative z-10">
+                    {title}
+                    <svg className="absolute -bottom-2 left-0 w-full h-6 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none">
+                        <path d="M0 5 Q 50 10 100 5" stroke="#ffeaa7" strokeWidth="15" fill="none" />
+                    </svg>
+                </h2>
+            </div>
+        );
 
-        const NavLink = ({ href, children }) => {
-            const [isActive, setIsActive] = useState(false);
-            
-            useEffect(() => {
-                const handleScroll = () => {
-                    const section = document.querySelector(href);
-                    if (section) {
-                        const rect = section.getBoundingClientRect();
-                        setIsActive(rect.top >= 0 && rect.top < window.innerHeight / 2);
-                    }
-                };
-                window.addEventListener('scroll', handleScroll);
-                return () => window.removeEventListener('scroll', handleScroll);
-            }, [href]);
-
-            return (
-                <a 
-                    href={href} 
-                    aria-label={`Scroll to ${children}`}
-                    // Opacity-based active state for calmness
-                    className={`transition-all cursor-none duration-500 ${isActive ? 'text-white opacity-100' : 'text-[#EAEAEA] opacity-40 hover:opacity-100'}`}
-                >
-                    {children}
-                </a>
-            );
-        };
-
-        // --- 6. Sections ---
+        // --- 5. Sections ---
 
         const Hero = () => {
-            const { scrollY } = useScroll();
-            const y1 = useTransform(scrollY, [0, 500], [0, 100]); 
-            const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-
             return (
-                <section className="min-h-screen flex flex-col justify-center relative px-6 lg:px-24 z-0">
-                    <motion.div style={{ y: y1, opacity }} className="max-w-5xl z-0 mt-20 relative">
-                        <div className="flex items-center gap-4 mb-8">
-                            <motion.div 
-                                initial={{ width: 0 }} 
-                                animate={{ width: 40 }} 
-                                transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                                className="h-[1px] bg-[#EAEAEA]" // White line
-                            />
-                            <div className="font-mono text-[10px] tracking-widest uppercase text-[#EAEAEA]/60 min-h-[20px] flex items-center">
-                                I Build, Deploy & Monitor AI/ML Models
-                            </div>
+                <section className="min-h-screen flex flex-col justify-center px-6 lg:px-20 relative pt-20">
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="max-w-4xl"
+                    >
+                        <div className="font-body text-xl md:text-2xl text-pencil mb-4 flex items-center gap-2">
+                            <span className="w-8 h-[2px] bg-redPen inline-block rounded-full"></span>
+                            <span>Hi, I build smart stuff.</span>
                         </div>
-                        
-                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-sans font-light leading-[0.95] text-[#EAEAEA] mb-12 tracking-tighter">
-                            <TextReveal delay={0.2}>Crafting</TextReveal>
-                            <br />
-                            <span className="text-[#EAEAEA]/40">
-                                <TextReveal delay={0.4}>Intelligent</TextReveal>
+
+                        <h1 className="font-display text-6xl md:text-8xl lg:text-9xl leading-[0.9] text-ink mb-8 relative">
+                            Crafting <br />
+                            Intelligent <br />
+                            <span className="relative inline-block text-redPen">
+                                Reality.
+                                <ScribbleUnderline />
                             </span>
-                            <br />
-                            <TextReveal delay={0.6}>Reality.</TextReveal>
                         </h1>
 
-                        <motion.p 
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 1.2, duration: 1.2, ease: "easeOut" }}
-                            className="max-w-xl text-lg text-[#EAEAEA]/60 font-light leading-relaxed mb-12 relative z-0"
-                        >
-                            Building production-grade, reasoning-based agents. Focused on evaluation, observability, and scalable architecture.
-                        </motion.p>
+                        <p className="font-body text-xl md:text-2xl text-ink/80 max-w-xl leading-relaxed bg-white/50 backdrop-blur-sm p-4 rounded-lg wobbly-box border-none shadow-sm">
+                            Building production-grade, reasoning-based agents. Focused on evaluation, observability, and making AI act like a human (mostly).
+                        </p>
 
-                        <motion.div 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 1.6, duration: 1 }}
-                            className="flex gap-4"
-                        >
-                            <MagneticButton href="#projects">Selected Work</MagneticButton>
-                        </motion.div>
+                        <div className="mt-12 flex gap-6">
+                            <a href="#projects" className="wobbly-box px-8 py-3 bg-ink text-white font-body text-xl hover:bg-redPen transition-colors no-underline">
+                                View My Work
+                            </a>
+                            <a href="#contact" className="px-8 py-3 font-body text-xl text-ink underline decoration-wavy decoration-redPen hover:text-redPen transition-colors">
+                                Contact Me
+                            </a>
+                        </div>
                     </motion.div>
+                    
+                    {/* Doodles absolute positioned */}
+                    <div className="absolute top-1/3 right-[10%] opacity-20 hidden md:block rotate-12">
+                         <StarDoodle className="w-24 h-24 text-ink" />
+                    </div>
                 </section>
             );
         };
 
         const About = () => (
-            <section id="about" className="py-32 px-6 lg:px-24 relative z-10 bg-[#050505]">
-                <div className="grid lg:grid-cols-12 gap-12 items-start">
-                    <div className="lg:col-span-4 sticky top-32">
-                        <div className="w-12 h-[1px] bg-[#EAEAEA]/20 mb-6"></div>
-                        <h2 className="text-[10px] font-mono tracking-widest uppercase mb-2 text-[#EAEAEA]/40">01 / Profile</h2>
-                    </div>
-                    <div className="lg:col-span-8 space-y-16">
-                        <div className="text-2xl md:text-4xl leading-snug font-sans font-light text-[#EAEAEA]">
-                            <TextReveal>The goal of AI is not to replace</TextReveal>
-                            <TextReveal>human intelligence, but to</TextReveal> 
-                            <span className="text-[#EAEAEA]/50"><TextReveal>amplify it.</TextReveal></span>
-                        </div>
-                        
-                        <div className="grid md:grid-cols-2 gap-12 text-base font-light text-[#EAEAEA]/70 leading-relaxed">
-                            <motion.div 
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1.0 }}
-                            >
-                                <p className="mb-6">
-                                    I am an AI Engineer obsessed with system reliability. While models are probabilistic, the systems we build around them must be deterministic and robust.
-                                </p>
-                                <p>
-                                    Specializing in <span className="text-[#EAEAEA] border-b border-[#EAEAEA]/20">LangGraph</span> and <span className="text-[#EAEAEA] border-b border-[#EAEAEA]/20">MLOps</span>, I bridge the gap between "it works in a notebook" and "it works in production."
-                                </p>
-                            </motion.div>
+            <section id="about" className="py-24 px-6 lg:px-20">
+                <div className="max-w-6xl mx-auto">
+                    <SectionTitle number="01" title="Who am I?" />
+                    
+                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                        <div className="font-body text-2xl text-ink space-y-8 leading-loose relative">
+                            {/* Paper Background Effect for Text */}
+                            <div className="absolute -inset-4 bg-white opacity-40 rotate-1 rounded-lg z-[-1] shadow-sm transform border border-gray-200"></div>
                             
-                            <motion.div 
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1.0, delay: 0.2 }}
-                                className="pl-6 border-l border-[#EAEAEA]/10"
-                            >
-                                <ul className="space-y-4 font-mono text-[10px] tracking-wide text-[#EAEAEA]/60 uppercase">
-                                    <li className="flex justify-between items-center">
-                                        <span>Focus</span>
-                                        <span className="text-[#EAEAEA]">Agentic Systems</span>
-                                    </li>
-                                    <li className="flex justify-between items-center">
-                                        <span>Status</span>
-                                        <span className="text-white">Open to Work</span>
-                                    </li>
-                                </ul>
-                            </motion.div>
+                            <p>
+                                The goal of AI is not to replace human intelligence, but to 
+                                <span className="bg-highlight px-1 ml-1 transform -rotate-2 inline-block rounded-sm">amplify it.</span>
+                            </p>
+                            <p>
+                                I am an AI Engineer obsessed with system reliability. While models are probabilistic, the systems we build around them must be deterministic and robust.
+                            </p>
+                            <p>
+                                Specializing in <strong className="text-redPen">LangGraph</strong> and <strong className="text-redPen">MLOps</strong>, I bridge the gap between "it works in a notebook" and "it works in production."
+                            </p>
+                        </div>
+
+                        <div className="sticky-note p-8 w-full max-w-md mx-auto transform rotate-2">
+                            <div className="w-8 h-8 rounded-full bg-redPen/20 mx-auto mb-4 -mt-12"></div>
+                            <h3 className="font-display text-2xl text-center mb-6 border-b-2 border-dashed border-gray-300 pb-2">Status Card</h3>
+                            <ul className="space-y-4 font-body text-xl">
+                                <li className="flex justify-between">
+                                    <span className="text-pencil">Focus:</span>
+                                    <span className="font-bold">Agentic Systems</span>
+                                </li>
+                                <li className="flex justify-between">
+                                    <span className="text-pencil">Location:</span>
+                                    <span className="font-bold">Earth (Usually)</span>
+                                </li>
+                                <li className="flex justify-between items-center">
+                                    <span className="text-pencil">Availability:</span>
+                                    <span className="px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-bold transform -rotate-2 border border-green-400">Open to Work</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
         );
 
-        // --- Experience Component ---
-        const ExperienceItem = ({ role, company, period, points }) => {
-            return (
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="group grid md:grid-cols-12 gap-y-4 gap-x-8 items-start py-10 border-t border-[#EAEAEA]/10 transition-colors duration-500 hover:bg-[#EAEAEA]/[0.02]"
-                >
-                    <div className="md:col-span-3 font-mono text-[10px] text-[#EAEAEA]/40 pt-2 uppercase tracking-widest">
-                        {period}
-                    </div>
+        const ExperienceItem = ({ role, company, period, points }) => (
+            <div className="relative pl-8 pb-12 border-l-2 border-dashed border-ink/30 last:border-0 last:pb-0">
+                {/* Timeline Dot */}
+                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-redPen"></div>
+                
+                <div className="bg-white/60 p-6 rounded-lg wobbly-box border-gray-300 hover:border-ink transition-colors">
+                    <span className="font-display text-sm bg-ink text-white px-2 py-1 rounded inline-block mb-2 transform -rotate-1">{period}</span>
+                    <h3 className="font-display text-2xl text-ink font-bold">{role}</h3>
+                    <div className="font-body text-lg text-redPen font-bold mb-4">{company}</div>
                     
-                    <div className="md:col-span-9">
-                        <h3 className="text-xl font-sans font-normal text-[#EAEAEA] group-hover:text-white transition-colors">{role}</h3>
-                        <div className="text-xs font-mono text-[#EAEAEA]/50 mt-1 mb-6 uppercase tracking-wider">{company}</div>
-                        {points && (
-                            <ul className="space-y-3 text-sm text-[#EAEAEA]/60 leading-relaxed font-light">
-                                {points.map((pt, i) => (
-                                    <li key={i} className="flex gap-3">
-                                        <span className="opacity-30 mt-1.5 w-1 h-1 bg-[#EAEAEA] rounded-full shrink-0"></span>
-                                        <span>{pt}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
-                </motion.div>
-            );
-        }
+                    {points && (
+                        <ul className="list-disc pl-5 space-y-2 font-body text-lg text-pencil">
+                            {points.map((pt, i) => <li key={i}>{pt}</li>)}
+                        </ul>
+                    )}
+                </div>
+            </div>
+        );
 
-        const Experience = () => {
-             return (
-                <section id="experience" className="py-32 px-6 lg:px-24 bg-[#050505] relative z-10">
-                    <div className="mb-24">
-                        <div className="w-12 h-[1px] bg-[#EAEAEA]/20 mb-6"></div>
-                        <h2 className="text-[10px] font-mono tracking-widest uppercase mb-2 text-[#EAEAEA]/40">02 / Experience</h2>
-                    </div>
+        const Experience = () => (
+            <section id="experience" className="py-24 px-6 lg:px-20">
+                <div className="max-w-4xl mx-auto">
+                    <SectionTitle number="02" title="The Journey" />
                     
-                    <div className="flex flex-col">
+                    <div className="mt-12">
                         <ExperienceItem 
                             role="AI/ML Engineer Intern"
                             company="Infosys Springboard 5.0"
                             period="Oct — Dec 2024"
                             points={[
-                                "Engineered a multilingual language detection model achieving 90% accuracy across 5 Indic languages.",
-                                "Built and evaluated ML/DL models (Logistic Regression, Random Forest, LSTM, GRU).",
-                                "Preprocessed large multilingual datasets using tokenization and embedding techniques.",
-                                "Documented end-to-end workflows covering preprocessing, experimentation, and deployment."
+                                "Engineered a multilingual language detection model (90% accuracy).",
+                                "Built Logistic Regression, Random Forest, LSTM models.",
+                                "Preprocessed large datasets (Tokenization, Embeddings).",
+                                "Documented end-to-end workflows."
                             ]}
                         />
-                         <ExperienceItem 
+                        <div className="h-12 border-l-2 border-dashed border-ink/30 ml-8" />
+                        <ExperienceItem 
                             role="Bachelor of Engineering (CS)"
                             company="Chandigarh University"
                             period="2022 — 2026"
+                            points={["Specializing in Artificial Intelligence and Machine Learning."]}
                         />
-                        <ExperienceItem 
-                            role="Continuous Learning"
-                            company="Certifications"
-                            period="2024 — Present"
-                            points={[
-                                "AI For Everyone – Coursera (Andrew Ng)",
-                                "Python for Everybody – Coursera",
-                                "Introduction to Machine Learning – NPTEL",
-                                "Deep Learning – NPTEL",
-                                "Self-Directed: Advanced Agentic AI systems, LangGraph Orchestration, MLOps pipelines."
-                            ]}
-                        />
-                    </div>
-                </section>
-            );
-        };
-
-        // --- Tech Stack Component ---
-        const TechCategory = ({ title, skills }) => {
-            return (
-                <div className="mb-12">
-                    <h4 className="font-mono text-[10px] uppercase tracking-widest text-[#EAEAEA]/30 mb-6 pb-2 border-b border-[#EAEAEA]/10 w-fit pr-12">{title}</h4>
-                    <div className="flex flex-wrap gap-x-8 gap-y-3">
-                        {skills.map((skill, i) => (
-                            <motion.span 
-                                key={i}
-                                whileHover={{ color: "#FFFFFF" }}
-                                className="hover-target text-sm font-light text-[#EAEAEA]/60 cursor-none transition-colors duration-200"
-                            >
-                                {skill}
-                            </motion.span>
-                        ))}
                     </div>
                 </div>
-            );
-        };
+            </section>
+        );
 
-        const TechStack = () => {
-            return (
-                <section id="tech" className="py-32 px-6 lg:px-24 bg-[#050505] relative z-10">
-                    <div className="grid lg:grid-cols-12 gap-12">
-                        <div className="lg:col-span-4">
-                            <div className="w-12 h-[1px] bg-[#EAEAEA]/20 mb-6"></div>
-                            <h2 className="text-[10px] font-mono tracking-widest uppercase mb-2 text-[#EAEAEA]/40">03 / Arsenal</h2>
-                        </div>
-                        <div className="lg:col-span-8">
-                            <TechCategory 
-                                title="AI/ML & Frameworks" 
-                                skills={['LangChain', 'LangGraph', 'LangSmith', 'RAG', 'LLMs', 'MCP', 'Groq', 'PyTorch', 'TensorFlow', 'Scikit-Learn']} 
-                            />
-                            <TechCategory 
-                                title="Engineering & Data" 
-                                skills={['FastAPI', 'Docker', 'AWS', 'GCP', 'MLflow', 'PostgreSQL', 'Pinecone', 'ChromaDB']} 
-                            />
-                        </div>
-                    </div>
-                </section>
-            );
-        };
-
-        const ProjectItem = ({ title, cat, impact, year, link }) => {
-            return (
-                <motion.a 
-                    href={link}
-                    target="_blank"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="group block border-t border-[#EAEAEA]/10 py-12 transition-all duration-500 hover:bg-[#EAEAEA] hover:border-[#EAEAEA]"
-                >
-                    <div className="grid md:grid-cols-12 gap-4 items-center">
-                        <div className="md:col-span-2 font-mono text-[10px] text-[#EAEAEA]/40 group-hover:text-black/50 transition-colors">{year}</div>
-                        <div className="md:col-span-6">
-                            <h3 className="text-3xl font-sans font-light text-[#EAEAEA] group-hover:text-black transition-colors">{title}</h3>
-                            <p className="mt-2 text-sm font-light text-[#EAEAEA]/60 group-hover:text-black/70 transition-colors">{impact}</p>
-                        </div>
-                        <div className="md:col-span-3 font-mono text-[10px] uppercase tracking-wide text-right md:text-left text-[#EAEAEA]/40 group-hover:text-black/50 transition-colors">{cat}</div>
-                        <div className="md:col-span-1 text-right text-[#EAEAEA] group-hover:text-black transition-colors">
-                            <Icon name="arrow-up-right" className="inline w-5 h-5 opacity-50 group-hover:opacity-100" />
-                        </div>
-                    </div>
-                </motion.a>
-            );
-        }
-
-        const Projects = () => {
-            const projects = [
-                {
-                    title: "AI Anime Recommender",
-                    cat: "RAG • Vector DB",
-                    impact: "RAG system with persistent embeddings and tracing.",
-                    year: "2025",
-                    link: "https://github.com/farhanrhine/ai-anime-recommender-rag"
-                },
-                {
-                    title: "Paytm Local MCP",
-                    cat: "Protocol • Server",
-                    impact: "Local protocol server with strict schema validation.",
-                    year: "2025",
-                    link: "https://github.com/farhanrhine/paytm-local-mcp-server"
-                },
-                {
-                    title: "Premium Prediction",
-                    cat: "FastAPI • Docker",
-                    impact: "High-performance inference API containerized for scale.",
-                    year: "2025",
-                    link: "https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws"
-                },
-                {
-                    title: "Flight Satisfaction",
-                    cat: "MLOps • DVC",
-                    impact: "End-to-end pipeline with reproducible experiments.",
-                    year: "2024",
-                    link: "https://github.com/farhanrhine/flight-satisfaction-mlops"
-                },
+        const Certifications = () => {
+            const certs = [
+                { name: "Intro to LangChain", issuer: "LangChain Academy", link: "https://academy.langchain.com/certificates/sgwwul3tgp" },
+                { name: "Retrieval Augmented Generation (RAG)", issuer: "DeepLearning.AI", link: "https://coursera.org/share/ee82b26d5d154fbda135d7b84095d8e5" },
+                { name: "Deep Learning", issuer: "NPTEL", link: "https://www.linkedin.com/in/farhanrhine/details/certifications/1749842070696/single-media-viewer/?type=DOCUMENT&profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" },
+                { name: "Intro to Machine Learning", issuer: "NPTEL", link: "https://archive.nptel.ac.in/content/noc/NOC24/SEM2/Ecertificates/106/noc24-cs81/Course/NPTEL24CS81S33290026902612520.pdf" },
+                { name: "Python for Everybody", issuer: "University of Michigan", link: "https://coursera.org/share/a4d76a4505c78d9bdbd88707c973c0cc" },
+                { name: "AI For Everyone", issuer: "DeepLearning.AI", link: "https://coursera.org/share/ac3bb60541c6cfe3c78be60158902c3f" },
+                { name: "Introduction to AI", issuer: "IBM", link: "https://coursera.org/share/a6405ce5372a457b6999f334a54237ba" },
+                { name: "Basics of Research Methodology", issuer: "Chandigarh University", link: "https://coursera.org/share/c0d21e68b3860104a386c4ddc7e24a32" }
             ];
 
             return (
-                <section id="projects" className="py-32 px-6 lg:px-24 bg-[#050505] relative z-10">
-                    <div className="mb-24">
-                        <div className="w-12 h-[1px] bg-[#EAEAEA]/20 mb-6"></div>
-                        <h2 className="text-[10px] font-mono tracking-widest uppercase mb-2 text-[#EAEAEA]/40">04 / Work</h2>
-                    </div>
-                    
-                    <div className="flex flex-col">
-                        {projects.map((p, i) => (
-                            <ProjectItem key={i} {...p} />
-                        ))}
-                    </div>
-                </section>
-            );
-        };
-
-        const Footer = () => {
-            return (
-                <section id="contact" className="py-32 px-6 lg:px-24 bg-[#050505] text-[#EAEAEA] relative overflow-hidden z-10 border-t border-[#EAEAEA]/5">
-                    <div className="max-w-4xl mx-auto text-center relative z-10">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <h2 className="text-5xl md:text-7xl font-sans font-light mb-8 tracking-tight">Let's build intelligence.</h2>
-                            
-                            <p className="text-sm font-light opacity-50 mb-12">I optimize for correctness before cleverness.</p>
-
-                            <div className="flex flex-col md:flex-row justify-center gap-12 mb-20">
-                                <a href="mailto:mohammadfarhanalam09@gmail.com" className="text-sm font-mono uppercase tracking-widest hover:text-white transition-colors cursor-none opacity-60 hover:opacity-100">Email</a>
-                                <a href="https://linkedin.com/in/farhanrhine" className="text-sm font-mono uppercase tracking-widest hover:text-white transition-colors cursor-none opacity-60 hover:opacity-100">LinkedIn</a>
-                                <a href="https://github.com/farhanrhine" className="text-sm font-mono uppercase tracking-widest hover:text-white transition-colors cursor-none opacity-60 hover:opacity-100">GitHub</a>
+                <section id="certifications" className="py-24 px-6 lg:px-20 relative">
+                    <div className="max-w-6xl mx-auto">
+                        <SectionTitle number="02.5" title="Learning" />
+                        
+                        <div className="grid lg:grid-cols-12 gap-16 items-start">
+                            {/* Certifications List */}
+                            <div className="lg:col-span-8">
+                                <h3 className="font-display text-2xl text-ink mb-8 transform -rotate-1">Certifications</h3>
+                                <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+                                    {certs.map((c, i) => (
+                                        <a key={i} href={c.link} target="_blank" className="group block">
+                                            <div className="bg-white/40 p-4 rounded border-2 border-transparent hover:border-ink/10 hover:bg-white transition-all duration-300 relative">
+                                                {/* Checkbox Doodle */}
+                                                <div className="absolute top-4 right-4 text-green-600 opacity-0 group-hover:opacity-100 transition-opacity transform scale-0 group-hover:scale-110 duration-300">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                                    </svg>
+                                                </div>
+                                                
+                                                <h4 className="font-body text-xl font-bold text-ink group-hover:text-bluePen transition-colors">{c.name}</h4>
+                                                <div className="flex items-center gap-2 mt-2">
+                                                    <span className="w-2 h-2 rounded-full bg-redPen/50"></span>
+                                                    <p className="font-body text-sm text-pencil uppercase tracking-wider">{c.issuer}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
-                            
-                            <div className="pt-12">
-                                <p className="font-mono text-[10px] text-[#EAEAEA]/20 uppercase tracking-widest">
-                                    Farhan • AI/ML Engineer • {new Date().getFullYear()}
-                                </p>
+
+                            {/* Current Goal Sticky Note */}
+                            <div className="lg:col-span-4 mt-8 lg:mt-0">
+                                <div className="sticky-note p-6 transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                                    <div className="w-4 h-4 rounded-full bg-red-400/30 mx-auto mb-4 border border-red-400/50"></div>
+                                    <h3 className="font-display text-2xl text-redPen mb-4 text-center border-b-2 border-dashed border-redPen/20 pb-2">Current Goal</h3>
+                                    <p className="font-body text-xl text-ink leading-relaxed">
+                                        Focusing on building advanced <span className="font-bold bg-white/50 px-1">Agentic Workflows</span> and mastering <span className="font-bold bg-white/50 px-1">Scalable MLOps</span> pipelines.
+                                    </p>
+                                    <div className="mt-6 text-center text-5xl animate-pulse">🎯</div>
+                                </div>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </section>
             );
         }
+
+        const SkillTag = ({ name }) => (
+            <span className="inline-block px-4 py-2 m-1 bg-white border-2 border-ink rounded-full font-body text-lg hover:bg-highlight hover:-translate-y-1 hover:shadow-md transition-all cursor-default transform rotate-1 hover:rotate-0">
+                {name}
+            </span>
+        );
+
+        const TechStack = () => (
+            <section id="tech" className="py-24 px-6 lg:px-20 bg-ink/5 relative overflow-hidden">
+                {/* Background Grid Pattern specifically for this section */}
+                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#2c3e50 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                
+                <div className="max-w-6xl mx-auto relative z-10">
+                    <SectionTitle number="03" title="My Arsenal" />
+                    
+                    <div className="grid md:grid-cols-2 gap-12">
+                        {/* Column 1 */}
+                        <div className="space-y-12">
+                            <div>
+                                <h3 className="font-display text-2xl mb-6 text-redPen transform -rotate-1">Generative AI & LLMs</h3>
+                                <div className="flex flex-wrap">
+                                    {['LangChain', 'LangGraph', 'LangSmith', 'RAG', 'Ollama', 'HuggingFace', 'MCP'].map(s => <SkillTag key={s} name={s} />)}
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 className="font-display text-2xl mb-6 text-ink transform rotate-1">Machine Learning</h3>
+                                <div className="flex flex-wrap">
+                                    {['Python', 'PyTorch', 'TensorFlow', 'Scikit-learn', 'NumPy', 'Pandas'].map(s => <SkillTag key={s} name={s} />)}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Column 2 */}
+                        <div className="space-y-12">
+                            <div>
+                                <h3 className="font-display text-2xl mb-6 text-bluePen transform rotate-1">MLOps & Cloud</h3>
+                                <div className="flex flex-wrap">
+                                    {['Docker', 'Kubernetes', 'MLflow', 'Airflow', 'Jenkins', 'CI/CD', 'AWS', 'GCP'].map(s => <SkillTag key={s} name={s} />)}
+                                </div>
+                            </div>
+
+                            <div>
+                                <h3 className="font-display text-2xl mb-6 text-ink transform -rotate-1">Backend & Data</h3>
+                                <div className="flex flex-wrap">
+                                    {['FastAPI', 'Pydantic', 'Streamlit', 'PostgreSQL', 'SQLite', 'ChromaDB', 'FAISS'].map(s => <SkillTag key={s} name={s} />)}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        );
+
+        const ProjectCard = ({ title, cat, impact, link }) => (
+            <a href={link} target="_blank" className="block group">
+                <div className="wobbly-box p-8 bg-white h-full relative overflow-hidden transition-all duration-300 hover:bg-[#fffdf0]">
+                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <ArrowDoodle className="w-8 h-8 text-ink rotate-[-45deg]" />
+                    </div>
+                    
+                    <div className="font-body text-sm font-bold text-pencil uppercase tracking-widest mb-2 border-b-2 border-highlight inline-block">{cat}</div>
+                    <h3 className="font-display text-3xl text-ink mb-4 group-hover:text-redPen transition-colors">{title}</h3>
+                    <p className="font-body text-xl text-ink/80 leading-relaxed">{impact}</p>
+                    
+                    {/* Scribble effect on hover */}
+                    <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-redPen to-bluePen transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                </div>
+            </a>
+        );
+
+        const Projects = () => (
+            <section id="projects" className="py-24 px-6 lg:px-20">
+                <div className="max-w-7xl mx-auto">
+                    <SectionTitle number="04" title="Built Stuff" />
+                    
+                    <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                        <ProjectCard 
+                            title="AI Anime Recommender"
+                            cat="RAG • Vector DB"
+                            impact="A RAG system that actually understands taste. Uses persistent embeddings and detailed tracing to suggest the perfect show."
+                            link="https://github.com/farhanrhine/ai-anime-recommender-rag"
+                        />
+                        <ProjectCard 
+                            title="Paytm Local MCP"
+                            cat="Protocol • Server"
+                            impact="Implementing the Model Context Protocol (MCP) for local payments. Strict schema validation meets real-world utility."
+                            link="https://github.com/farhanrhine/paytm-local-mcp-server"
+                        />
+                        <ProjectCard 
+                            title="Premium Prediction"
+                            cat="FastAPI • Docker"
+                            impact="High-performance inference API for insurance premiums. Containerized and ready for horizontal scaling."
+                            link="https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws"
+                        />
+                        <ProjectCard 
+                            title="Flight Satisfaction"
+                            cat="MLOps • DVC"
+                            impact="End-to-end MLOps pipeline. From data versioning to reproducible experiments, ensuring the model isn't a black box."
+                            link="https://github.com/farhanrhine/flight-satisfaction-mlops"
+                        />
+                    </div>
+                </div>
+            </section>
+        );
+
+        const Footer = () => (
+            <footer id="contact" className="py-20 px-6 border-t-2 border-dashed border-ink/20 relative">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h2 className="font-display text-5xl md:text-7xl text-ink mb-8">Let's build <span className="text-bluePen relative inline-block">intelligence.<ScribbleUnderline /></span></h2>
+                    
+                    <p className="font-body text-2xl text-pencil mb-12">I optimize for correctness before cleverness. (And I doodle a lot).</p>
+
+                    <div className="flex flex-wrap justify-center gap-8 mb-16">
+                        <a href="mailto:mohammadfarhanalam09@gmail.com" className="wobbly-box px-6 py-2 bg-white hover:bg-highlight text-ink font-bold text-xl transition-all">Email Me</a>
+                        <a href="https://linkedin.com/in/farhanrhine" className="wobbly-box px-6 py-2 bg-white hover:bg-[#0077b5] hover:text-white text-ink font-bold text-xl transition-all">LinkedIn</a>
+                        <a href="https://github.com/farhanrhine" className="wobbly-box px-6 py-2 bg-white hover:bg-black hover:text-white text-ink font-bold text-xl transition-all">GitHub</a>
+                    </div>
+
+                    <div className="font-body text-lg text-pencil opacity-60">
+                        &copy; {new Date().getFullYear()} Farhan. Sketched with code.
+                    </div>
+                </div>
+            </footer>
+        );
 
         const App = () => {
             return (
                 <SmoothScroll>
                     <Loader />
-                    <CustomCursor />
-                    <div className="grain"></div>
-                    <WireframeSculpture />
+                    <SketchSculpture />
                     
-                    <nav className="fixed top-0 w-full z-40 px-6 lg:px-12 py-6 flex justify-between items-center bg-transparent mix-blend-difference text-[#EAEAEA]">
+                    {/* Removed background, blur, and border classes to remove the overlay layer */}
+                    <nav className="fixed top-0 w-full z-40 px-6 py-6 flex justify-between items-center">
                         <Logo />
-                        <div className="hidden md:flex gap-8 text-[10px] font-mono tracking-widest uppercase">
+                        <div className="hidden md:flex gap-8">
                             <NavLink href="#about">Profile</NavLink>
                             <NavLink href="#experience">Experience</NavLink>
+                            <NavLink href="#certifications">Learning</NavLink>
                             <NavLink href="#tech">Arsenal</NavLink>
                             <NavLink href="#projects">Work</NavLink>
-                            <NavLink href="#contact">Contact</NavLink>
                         </div>
                     </nav>
 
-                    <Hero />
-                    <About />
-                    <Experience />
-                    <TechStack />
-                    <Projects />
-                    <Footer />
+                    <main className="pl-[2rem] md:pl-[4rem]"> {/* Offset content for margin line */}
+                        <Hero />
+                        <About />
+                        <Experience />
+                        <Certifications />
+                        <TechStack />
+                        <Projects />
+                        <Footer />
+                    </main>
                 </SmoothScroll>
             );
         };

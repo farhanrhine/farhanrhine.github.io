@@ -41,33 +41,32 @@
                         display: ['"Gloria Hallelujah"', 'cursive'],
                     },
                     colors: {
-                        paper: '#fdfbf7',
-                        ink: '#2c3e50',
-                        pencil: '#57606f',
+                        paper: '#FAEBD7', // Antique White
+                        ink: '#2c3e50',   // Deep Blue Ink
+                        pencil: '#57606f', // Pencil Grey
                         highlight: '#ffeaa7',
-                        redPen: '#ff4757',
-                        bluePen: '#3742fa',
+                        redPen: '#c0392b',
+                        bluePen: '#2980b9',
                     },
                 }
             }
         }
     </script>
     <style>
-        /* Graph Paper / Math Grid Background */
+        /* Antique White Background with Paper Texture */
         body { 
             margin: 0; 
-            background-color: #fdfbf7;
-            /* Math Grid Pattern */
-            background-image: 
-                linear-gradient(#e5e7eb 1px, transparent 1px),
-                linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
-            background-size: 20px 20px;
+            background-color: #FAEBD7; /* Antique White */
+            
+            /* ADDED: Subtle Paper Grain Texture */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+            
             color: #2c3e50;
             overflow-x: hidden;
             font-family: 'Patrick Hand', cursive;
         }
 
-        /* The Red Margin Line (Optional for graph paper, but keeps the notebook feel) */
+        /* The Red Margin Line */
         body::before {
             content: '';
             position: fixed;
@@ -93,11 +92,13 @@
             border: 2px solid #2c3e50;
             border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
             transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.5); /* Lighter transparency */
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
         }
         .wobbly-box:hover {
             border-radius: 15px 225px 15px 255px / 255px 15px 225px 15px;
             transform: scale(1.02) rotate(-1deg);
+            background: rgba(255, 255, 255, 0.8);
         }
 
         /* Sticky Note Class */
@@ -131,10 +132,9 @@
         const { motion, useScroll, useTransform, AnimatePresence } = window.Motion;
 
         // --- 0. Doodle Icons (Using SVG) ---
-        // Restored these components which were causing ReferenceErrors
         const ScribbleUnderline = () => (
             <svg className="absolute -bottom-2 left-0 w-full h-4 z-[-1]" viewBox="0 0 200 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2.00026 6.99997C38.5003 3.49998 75.0003 2.00001 111.5 2.00001C148 2.00001 198 4.5 198 4.5" stroke="#ff4757" strokeWidth="3" strokeLinecap="round" className="draw-path" />
+                <path d="M2.00026 6.99997C38.5003 3.49998 75.0003 2.00001 111.5 2.00001C148 2.00001 198 4.5 198 4.5" stroke="#c0392b" strokeWidth="3" strokeLinecap="round" className="draw-path" />
             </svg>
         );
 
@@ -160,10 +160,10 @@
                     animate={{ opacity: 0 }}
                     transition={{ duration: 1.0, delay: 2.5, ease: "easeInOut" }}
                     onAnimationComplete={() => document.body.style.overflowY = 'auto'}
-                    className="fixed inset-0 z-[10000] bg-[#fdfbf7] flex flex-col items-center justify-center pointer-events-none"
+                    className="fixed inset-0 z-[10000] bg-[#FAEBD7] flex flex-col items-center justify-center pointer-events-none"
                     style={{
-                        backgroundImage: "linear-gradient(#e5e7eb 1px, transparent 1px), linear-gradient(90deg, #e5e7eb 1px, transparent 1px)",
-                        backgroundSize: "20px 20px"
+                        /* Match body paper texture */
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E")`
                     }}
                 >
                     <motion.div 
@@ -172,17 +172,17 @@
                             rotate: [0, 5, -5, 0]
                         }}
                         transition={{ repeat: Infinity, duration: 2 }}
-                        className="text-6xl mb-6"
+                        className="text-6xl mb-6 relative z-10"
                     >
                         🤖
                     </motion.div>
                     
-                    <div className="font-display text-3xl text-ink font-bold tracking-widest uppercase mb-4">
+                    <div className="font-display text-3xl text-ink font-bold tracking-widest uppercase mb-4 relative z-10">
                         System Initializing...
                     </div>
 
                     {/* Hand-drawn Loading Bar */}
-                    <div className="w-64 h-6 border-2 border-ink rounded-lg p-1 relative">
+                    <div className="w-64 h-6 border-2 border-ink rounded-lg p-1 relative z-10">
                         <motion.div 
                             initial={{ width: "0%" }}
                             animate={{ width: "100%" }}
@@ -195,7 +195,7 @@
                         />
                     </div>
                     
-                    <div className="mt-2 font-mono text-xs text-pencil">
+                    <div className="mt-2 font-mono text-xs text-pencil relative z-10">
                         Loading neural pathways...
                     </div>
                 </motion.div>
@@ -226,7 +226,8 @@
                 if (!mountRef.current) return;
                 
                 const scene = new THREE.Scene();
-                scene.fog = new THREE.FogExp2(0xfdfbf7, 0.05);
+                // Match the new Antique White background color for fog
+                scene.fog = new THREE.FogExp2(0xFAEBD7, 0.05);
                 
                 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
                 camera.position.z = 20;
@@ -237,50 +238,36 @@
                 mountRef.current.appendChild(renderer.domElement);
 
                 // --- Hierarchy ---
-                // 1. Parallax Group (Handles smooth mouse movement)
                 const parallaxGroup = new THREE.Group();
                 scene.add(parallaxGroup);
 
-                // 2. Sketch Group (Handles the "Core" animation & jitter)
                 const sketchGroup = new THREE.Group();
                 parallaxGroup.add(sketchGroup);
                 
-                // Scale set to 1.1 as requested previously
                 sketchGroup.scale.set(1.1, 1.1, 1.1);
 
                 // --- Materials (Hopeful Palette) ---
-                
-                // Core: Electric Cyan/Blue - Increased Opacity for Visibility
-                const coreMaterial = new THREE.LineBasicMaterial({ color: 0x00ffff, transparent: true, opacity: 1.0 });
-                
-                // Inner Ring: Deep Sky Blue
+                const coreMaterial = new THREE.LineBasicMaterial({ color: 0xcf0f47, transparent: true, opacity: 1.0 });
+                const ringMaterialOuter = new THREE.LineBasicMaterial({ color: 0x00cec9, transparent: true, opacity: 0.9 });
                 const ringMaterialBlue = new THREE.LineBasicMaterial({ color: 0x2e86de, transparent: true, opacity: 0.8 });
-                
-                // Structure: Pencil Grey
-                const structureMaterial = new THREE.LineBasicMaterial({ color: 0x576574, transparent: true, opacity: 0.5 });
-
+                const structureMaterial = new THREE.LineBasicMaterial({ color: 0x576574, transparent: true, opacity: 0.5 }); // Pencil Grey
 
                 // --- Geometry ---
-
-                // 1. Central Power Core (Dense Sphere) - MASSIVE SIZE INCREASE (2.2 -> 3.2)
                 const coreGeo = new THREE.IcosahedronGeometry(3.2, 2);
                 const coreEdges = new THREE.EdgesGeometry(coreGeo);
                 const core = new THREE.LineSegments(coreEdges, coreMaterial);
                 sketchGroup.add(core);
 
-                // 2. Main Reactor Ring - INCREASED RADIUS (3.5 -> 6.0) & THICKNESS
                 const innerRingGeo = new THREE.TorusGeometry(6.0, 0.6, 16, 50);
                 const innerRingEdges = new THREE.EdgesGeometry(innerRingGeo);
-                const innerRing = new THREE.LineSegments(innerRingEdges, ringMaterialBlue);
+                const innerRing = new THREE.LineSegments(innerRingEdges, ringMaterialOuter);
                 sketchGroup.add(innerRing);
 
-                // 4. Structural Spokes - Adjusted to span the larger gap
                 const spokesGroup = new THREE.Group();
                 sketchGroup.add(spokesGroup);
                 for (let i = 0; i < 8; i++) {
                     const angle = (i / 8) * Math.PI * 2;
                     const points = [];
-                    // Adjusted start point (near core) and end point (at ring)
                     points.push(new THREE.Vector3(Math.cos(angle) * 3.5, Math.sin(angle) * 3.5, 0));
                     points.push(new THREE.Vector3(Math.cos(angle) * 6.5, Math.sin(angle) * 6.5, 0));
                     const spokeGeo = new THREE.BufferGeometry().setFromPoints(points);
@@ -302,47 +289,34 @@
                     requestAnimationFrame(animate);
                     const time = Date.now() * 0.001;
 
-                    // --- HEARTBEAT / PULSE LOGIC ---
-                    // "Grow then shrink" rhythmic cycle
-                    
-                    // 1. Create a heartbeat-like wave (Slower speed: 1.8)
-                    const speed = 1.8; // Reduced from 3.0 for a more relaxed breath/pulse
+                    // Heartbeat Pulse
+                    const speed = 1.8;
                     const pulseRaw = Math.sin(time * speed); 
-                    // Normalize to 0...1 range roughly
                     const energy = (pulseRaw + 1) / 2;
 
-                    // 2. Scale Calculation (Heartbeat)
-                    // Base size 1.0, grows to ~1.4
                     const baseScale = 1.0;
                     const growthAmount = 0.4;
                     const currentScale = baseScale + (energy * growthAmount);
 
-                    // 3. Electric Buzz (Vibration at peak energy)
                     const buzz = energy > 0.8 ? (Math.random() - 0.5) * 0.05 : 0;
 
                     core.scale.set(currentScale + buzz, currentScale + buzz, currentScale + buzz);
 
-                    // 4. Rotation Logic (Significantly Slower Spin)
                     core.rotation.y += 0.005 + (energy * 0.01); 
                     core.rotation.z += 0.002 + (energy * 0.005);
                     
-                    // Rings rotate continuously (Slower)
                     innerRing.rotation.z -= 0.002;
 
-                    // 5. Position Jitter (Subtle shake on the beat)
                     if (energy > 0.9) {
-                        sketchGroup.position.x = (Math.random() - 0.5) * 0.01; // Reduced jitter amplitude
+                        sketchGroup.position.x = (Math.random() - 0.5) * 0.01;
                         sketchGroup.position.y = (Math.random() - 0.5) * 0.01;
                     } else {
-                        // Smooth return to center
                         sketchGroup.position.x *= 0.9;
                         sketchGroup.position.y *= 0.9;
                     }
 
-                    // Spokes rotation (Slower)
                     spokesGroup.rotation.z -= 0.001;
 
-                    // Mouse Parallax
                     parallaxGroup.rotation.x += (mouseY * 0.3 - parallaxGroup.rotation.x) * 0.05;
                     parallaxGroup.rotation.y += (mouseX * 0.3 - parallaxGroup.rotation.y) * 0.05;
 
@@ -554,7 +528,8 @@
             </section>
         );
 
-        const ExperienceItem = ({ role, company, period, points }) => (
+        // Update ExperienceItem to accept a 'link' prop
+        const ExperienceItem = ({ role, company, period, points, link }) => (
             <div className="relative pl-8 pb-12 border-l-2 border-dashed border-ink/30 last:border-0 last:pb-0">
                 {/* Timeline Dot */}
                 <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white border-2 border-redPen"></div>
@@ -562,7 +537,20 @@
                 <div className="bg-white/60 p-6 rounded-lg wobbly-box border-gray-300 hover:border-ink transition-colors">
                     <span className="font-display text-sm bg-ink text-white px-2 py-1 rounded inline-block mb-2 transform -rotate-1">{period}</span>
                     <h3 className="font-display text-2xl text-ink font-bold">{role}</h3>
-                    <div className="font-body text-lg text-redPen font-bold mb-4">{company}</div>
+                    
+                    {/* If link exists, wrap company name in an anchor tag */}
+                    {link ? (
+                        <a 
+                            href={link} 
+                            target="_blank" 
+                            className="block font-body text-lg text-redPen font-bold mb-4 hover:underline decoration-wavy decoration-ink transition-all cursor-pointer group"
+                            title="View Certification"
+                        >
+                            {company} <span className="opacity-0 group-hover:opacity-100 text-sm transition-opacity ml-1">🔗</span>
+                        </a>
+                    ) : (
+                        <div className="font-body text-lg text-redPen font-bold mb-4">{company}</div>
+                    )}
                     
                     {points && (
                         <ul className="list-disc pl-5 space-y-2 font-body text-lg text-pencil">
@@ -582,6 +570,7 @@
                         <ExperienceItem 
                             role="AI/ML Engineer Intern"
                             company="Infosys Springboard 5.0"
+                            link="https://www.linkedin.com/in/farhanrhine/overlay/1739369171414/single-media-viewer/?profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI"
                             period="Oct — Dec 2024"
                             points={[
                                 "Engineered a multilingual language detection model (90% accuracy).",
@@ -805,7 +794,8 @@
                         </div>
                     </nav>
 
-                    <main className="pl-[2rem] md:pl-[4rem]"> {/* Offset content for margin line */}
+                    {/* Removed extra left padding (pl-[2rem] md:pl-[4rem]) since the margin line is gone */}
+                    <main> 
                         <Hero />
                         <About />
                         <Experience />

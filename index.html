@@ -24,7 +24,7 @@
             --border-color: #dcdad2; /* Distinct structural border color */
             --border-dark: #141413; /* High contrast border for hover */
             
-            --accent-color: #4a786a; /* Darkened deep sage/teal for much better visibility */
+            --accent-color: #9c462c; /* Terracotta / Rust Red - Warm and Editorial */
             
             --bg-card: #f2f0e9; /* Anthropic's distinct beige for cards */
             --bg-card-hover: #e8e6df; /* Darker beige on hover */
@@ -341,9 +341,13 @@
             color: var(--text-muted);
             font-family: var(--font-sans);
             font-size: 0.85rem;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+
+        footer p {
+            margin-bottom: 8px;
         }
 
         @media (max-width: 768px) {
@@ -486,65 +490,107 @@
             
             <div class="projects-grid">
                 <a href="https://github.com/farhanrhine/Deep_Learning-Tourism_Recommendation" target="_blank" class="project-card">
-                    <div class="card-meta">PyTorch • Streamlit</div>
+                    <div class="card-meta">PyTorch • Hybrid Deep Learning • Streamlit</div>
                     <h4>Tourism Recommendation System</h4>
                     <p>A personalized travel recommendation engine utilizing hybrid deep learning. It integrates Neural Collaborative Filtering (NCF) and content-based models via a learnable attention fusion mechanism to dynamically predict user destination preferences.</p>
                     <div class="card-footer">View Project</div>
                 </a>
 
                 <a href="https://github.com/farhanrhine/OpenClaw-Retail-Support-Agent" target="_blank" class="project-card">
-                    <div class="card-meta">OpenClaw • GLM-4.5-Air</div>
+                    <div class="card-meta">OpenClaw • GLM-4.5-Air • WhatsApp Integration</div>
                     <h4>OpenClaw Retail Support</h4>
                     <p>An autonomous customer support assistant integrated with WhatsApp and Telegram via OpenClaw. It features a custom tool-invocation layer to resolve order status and policy queries using local data, complete with smart escalation logic for complex human interventions.</p>
                     <div class="card-footer">View Project</div>
                 </a>
 
                 <a href="https://github.com/farhanrhine/Retail-AI-Agent" target="_blank" class="project-card">
-                    <div class="card-meta">LangChain • Qwen3-32B</div>
+                    <div class="card-meta">LangChain • Qwen3-32B • LangSmith • FastAPI</div>
                     <h4>Retail AI Agent</h4>
                     <p>A dual-purpose AI agent acting as a Personal Shopper and Customer Support Assistant. Built with LangChain and LangSmith, it autonomously routes between 4 custom tools to recommend products and accurately enforce return policies using real CSV data with zero hallucinations.</p>
                     <div class="card-footer">View Project</div>
                 </a>
 
                 <a href="https://github.com/farhanrhine/multi-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">LangGraph • Agentic AI</div>
+                    <div class="card-meta">LangGraph • Groq • FastAPI • Cloud Run</div>
                     <h4>Multi-AI Agent System</h4>
                     <p>Production multi-agent application with custom LangGraph StateGraph, Groq LLM, and Tavily Search. Real-time streaming, FastAPI backend, Single-File HTML frontend, GCP Cloud Run deployment.</p>
                     <div class="card-footer">View Project</div>
                 </a>
 
+                <a href="https://github.com/farhanrhine/IoT-Power-Consumption-Analysis" target="_blank" class="project-card">
+                    <div class="card-meta">Scikit-Learn • Pandas • Time-Series EDA</div>
+                    <h4>IoT Power Consumption Analysis</h4>
+                    <p>An end-to-end data analysis and machine learning project exploring electrical time-series data. Processes IoT device metrics (voltage and current) to compute power, identify patterns, and isolate high-power usage anomalies.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
                 <a href="https://github.com/farhanrhine/music-composer-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">LangChain • Streamlit</div>
+                    <div class="card-meta">LangChain • NumPy/SciPy • Streamlit • GKE</div>
                     <h4>AI Music Composer Agent</h4>
                     <p>Agentic music composition tool with LangChain multi-step reasoning. Custom NumPy/SciPy additive synthesis engine with ADSR envelopes, Streamlit UI, deployed on GKE via GitLab CI/CD.</p>
                     <div class="card-footer">View Project</div>
                 </a>
 
                 <a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">Computer Vision • Groq</div>
+                    <div class="card-meta">OpenCV • Groq Llama 4 • Flask • Kubernetes</div>
                     <h4>Celebrity Face Detection</h4>
                     <p>AI-powered celebrity identification using OpenCV face detection and Groq Llama 4. Flask app with Q&A engine, deployed on GKE with CircleCI pipeline.</p>
                     <div class="card-footer">View Project</div>
                 </a>
 
                 <a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">RAG • Kubernetes</div>
+                    <div class="card-meta">LangChain • FastAPI • Argo CD • Kubernetes</div>
                     <h4>Recall AI Study Agent</h4>
                     <p>Single-File Architecture (SFA) study companion with teach-then-test workflow. Contextual quiz generation from chat history, FastAPI-LangChain backend, Kubernetes deployment with Argo CD.</p>
                     <div class="card-footer">View Project</div>
                 </a>
                 
                 <a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">Healthcare • FAISS</div>
+                    <div class="card-meta">FAISS • Flask • GCP Cloud Run • RAG</div>
                     <h4>Medical RAG AI Agent</h4>
                     <p>Healthcare chatbot with RAG-powered medical knowledge retrieval from GALE Encyclopedia. FAISS vector store, source citations, Flask backend, deployed on GCP Cloud Run.</p>
                     <div class="card-footer">View Project</div>
                 </a>
 
                 <a href="https://github.com/farhanrhine/research-deepagent" target="_blank" class="project-card">
-                    <div class="card-meta">Autonomous Agents</div>
+                    <div class="card-meta">LangGraph • LangChain • Autonomous Agents</div>
                     <h4>Research DeepAgent</h4>
                     <p>Advanced research agent with planning capabilities, filesystem backend, and subagent spawning. Built on LangChain and LangGraph for complex autonomous research tasks.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/travel-planner-ai-agent-gcp" target="_blank" class="project-card">
+                    <div class="card-meta">Whisper STT • Orpheus TTS • LangChain • Folium</div>
+                    <h4>Travel Planner AI Agent</h4>
+                    <p>An AI-powered travel planning agent featuring natural voice input (Whisper STT), narrated summaries (Orpheus TTS), and interactive route mapping. Built with LangChain and Streamlit, and deployed on Kubernetes with ELK stack monitoring.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/flipkart-shopping-agent-gcp" target="_blank" class="project-card">
+                    <div class="card-meta">Cloud-Native • NLP • GCP • CI/CD</div>
+                    <h4>Flipkart Shopping Agent</h4>
+                    <p>Production-grade intelligent shopping assistant deployed on Google Cloud Platform. Natural language product search and comparison with cloud-native architecture, complete CI/CD pipeline.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/Multi-Agent-Wedding-Planner" target="_blank" class="project-card">
+                    <div class="card-meta">Multi-Agent System • Coordination • Planning</div>
+                    <h4>Multi-Agent Wedding Planner</h4>
+                    <p>Collaborative multi-agent system for wedding planning. Coordinates multiple specialized agents to handle venue selection, catering, budgeting, and timeline management.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/quran-bigram-model" target="_blank" class="project-card">
+                    <div class="card-meta">NLP • Bigram Analysis • Statistical Modeling</div>
+                    <h4>Quran Bigram Model</h4>
+                    <p>Statistical language model built on Quranic text using bigram analysis. Explores patterns and linguistic structures in classical Arabic.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/moltbook-analysis" target="_blank" class="project-card">
+                    <div class="card-meta">Data Analytics • Visualization • Statistics</div>
+                    <h4>Moltbook Analysis</h4>
+                    <p>Data analysis and insights extraction from Moltbook platform. Statistical analysis and visualization of user behavior patterns.</p>
                     <div class="card-footer">View Project</div>
                 </a>
             </div>
@@ -553,23 +599,44 @@
             
             <div class="projects-grid" style="margin-top: 40px;">
                 <a href="https://github.com/farhanrhine/ai-anime-recommender-rag" target="_blank" class="project-card">
-                    <div class="card-meta">ChromaDB • Llama 3</div>
+                    <div class="card-meta">ChromaDB • Groq Llama 3.1 • FastAPI • GKE</div>
                     <h4>AI Anime Recommender RAG</h4>
                     <p>Production-grade RAG system deployed on Google Kubernetes Engine. Features ChromaDB vector store, Groq Llama 3.1 LLM, FastAPI backend, and CI/CD pipeline.</p>
                     <div class="card-footer">View Project</div>
                 </a>
 
                 <a href="https://github.com/farhanrhine/flight-satisfaction-mlops" target="_blank" class="project-card">
-                    <div class="card-meta">MLOps • DVC</div>
+                    <div class="card-meta">LightGBM • MLflow • DVC • Jenkins</div>
                     <h4>Flight Satisfaction MLOps</h4>
                     <p>End-to-end MLOps pipeline with LightGBM, MLflow, DVC, Jenkins, Flask, and Docker. Complete data versioning and reproducible experiment tracking.</p>
                     <div class="card-footer">View Project</div>
                 </a>
 
                 <a href="https://github.com/farhanrhine/paytm-local-mcp-server" target="_blank" class="project-card">
-                    <div class="card-meta">MCP Server • Privacy</div>
+                    <div class="card-meta">MCP Server • Claude AI • Local Processing</div>
                     <h4>Paytm Local MCP Server</h4>
                     <p>Privacy-first MCP server for analyzing Paytm UPI transactions using natural language with Claude AI. 100% local processing with strict schema validation.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/web-eater" target="_blank" class="project-card">
+                    <div class="card-meta">Web Scraping • Data Extraction • Python</div>
+                    <h4>Web Eater</h4>
+                    <p>Web scraping and data extraction tool. Efficiently processes and structures web content for downstream analysis and LLM consumption.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/ai-tutor-skill" target="_blank" class="project-card">
+                    <div class="card-meta">Claude AI • Prompt Engineering • EdTech</div>
+                    <h4>AI Tutor Skill</h4>
+                    <p>Claude skill for explaining technical AI concepts. Interactive educational tool that adapts explanations to user understanding level.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws" target="_blank" class="project-card">
+                    <div class="card-meta">Regression • FastAPI • Docker • AWS EC2</div>
+                    <h4>Insurance Premium Prediction API</h4>
+                    <p>ML regression model served via FastAPI, containerized with Docker, and deployed on AWS EC2. High-performance inference with horizontal scaling.</p>
                     <div class="card-footer">View Project</div>
                 </a>
             </div>
@@ -603,6 +670,31 @@
                 <a href="https://www.linkedin.com/in/farhanrhine/details/certifications/1749842070696/single-media-viewer/?type=DOCUMENT&profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank" class="cert-card">
                     <div class="card-meta">NPTEL</div>
                     <h4>Deep Learning</h4>
+                </a>
+                
+                <a href="https://archive.nptel.ac.in/content/noc/NOC24/SEM2/Ecertificates/106/noc24-cs81/Course/NPTEL24CS81S33290026902612520.pdf" target="_blank" class="cert-card">
+                    <div class="card-meta">NPTEL</div>
+                    <h4>Intro to Machine Learning</h4>
+                </a>
+
+                <a href="https://coursera.org/share/a4d76a4505c78d9bdbd88707c973c0cc" target="_blank" class="cert-card">
+                    <div class="card-meta">University of Michigan</div>
+                    <h4>Python for Everybody</h4>
+                </a>
+
+                <a href="https://coursera.org/share/ac3bb60541c6cfe3c78be60158902c3f" target="_blank" class="cert-card">
+                    <div class="card-meta">DeepLearning.AI</div>
+                    <h4>AI For Everyone</h4>
+                </a>
+
+                <a href="https://coursera.org/share/a6405ce5372a457b6999f334a54237ba" target="_blank" class="cert-card">
+                    <div class="card-meta">IBM</div>
+                    <h4>Introduction to AI</h4>
+                </a>
+
+                <a href="https://coursera.org/share/c0d21e68b3860104a386c4ddc7e24a32" target="_blank" class="cert-card">
+                    <div class="card-meta">Chandigarh University</div>
+                    <h4>Basics of Research Methodology</h4>
                 </a>
             </div>
         </section>

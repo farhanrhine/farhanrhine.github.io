@@ -6,19 +6,31 @@
     <title>Farhan | ML & AI Engineer</title>
     <meta name="description" content="Farhan | ML & AI Engineer building Agentic AI, LLMs, and MLOps pipelines.">
     
+    <!-- Using Newsreader as a match for Anthropic's Serif, Inter for their Geometric Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    
     <style>
-        /* CSS Variables for easier maintenance and future theming */
         :root {
-            --bg-color: #faf9f5;
-            --text-main: #333333;
-            --text-muted: #666666;
-            --accent-color: #d97757;
-            --accent-hover: #c46243;
-            --link-color: #0066cc;
-            --border-color: #e5e5e5;
-            --card-bg: #ffffff;
-            --skill-bg: #eaeaea;
-            --skill-text: #444444;
+            /* Exact Anthropic-Inspired Design System */
+            --bg-base: #faf9f5; /* Your original parchment color, matches Anthropic perfectly */
+            --bg-card: #ffffff; /* Crisp white for cards */
+            --bg-hover: #f0eee6; /* Subtle darkened parchment for hover states */
+            
+            --text-main: #141413; /* Anthropic's off-black */
+            --text-muted: #66645e; /* Anthropic's secondary grey */
+            
+            --border-color: #dcdad2; /* Distinct structural border color */
+            --border-dark: #141413; /* High contrast border for hover */
+            
+            --accent-color: #4a786a; /* Darkened deep sage/teal for much better visibility */
+            
+            --bg-card: #f2f0e9; /* Anthropic's distinct beige for cards */
+            --bg-card-hover: #e8e6df; /* Darker beige on hover */
+
+            --font-serif: 'Newsreader', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         * {
@@ -27,259 +39,327 @@
             box-sizing: border-box;
         }
 
+        ::selection {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            font-family: var(--font-serif);
             line-height: 1.6;
             color: var(--text-main);
-            background: var(--bg-color);
-            max-width: 900px;
+            background-color: var(--bg-base);
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 80px 24px;
             -webkit-font-smoothing: antialiased;
         }
 
         a {
-            color: var(--accent-color);
+            color: var(--text-main);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: all 0.2s ease;
         }
 
-        a:hover {
-            color: var(--accent-hover);
-            text-decoration: underline;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-
+        /* TYPOGRAPHY */
         h1 {
-            font-size: 2.5em;
-            font-weight: 700;
-            margin: 20px 0;
-            letter-spacing: -0.02em;
+            font-family: var(--font-serif);
+            font-size: 4.5rem;
+            font-weight: 500;
+            margin: 24px 0 24px;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--text-main);
         }
 
         h2 {
-            font-size: 1.25em;
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
             font-weight: 400;
             color: var(--text-muted);
-            margin: 10px 0 30px 0;
-            line-height: 1.5;
+            margin: 0 0 40px 0;
+            line-height: 1.4;
+            max-width: 800px;
         }
 
-        h3 {
-            font-size: 1.2em;
+        /* Anthropic uses heavily tracked, uppercase sans-serif for section labels */
+        .section-label {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
             font-weight: 600;
-            margin: 40px 0 20px 0;
-            text-transform: capitalize;
-            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+            margin: 80px 0 40px 0;
         }
 
-        hr {
-            border: none;
-            border-top: 1px solid var(--border-color);
-            margin: 40px 0;
-        }
-
-        .profile-img {
-            width: 120px; /* Slightly reduced for better mobile/desktop balance, adjust as needed */
-            border-radius: 50%;
-            margin: 20px 0;
+        /* HERO CARD */
+        .hero-card {
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
+            padding: 56px;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+
+        /* HEADER COMPONENTS */
+        .profile-img {
+            width: 96px; /* Slightly larger to fit the card properly */
+            border-radius: 50%;
+            margin-bottom: 8px;
+            border: 1px solid var(--border-color);
+            filter: grayscale(100%);
+            transition: filter 0.4s ease;
+        }
+        .profile-img:hover {
+            filter: grayscale(0%);
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
-            margin: 20px 0;
+            gap: 12px;
+            margin-top: 32px;
         }
 
         .social-links a {
-            display: inline-block;
-            padding: 8px;
-            margin-left: -8px; /* Offset padding to align with text */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            transition: background-color 0.2s ease;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
         }
 
         .social-links a:hover {
-            background-color: rgba(0,0,0,0.05);
+            background: var(--bg-hover);
+            border-color: var(--border-dark);
         }
 
         .social-links img {
-            width: 24px;
-            height: 24px;
-            opacity: 0.7;
-            transition: opacity 0.2s;
-            display: block;
+            width: 18px;
+            height: 18px;
+            opacity: 0.9;
         }
 
-        .social-links a:hover img {
-            opacity: 1;
+        /* PILL TAGS */
+        .skill-group {
+            margin-bottom: 32px;
         }
-
-        section {
-            margin: 60px 0;
-        }
-
-        .year-section {
-            margin: 40px 0;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 24px;
-            border-radius: 8px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            border-color: #ddd;
-        }
-
-        .project-card h4 {
-            margin: 0 0 10px 0;
-            font-size: 1.1em;
-        }
-
-        .project-card p {
-            color: var(--text-muted);
-            font-size: 0.95em;
-            flex-grow: 1; /* Pushes content down nicely if cards vary in height */
-        }
-
-        .cert-list {
-            list-style: none;
-        }
-
-        .cert-list li {
-            margin: 16px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .cert-list li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--link-color);
-            font-weight: bold;
-        }
-
-        .cert-issuer {
-            color: var(--text-muted);
-            font-size: 0.9em;
-            margin-top: 2px;
+        
+        .skill-group p {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 16px;
         }
 
         .skills {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin: 15px 0 30px 0;
+            gap: 10px;
         }
 
         .skill-tag {
-            background: var(--skill-bg);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85em;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 9999px; /* Anthropic pill style */
+            font-family: var(--font-sans);
+            font-size: 0.8rem;
             font-weight: 500;
-            color: var(--skill-text);
-            border: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-main);
+            transition: all 0.2s;
+            cursor: default;
         }
 
-        .timeline-item {
-            margin: 30px 0;
-            padding-left: 30px;
-            border-left: 2px solid var(--border-color);
-            position: relative;
+        .skill-tag:hover {
+            background: var(--bg-hover);
+            border-color: var(--border-dark);
         }
 
-        .timeline-item:before {
-            content: "";
-            position: absolute;
-            left: -6px;
-            top: 6px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--link-color);
-            box-shadow: 0 0 0 4px var(--bg-color); /* Creates a clean gap around the dot */
+        /* PROJECT CARDS */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin: 32px 0 64px;
         }
 
-        .timeline-item h4 {
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 32px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-dark);
+        }
+
+        .card-meta {
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+
+        .project-card h4 {
+            font-family: var(--font-serif);
+            font-weight: 500;
+            margin: 0 0 12px 0;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .project-card p {
+            font-family: var(--font-serif);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            flex-grow: 1;
+            line-height: 1.5;
             margin: 0;
-            font-size: 1.1em;
+        }
+
+        .project-card .company {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 16px;
+        }
+
+        .project-card .company a {
+            text-decoration: underline;
+            text-decoration-color: var(--border-color);
+            text-underline-offset: 4px;
             color: var(--text-main);
         }
 
-        .timeline-item .company {
+        .project-card .company a:hover {
+            color: var(--accent-color);
+            text-decoration-color: var(--accent-color);
+        }
+
+        .project-card ul {
+            font-family: var(--font-serif);
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.5;
+            margin-left: 20px;
+            flex-grow: 1;
+        }
+
+        .project-card li {
+            margin-bottom: 8px;
+            padding-left: 4px;
+        }
+
+        .card-footer {
+            margin-top: 24px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s, color 0.2s;
+        }
+
+        .card-footer::after {
+            content: "→";
+            font-size: 1.2rem;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover .card-footer {
+            color: var(--accent-color);
+            gap: 8px;
+        }
+
+        /* CERTIFICATIONS (Uses the same card aesthetic) */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin: 32px 0 64px;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .cert-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-dark);
+        }
+
+        .cert-card .card-meta {
+            margin-bottom: 12px;
+        }
+
+        .cert-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
             font-weight: 500;
-            margin: 5px 0;
-        }
-        
-        .timeline-item .company a {
-            color: var(--link-color);
-        }
-
-        .timeline-item .period {
-            color: var(--text-muted);
-            font-size: 0.9em;
-            margin: 5px 0;
-            font-variant-numeric: tabular-nums;
+            margin: 0;
+            color: var(--text-main);
+            line-height: 1.3;
+            transition: color 0.2s;
         }
 
-        .timeline-item ul {
-            margin: 12px 0 0 20px;
-            color: var(--text-muted);
+        .cert-card:hover h4 {
+            color: var(--accent-color);
         }
 
-        .timeline-item ul li {
-            margin: 6px 0;
-            font-size: 0.95em;
-        }
-
+        /* FOOTER */
         footer {
-            margin-top: 80px;
+            margin-top: 100px;
             padding-top: 40px;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-size: 0.9em;
-            text-align: center;
-        }
-
-        /* Focus states for accessibility */
-        a:focus-visible {
-            outline: 2px dashed var(--link-color);
-            outline-offset: 4px;
-            border-radius: 2px;
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         @media (max-width: 768px) {
             body {
-                padding: 30px 20px;
+                padding: 40px 20px;
             }
 
             h1 {
-                font-size: 2.2em;
+                font-size: 3rem;
             }
 
-            .projects-grid {
+            .hero-card {
+                padding: 32px 24px;
+            }
+
+            .editorial-row {
                 grid-template-columns: 1fr;
             }
         }
@@ -288,322 +368,249 @@
 <body>
     <!-- Header Section -->
     <header>
-        <img src="https://avatars.githubusercontent.com/u/124152754?v=4" alt="Farhan's Profile Picture" class="profile-img">
-        
-        <h1>Farhan</h1>
-        
-        <h2>I Build Agentic AI, LLMs, RAG Pipelines, ML & Deep Learning, and MLOps Apps.</h2>
-        
-        <div class="social-links">
-            <a href="https://github.com/farhanrhine" target="_blank" title="GitHub">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3E%3Cpath d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" alt="GitHub Logo">
-            </a>
-            <a href="https://linkedin.com/in/farhanrhine" target="_blank" title="LinkedIn">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230077b5'%3E%3Cpath d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'/%3E%3C/svg%3E" alt="LinkedIn Logo">
-            </a>
-            <!-- REPLACE "your.email@example.co" WITH YOUR ACTUAL EMAIL -->
-            <a href="mailto:mohammadfarhanalam09@gmail.com" title="Email">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666'%3E%3Cpath d='M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z'/%3E%3C/svg%3E" alt="Email Icon">
-            </a>
+        <div class="hero-card">
+            <img src="https://avatars.githubusercontent.com/u/124152754?v=4" alt="Farhan's Profile Picture" class="profile-img">
+            
+            <h1>Farhan.</h1>
+            
+            <h2>I Build Agentic AI, LLMs, RAG Pipelines, ML & Deep Learning, and MLOps Apps.</h2>
+            
+            <div class="social-links">
+                <a href="https://github.com/farhanrhine" target="_blank" title="GitHub">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" alt="GitHub Logo">
+                </a>
+                <a href="https://linkedin.com/in/farhanrhine" target="_blank" title="LinkedIn">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'/%3E%3C/svg%3E" alt="LinkedIn Logo">
+                </a>
+                <a href="mailto:mohammadfarhanalam09@gmail.com" title="Email">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z'/%3E%3C/svg%3E" alt="Email Icon">
+                </a>
+            </div>
         </div>
-        
-        <hr>
-        
-        <p>Building production-grade, reasoning-based AI agents. Focused on evaluation, observability, and making AI systems reliable at scale. The goal of AI is not to replace human intelligence, but to amplify it.</p>
     </header>
 
     <main>
-        <!-- Current Work -->
-        <section class="year-section">
-            <strong>2026 - Present</strong>
-            <p>Currently seeking opportunities as an <strong>ML & AI Engineer</strong>. Focused on building advanced agentic workflows and mastering scalable MLOps pipelines. Specializing in <strong>LangGraph</strong>, <strong>RAG systems</strong>, <strong>MCP servers</strong>, and bridging the gap between "it works in a notebook" and "it works in production."</p>
-        </section>
-
-        <!-- Experience Timeline -->
-        <section class="year-section">
-            <strong>2024</strong>
-            
-            <div class="timeline-item">
-                <h4>AI/ML Engineer Intern</h4>
-                <div class="company"><a href="https://www.linkedin.com/in/farhanrhine/overlay/1739369171414/single-media-viewer/?profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank">Infosys Springboard 5.0</a></div>
-                <div class="period">Oct — Dec 2024</div>
-                <ul>
-                    <li>Engineered a multilingual language detection model achieving 90% accuracy</li>
-                    <li>Built and deployed Logistic Regression, Random Forest, and LSTM models</li>
-                    <li>Preprocessed large datasets using advanced tokenization and embedding techniques</li>
-                    <li>Documented end-to-end ML workflows for reproducibility</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section class="year-section">
-            <strong>Education</strong>
-            
-            <div class="timeline-item">
-                <h4>Bachelor of Engineering in Computer Science</h4>
-                <div class="company">Chandigarh University</div>
-                <div class="period">2022 — 2026</div>
-            </div>
-        </section>
-
-        <!-- Technical Skills -->
+        <!-- Experience & Status Grid -->
         <section>
-            <h3>Tech Stack</h3>
+            <div class="section-label">Experience & Education</div>
             
-            <p><strong>Generative AI & LLMs:</strong></p>
-            <div class="skills">
-                <span class="skill-tag">LangChain</span>
-                <span class="skill-tag">LangGraph</span>
-                <span class="skill-tag">LangSmith</span>
-                <span class="skill-tag">RAG</span>
-                <span class="skill-tag">MCP</span>
-                <span class="skill-tag">Ollama</span>
-                <span class="skill-tag">HuggingFace</span>
-                <span class="skill-tag">OpenAI</span>
-                <span class="skill-tag">Anthropic</span>
-                <span class="skill-tag">Groq</span>
-                <span class="skill-tag">Qwen</span>
-                <span class="skill-tag">Llama</span>
-                <span class="skill-tag">AI Agents</span>
-                <span class="skill-tag">LLMOps</span>
-            </div>
-
-            <p><strong>Machine Learning & Deep Learning:</strong></p>
-            <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">Scikit-learn</span>
-                <span class="skill-tag">NumPy</span>
-                <span class="skill-tag">Pandas</span>
-                <span class="skill-tag">Keras</span>
-                <span class="skill-tag">LSTM</span>
-                <span class="skill-tag">CNNs</span>
-                <span class="skill-tag">OpenCV</span>
-            </div>
-
-            <p><strong>MLOps & DevOps:</strong></p>
-            <div class="skills">
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Kubernetes</span>
-                <span class="skill-tag">MLflow</span>
-                <span class="skill-tag">DVC</span>
-                <span class="skill-tag">Airflow</span>
-                <span class="skill-tag">Jenkins</span>
-                <span class="skill-tag">CI/CD</span>
-                <span class="skill-tag">Git</span>
-                <span class="skill-tag">GitHub Actions</span>
-                <span class="skill-tag">GitLab CI/CD</span>
-                <span class="skill-tag">CircleCI</span>
-                <span class="skill-tag">Argo CD</span>
-                <span class="skill-tag">SonarQube</span>
-                <span class="skill-tag">Trivy</span>
-                <span class="skill-tag">AIOps</span>
-                <span class="skill-tag">Linux</span>
-            </div>
-
-            <p><strong>Cloud & Infrastructure:</strong></p>
-            <div class="skills">
-                <span class="skill-tag">AWS</span>
-                <span class="skill-tag">GCP</span>
-                <span class="skill-tag">AWS EC2</span>
-                <span class="skill-tag">Amazon ECS</span>
-                <span class="skill-tag">GKE</span>
-                <span class="skill-tag">Cloud Run</span>
-                <span class="skill-tag">Lambda</span>
-                <span class="skill-tag">GCP Artifact Registry</span>
-                <span class="skill-tag">Nginx Ingress</span>
-            </div>
-
-            <p><strong>Backend & APIs:</strong></p>
-            <div class="skills">
-                <span class="skill-tag">FastAPI</span>
-                <span class="skill-tag">Pydantic</span>
-                <span class="skill-tag">Streamlit</span>
-                <span class="skill-tag">REST APIs</span>
-                <span class="skill-tag">Flask</span>
-                <span class="skill-tag">uv</span>
-            </div>
-
-            <p><strong>Databases & Vector Stores:</strong></p>
-            <div class="skills">
-                <span class="skill-tag">SQLite</span>
-                <span class="skill-tag">ChromaDB</span>
-                <span class="skill-tag">FAISS</span>
-                <span class="skill-tag">Pinecone</span>
-                <span class="skill-tag">Astra DB</span>
-            </div>
-        </section>
-
-        <!-- Projects -->
-        <section>
-            <h3>Projects</h3>
-            
-            <p><strong>2026</strong></p>
             <div class="projects-grid">
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/multi-ai-agent-gcp" target="_blank">Multi-AI Agent System</a></h4>
-                    <p>Production multi-agent application with custom LangGraph StateGraph, Groq LLM, and Tavily Search. Real-time streaming, FastAPI backend, Single-File HTML frontend, GCP Cloud Run deployment with Jenkins + SonarQube CI/CD.</p>
-                </article>
+                <div class="project-card">
+                    <div class="card-meta">2026 - Present</div>
+                    <h4>ML & AI Engineer</h4>
+                    <div class="company">Seeking Opportunities</div>
+                    <p>Focused on building advanced agentic workflows and mastering scalable MLOps pipelines. Specializing in LangGraph, RAG systems, MCP servers, and bridging the gap between "it works in a notebook" and "it works in production."</p>
+                </div>
 
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/music-composer-ai-agent-gcp" target="_blank">AI Music Composer Agent</a></h4>
+                <div class="project-card">
+                    <div class="card-meta">Oct - Dec 2024</div>
+                    <h4>AI/ML Engineer Intern</h4>
+                    <div class="company"><a href="https://www.linkedin.com/in/farhanrhine/overlay/1739369171414/single-media-viewer/?profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank">Infosys Springboard 5.0</a></div>
+                    <ul>
+                        <li>Engineered a multilingual language detection model achieving 90% accuracy.</li>
+                        <li>Built and deployed Logistic Regression, Random Forest, and LSTM models.</li>
+                        <li>Preprocessed large datasets using advanced tokenization and embedding techniques.</li>
+                        <li>Documented end-to-end ML workflows for reproducibility.</li>
+                    </ul>
+                </div>
+
+                <div class="project-card">
+                    <div class="card-meta">2022 - 2026</div>
+                    <h4>Bachelor of Engineering in Computer Science</h4>
+                    <div class="company">Chandigarh University</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Skills (Pills) -->
+        <section>
+            <div class="section-label">Technical Capabilities</div>
+            
+            <div class="hero-card" style="margin-bottom: 0;">
+                <div class="skill-group">
+                    <p>Generative AI & LLMs</p>
+                    <div class="skills">
+                        <span class="skill-tag">LangChain</span>
+                        <span class="skill-tag">LangGraph</span>
+                        <span class="skill-tag">LangSmith</span>
+                        <span class="skill-tag">RAG</span>
+                        <span class="skill-tag">MCP</span>
+                        <span class="skill-tag">Ollama</span>
+                        <span class="skill-tag">HuggingFace</span>
+                        <span class="skill-tag">OpenAI</span>
+                        <span class="skill-tag">Anthropic</span>
+                        <span class="skill-tag">Qwen</span>
+                        <span class="skill-tag">Llama</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <p>Machine Learning & Deep Learning</p>
+                    <div class="skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">LSTM</span>
+                        <span class="skill-tag">CNNs</span>
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">Transformer model</span>
+                    </div>
+                </div>
+
+                <div class="skill-group" style="margin-bottom: 0;">
+                    <p>MLOps & Infrastructure</p>
+                    <div class="skills">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">MLflow</span>
+                        <span class="skill-tag">DVC</span>
+                        <span class="skill-tag">Jenkins</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">GCP</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">ChromaDB</span>
+                        <span class="skill-tag">FAISS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Cards -->
+        <section>
+            <div class="section-label">Selected Projects [2026]</div>
+            
+            <div class="projects-grid">
+                <a href="https://github.com/farhanrhine/Deep_Learning-Tourism_Recommendation" target="_blank" class="project-card">
+                    <div class="card-meta">PyTorch • Streamlit</div>
+                    <h4>Tourism Recommendation System</h4>
+                    <p>A personalized travel recommendation engine utilizing hybrid deep learning. It integrates Neural Collaborative Filtering (NCF) and content-based models via a learnable attention fusion mechanism to dynamically predict user destination preferences.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/OpenClaw-Retail-Support-Agent" target="_blank" class="project-card">
+                    <div class="card-meta">OpenClaw • GLM-4.5-Air</div>
+                    <h4>OpenClaw Retail Support</h4>
+                    <p>An autonomous customer support assistant integrated with WhatsApp and Telegram via OpenClaw. It features a custom tool-invocation layer to resolve order status and policy queries using local data, complete with smart escalation logic for complex human interventions.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/Retail-AI-Agent" target="_blank" class="project-card">
+                    <div class="card-meta">LangChain • Qwen3-32B</div>
+                    <h4>Retail AI Agent</h4>
+                    <p>A dual-purpose AI agent acting as a Personal Shopper and Customer Support Assistant. Built with LangChain and LangSmith, it autonomously routes between 4 custom tools to recommend products and accurately enforce return policies using real CSV data with zero hallucinations.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/multi-ai-agent-gcp" target="_blank" class="project-card">
+                    <div class="card-meta">LangGraph • Agentic AI</div>
+                    <h4>Multi-AI Agent System</h4>
+                    <p>Production multi-agent application with custom LangGraph StateGraph, Groq LLM, and Tavily Search. Real-time streaming, FastAPI backend, Single-File HTML frontend, GCP Cloud Run deployment.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
+
+                <a href="https://github.com/farhanrhine/music-composer-ai-agent-gcp" target="_blank" class="project-card">
+                    <div class="card-meta">LangChain • Streamlit</div>
+                    <h4>AI Music Composer Agent</h4>
                     <p>Agentic music composition tool with LangChain multi-step reasoning. Custom NumPy/SciPy additive synthesis engine with ADSR envelopes, Streamlit UI, deployed on GKE via GitLab CI/CD.</p>
-                </article>
+                    <div class="card-footer">View Project</div>
+                </a>
 
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank">Celebrity Face Detection Agent</a></h4>
-                    <p>AI-powered celebrity identification using OpenCV face detection and Groq Llama 4. Flask app with Q&A engine, deployed on GKE with CircleCI pipeline, Nginx Ingress, and Let's Encrypt TLS.</p>
-                </article>
+                <a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank" class="project-card">
+                    <div class="card-meta">Computer Vision • Groq</div>
+                    <h4>Celebrity Face Detection</h4>
+                    <p>AI-powered celebrity identification using OpenCV face detection and Groq Llama 4. Flask app with Q&A engine, deployed on GKE with CircleCI pipeline.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
 
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank">Recall AI Study Agent</a></h4>
+                <a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank" class="project-card">
+                    <div class="card-meta">RAG • Kubernetes</div>
+                    <h4>Recall AI Study Agent</h4>
                     <p>Single-File Architecture (SFA) study companion with teach-then-test workflow. Contextual quiz generation from chat history, FastAPI-LangChain backend, Kubernetes deployment with Argo CD.</p>
-                </article>
+                    <div class="card-footer">View Project</div>
+                </a>
+                
+                <a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank" class="project-card">
+                    <div class="card-meta">Healthcare • FAISS</div>
+                    <h4>Medical RAG AI Agent</h4>
+                    <p>Healthcare chatbot with RAG-powered medical knowledge retrieval from GALE Encyclopedia. FAISS vector store, source citations, Flask backend, deployed on GCP Cloud Run.</p>
+                    <div class="card-footer">View Project</div>
+                </a>
 
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank">Medical RAG AI Agent</a></h4>
-                    <p>Healthcare chatbot with RAG-powered medical knowledge retrieval from GALE Encyclopedia. FAISS vector store, source citations, Flask backend, deployed on GCP Cloud Run with Jenkins CI/CD and Trivy security scanning.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/flipkart-shopping-agent-gcp" target="_blank">Flipkart Shopping Agent</a></h4>
-                    <p>Production-grade intelligent shopping assistant deployed on Google Cloud Platform. Natural language product search and comparison with cloud-native architecture, complete CI/CD pipeline.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/research-deepagent" target="_blank">Research DeepAgent</a></h4>
+                <a href="https://github.com/farhanrhine/research-deepagent" target="_blank" class="project-card">
+                    <div class="card-meta">Autonomous Agents</div>
+                    <h4>Research DeepAgent</h4>
                     <p>Advanced research agent with planning capabilities, filesystem backend, and subagent spawning. Built on LangChain and LangGraph for complex autonomous research tasks.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/Multi-Agent-Wedding-Planner" target="_blank">Multi-Agent Wedding Planner</a></h4>
-                    <p>Collaborative multi-agent system for wedding planning. Coordinates multiple specialized agents to handle venue selection, catering, budgeting, and timeline management.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/quran-bigram-model" target="_blank">Quran Bigram Model</a></h4>
-                    <p>Statistical language model built on Quranic text using bigram analysis. Explores patterns and linguistic structures in classical Arabic.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/moltbook-analysis" target="_blank">Moltbook Analysis</a></h4>
-                    <p>Data analysis and insights extraction from Moltbook platform. Statistical analysis and visualization of user behavior patterns.</p>
-                </article>
+                    <div class="card-footer">View Project</div>
+                </a>
             </div>
 
-            <p style="margin-top: 40px;"><strong>2025</strong></p>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/web-eater" target="_blank">Web Eater</a></h4>
-                    <p>Web scraping and data extraction tool. Efficiently processes and structures web content for downstream analysis and LLM consumption.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/ai-tutor-skill" target="_blank">AI Tutor Skill</a></h4>
-                    <p>Claude skill for explaining technical AI concepts. Interactive educational tool that adapts explanations to user understanding level.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/ai-anime-recommender-rag" target="_blank">AI Anime Recommender RAG</a></h4>
+            <div class="section-label">Selected Projects [2025]</div>
+            
+            <div class="projects-grid" style="margin-top: 40px;">
+                <a href="https://github.com/farhanrhine/ai-anime-recommender-rag" target="_blank" class="project-card">
+                    <div class="card-meta">ChromaDB • Llama 3</div>
+                    <h4>AI Anime Recommender RAG</h4>
                     <p>Production-grade RAG system deployed on Google Kubernetes Engine. Features ChromaDB vector store, Groq Llama 3.1 LLM, FastAPI backend, and CI/CD pipeline.</p>
-                </article>
+                    <div class="card-footer">View Project</div>
+                </a>
 
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/flight-satisfaction-mlops" target="_blank">Flight Satisfaction MLOps</a></h4>
+                <a href="https://github.com/farhanrhine/flight-satisfaction-mlops" target="_blank" class="project-card">
+                    <div class="card-meta">MLOps • DVC</div>
+                    <h4>Flight Satisfaction MLOps</h4>
                     <p>End-to-end MLOps pipeline with LightGBM, MLflow, DVC, Jenkins, Flask, and Docker. Complete data versioning and reproducible experiment tracking.</p>
-                </article>
+                    <div class="card-footer">View Project</div>
+                </a>
 
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/paytm-local-mcp-server" target="_blank">Paytm Local MCP Server</a></h4>
+                <a href="https://github.com/farhanrhine/paytm-local-mcp-server" target="_blank" class="project-card">
+                    <div class="card-meta">MCP Server • Privacy</div>
+                    <h4>Paytm Local MCP Server</h4>
                     <p>Privacy-first MCP server for analyzing Paytm UPI transactions using natural language with Claude AI. 100% local processing with strict schema validation.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/fastapi-local-mcp-server" target="_blank">FastAPI Local MCP Server</a></h4>
-                    <p>Local Model Context Protocol server implementation using FastAPI. Enables secure, local-first AI interactions.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/remote-mcp-server" target="_blank">Remote MCP Server</a></h4>
-                    <p>Remote implementation of Model Context Protocol server. Enables distributed AI agent communication and coordination.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws" target="_blank">Insurance Premium Prediction API</a></h4>
-                    <p>ML regression model served via FastAPI, containerized with Docker, and deployed on AWS EC2. High-performance inference with horizontal scaling.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/laptop-price-predict-using-docker" target="_blank">Laptop Price Predictor</a></h4>
-                    <p>Machine learning model for laptop price prediction. Dockerized deployment with comprehensive feature engineering and model evaluation.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/deep-learning" target="_blank">Deep Learning Projects</a></h4>
-                    <p>Comprehensive deep learning implementations covering CNNs, RNNs, transformers, and modern architectures.</p>
-                </article>
-
-                <article class="project-card">
-                    <h4><a href="https://github.com/farhanrhine/Unsupervised-learning-" target="_blank">Unsupervised Learning</a></h4>
-                    <p>Clustering, dimensionality reduction, and anomaly detection projects. K-means, PCA, t-SNE, and autoencoder implementations.</p>
-                </article>
+                    <div class="card-footer">View Project</div>
+                </a>
             </div>
         </section>
 
         <!-- Certifications -->
         <section>
-            <h3>Certifications</h3>
+            <div class="section-label">Certifications</div>
             
-            <ul class="cert-list">
-                <li>
-                    <a href="https://academy.langchain.com/certificates/5c6dqdikrw" target="_blank">Project: Deep Agents</a>
-                    <div class="cert-issuer">LangChain Academy</div>
-                </li>
-                <li>
-                    <a href="https://www.udemy.com/certificate/UC-af7ba73d-22ce-4804-90dc-bb9f523e5c44/" target="_blank">LLMOps And AIOps Bootcamp With 8 End To End Projects</a>
-                    <div class="cert-issuer">Udemy</div>
-                </li>
-                <li>
-                    <a href="https://academy.langchain.com/certificates/sgwwul3tgp" target="_blank">Intro to LangChain</a>
-                    <div class="cert-issuer">LangChain Academy</div>
-                </li>
-                <li>
-                    <a href="https://coursera.org/share/ee82b26d5d154fbda135d7b84095d8e5" target="_blank">Retrieval Augmented Generation (RAG)</a>
-                    <div class="cert-issuer">DeepLearning.AI</div>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/farhanrhine/details/certifications/1749842070696/single-media-viewer/?type=DOCUMENT&profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank">Deep Learning</a>
-                    <div class="cert-issuer">NPTEL</div>
-                </li>
-                <li>
-                    <a href="https://archive.nptel.ac.in/content/noc/NOC24/SEM2/Ecertificates/106/noc24-cs81/Course/NPTEL24CS81S33290026902612520.pdf" target="_blank">Intro to Machine Learning</a>
-                    <div class="cert-issuer">NPTEL</div>
-                </li>
-                <li>
-                    <a href="https://coursera.org/share/a4d76a4505c78d9bdbd88707c973c0cc" target="_blank">Python for Everybody</a>
-                    <div class="cert-issuer">University of Michigan</div>
-                </li>
-                <li>
-                    <a href="https://coursera.org/share/ac3bb60541c6cfe3c78be60158902c3f" target="_blank">AI For Everyone</a>
-                    <div class="cert-issuer">DeepLearning.AI</div>
-                </li>
-                <li>
-                    <a href="https://coursera.org/share/a6405ce5372a457b6999f334a54237ba" target="_blank">Introduction to AI</a>
-                    <div class="cert-issuer">IBM</div>
-                </li>
-                <li>
-                    <a href="https://coursera.org/share/c0d21e68b3860104a386c4ddc7e24a32" target="_blank">Basics of Research Methodology</a>
-                    <div class="cert-issuer">Chandigarh University</div>
-                </li>
-            </ul>
+            <div class="cert-grid">
+                <a href="https://academy.langchain.com/certificates/5c6dqdikrw" target="_blank" class="cert-card">
+                    <div class="card-meta">LangChain Academy</div>
+                    <h4>Project: Deep Agents</h4>
+                </a>
+                
+                <a href="https://www.udemy.com/certificate/UC-af7ba73d-22ce-4804-90dc-bb9f523e5c44/" target="_blank" class="cert-card">
+                    <div class="card-meta">Udemy</div>
+                    <h4>LLMOps And AIOps Bootcamp</h4>
+                </a>
+                
+                <a href="https://academy.langchain.com/certificates/sgwwul3tgp" target="_blank" class="cert-card">
+                    <div class="card-meta">LangChain Academy</div>
+                    <h4>Intro to LangChain</h4>
+                </a>
+                
+                <a href="https://coursera.org/share/ee82b26d5d154fbda135d7b84095d8e5" target="_blank" class="cert-card">
+                    <div class="card-meta">DeepLearning.AI</div>
+                    <h4>Retrieval Augmented Generation</h4>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/farhanrhine/details/certifications/1749842070696/single-media-viewer/?type=DOCUMENT&profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank" class="cert-card">
+                    <div class="card-meta">NPTEL</div>
+                    <h4>Deep Learning</h4>
+                </a>
+            </div>
         </section>
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>0 frameworks were used to make this simple responsive website. Pure HTML and CSS.</p>
+        <p>0 frameworks were used to make this interface. Pure HTML and CSS.</p>
         <p>&copy; 2026 Farhan. Built with a focus on correctness.</p>
     </footer>
 </body>

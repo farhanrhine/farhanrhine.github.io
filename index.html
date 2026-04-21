@@ -6,31 +6,83 @@
     <title>Farhan | ML & AI Engineer</title>
     <meta name="description" content="Farhan | ML & AI Engineer building Agentic AI, LLMs, and MLOps pipelines.">
     
-    <!-- Using Newsreader as a match for Anthropic's Serif, Inter for their Geometric Sans -->
+    <!-- Finlo Design System: DM Serif Display + DM Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Exact Anthropic-Inspired Design System */
-            --bg-base: #faf9f5; /* Your original parchment color, matches Anthropic perfectly */
-            --bg-card: #ffffff; /* Crisp white for cards */
-            --bg-hover: #f0eee6; /* Subtle darkened parchment for hover states */
+            /* Finlo Design System - Light Mode */
+            --ink: #1a1816;
+            --ink-soft: #3d3a36;
+            --ink-muted: #6b6357;
+            --ink-faint: #9a9088;
             
-            --text-main: #141413; /* Anthropic's off-black */
-            --text-muted: #66645e; /* Anthropic's secondary grey */
+            --paper: #faf9f5;
+            --paper-warm: #f2f0eb;
+            --paper-card: #f2f0eb;
             
-            --border-color: #dcdad2; /* Distinct structural border color */
-            --border-dark: #141413; /* High contrast border for hover */
+            --accent: #E52b50;
+            --accent-light: #fdecea;
             
-            --accent-color: #9c462c; /* Terracotta / Rust Red - Warm and Editorial */
+            --danger: #c0392b;
+            --danger-light: #fdecea;
             
-            --bg-card: #f2f0e9; /* Anthropic's distinct beige for cards */
-            --bg-card-hover: #e8e6df; /* Darker beige on hover */
+            --border: #dcdad2;
+            --border-soft: #e8e6df;
+            --border-dark: #1a1816;
 
-            --font-serif: 'Newsreader', Georgia, serif;
-            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'DM Serif Display', Georgia, serif;
+            --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            --max-width: 1200px;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+        }
+
+        /* Finlo Design System - Explicit Light Mode */
+        [data-theme="light"] {
+            --ink: #1a1816;
+            --ink-soft: #3d3a36;
+            --ink-muted: #6b6357;
+            --ink-faint: #9a9088;
+            
+            --paper: #faf9f5;
+            --paper-warm: #f2f0eb;
+            --paper-card: #f2f0eb;
+            
+            --accent: #E52b50;
+            --accent-light: #fdecea;
+            
+            --danger: #c0392b;
+            --danger-light: #fdecea;
+            
+            --border: #dcdad2;
+            --border-soft: #e8e6df;
+            --border-dark: #1a1816;
+        }
+
+        /* Finlo Design System - Dark Mode */
+        [data-theme="dark"] {
+            --ink: #f5f3f0;
+            --ink-soft: #d9d4cf;
+            --ink-muted: #b8b0a8;
+            --ink-faint: #8f8680;
+            
+            --paper: #1c1b19;
+            --paper-warm: #282624;
+            --paper-card: #282624;
+            
+            --accent: #E52b50;
+            --accent-light: #5a2d3a;
+            
+            --danger: #e74c3c;
+            --danger-light: #5a2420;
+            
+            --border: #4a4540;
+            --border-soft: #5a5550;
         }
 
         * {
@@ -40,23 +92,24 @@
         }
 
         ::selection {
-            background: var(--accent-color);
+            background: var(--accent);
             color: #fff;
         }
 
         body {
             font-family: var(--font-serif);
             line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-base);
-            max-width: 1000px;
+            color: var(--ink);
+            background-color: var(--paper);
+            max-width: var(--max-width);
             margin: 0 auto;
             padding: 80px 24px;
+            transition: background-color 0.3s ease, color 0.3s ease;
             -webkit-font-smoothing: antialiased;
         }
 
         a {
-            color: var(--text-main);
+            color: var(--ink);
             text-decoration: none;
             transition: all 0.2s ease;
         }
@@ -64,44 +117,45 @@
         /* TYPOGRAPHY */
         h1 {
             font-family: var(--font-serif);
-            font-size: 4.5rem;
-            font-weight: 500;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
             margin: 24px 0 24px;
-            letter-spacing: -0.03em;
-            line-height: 1;
-            color: var(--text-main);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--ink);
         }
 
         h2 {
             font-family: var(--font-serif);
             font-size: 1.75rem;
             font-weight: 400;
-            color: var(--text-muted);
+            color: var(--ink-muted);
             margin: 0 0 40px 0;
-            line-height: 1.4;
+            line-height: 1.2;
             max-width: 800px;
         }
 
-        /* Anthropic uses heavily tracked, uppercase sans-serif for section labels */
+        /* Finlo Section Labels */
         .section-label {
             font-family: var(--font-sans);
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: var(--text-main);
-            border-bottom: 1px solid var(--border-color);
+            color: var(--ink);
+            border-bottom: 1px solid var(--border);
             padding-bottom: 16px;
             margin: 80px 0 40px 0;
         }
 
         /* HERO CARD */
         .hero-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--paper-card);
+            border: 1px solid var(--border);
             padding: 56px;
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             margin-bottom: 40px;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
         }
 
         /* HEADER COMPONENTS */
@@ -109,7 +163,7 @@
             width: 96px; /* Slightly larger to fit the card properly */
             border-radius: 50%;
             margin-bottom: 8px;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border);
             filter: grayscale(100%);
             transition: filter 0.4s ease;
         }
@@ -121,6 +175,7 @@
             display: flex;
             gap: 12px;
             margin-top: 32px;
+            align-items: center;
         }
 
         .social-links a {
@@ -131,12 +186,12 @@
             height: 44px;
             border-radius: 50%;
             background: transparent;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border);
             transition: all 0.2s ease;
         }
 
         .social-links a:hover {
-            background: var(--bg-hover);
+            background: var(--paper-warm);
             border-color: var(--border-dark);
         }
 
@@ -144,6 +199,10 @@
             width: 18px;
             height: 18px;
             opacity: 0.9;
+        }
+
+        [data-theme="dark"] .social-links img {
+            filter: invert(1) brightness(1.1);
         }
 
         /* PILL TAGS */
@@ -155,7 +214,7 @@
             font-family: var(--font-sans);
             font-size: 0.85rem;
             font-weight: 500;
-            color: var(--text-main);
+            color: var(--ink);
             margin-bottom: 16px;
         }
 
@@ -167,19 +226,19 @@
 
         .skill-tag {
             background: transparent;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border);
             padding: 8px 16px;
-            border-radius: 9999px; /* Anthropic pill style */
+            border-radius: 9999px; /* Finlo pill style */
             font-family: var(--font-sans);
             font-size: 0.8rem;
             font-weight: 500;
-            color: var(--text-main);
+            color: var(--ink);
             transition: all 0.2s;
             cursor: default;
         }
 
         .skill-tag:hover {
-            background: var(--bg-hover);
+            background: var(--paper-warm);
             border-color: var(--border-dark);
         }
 
@@ -192,10 +251,10 @@
         }
 
         .project-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--paper-card);
+            border: 1px solid var(--border);
             padding: 32px;
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             display: flex;
             flex-direction: column;
             text-decoration: none;
@@ -203,7 +262,7 @@
         }
 
         .project-card:hover {
-            background: var(--bg-card-hover);
+            background: var(--paper-warm);
             border-color: var(--border-dark);
         }
 
@@ -211,7 +270,7 @@
             font-family: var(--font-sans);
             font-size: 0.75rem;
             font-weight: 600;
-            color: var(--accent-color);
+            color: var(--accent);
             text-transform: uppercase;
             letter-spacing: 0.08em;
             margin-bottom: 16px;
@@ -219,16 +278,16 @@
 
         .project-card h4 {
             font-family: var(--font-serif);
-            font-weight: 500;
+            font-weight: 400;
             margin: 0 0 12px 0;
             font-size: 1.5rem;
-            color: var(--text-main);
+            color: var(--ink);
             line-height: 1.2;
         }
 
         .project-card p {
             font-family: var(--font-serif);
-            color: var(--text-muted);
+            color: var(--ink-muted);
             font-size: 1.1rem;
             flex-grow: 1;
             line-height: 1.5;
@@ -238,25 +297,25 @@
         .project-card .company {
             font-family: var(--font-sans);
             font-size: 0.95rem;
-            color: var(--text-main);
+            color: var(--ink);
             margin-bottom: 16px;
         }
 
         .project-card .company a {
             text-decoration: underline;
-            text-decoration-color: var(--border-color);
+            text-decoration-color: var(--border);
             text-underline-offset: 4px;
-            color: var(--text-main);
+            color: var(--ink);
         }
 
         .project-card .company a:hover {
-            color: var(--accent-color);
-            text-decoration-color: var(--accent-color);
+            color: var(--accent);
+            text-decoration-color: var(--accent);
         }
 
         .project-card ul {
             font-family: var(--font-serif);
-            color: var(--text-muted);
+            color: var(--ink-muted);
             font-size: 1.05rem;
             line-height: 1.5;
             margin-left: 20px;
@@ -273,7 +332,7 @@
             font-family: var(--font-sans);
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--text-main);
+            color: var(--ink);
             display: flex;
             align-items: center;
             gap: 6px;
@@ -287,7 +346,7 @@
         }
 
         .project-card:hover .card-footer {
-            color: var(--accent-color);
+            color: var(--accent);
             gap: 8px;
         }
 
@@ -300,10 +359,10 @@
         }
 
         .cert-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: var(--paper-card);
+            border: 1px solid var(--border);
             padding: 24px;
-            border-radius: 12px;
+            border-radius: var(--radius-md);
             display: flex;
             flex-direction: column;
             text-decoration: none;
@@ -311,7 +370,7 @@
         }
 
         .cert-card:hover {
-            background: var(--bg-card-hover);
+            background: var(--paper-warm);
             border-color: var(--border-dark);
         }
 
@@ -322,23 +381,23 @@
         .cert-card h4 {
             font-family: var(--font-serif);
             font-size: 1.3rem;
-            font-weight: 500;
+            font-weight: 400;
             margin: 0;
-            color: var(--text-main);
+            color: var(--ink);
             line-height: 1.3;
             transition: color 0.2s;
         }
 
         .cert-card:hover h4 {
-            color: var(--accent-color);
+            color: var(--accent);
         }
 
         /* FOOTER */
         footer {
             margin-top: 100px;
             padding-top: 40px;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            color: var(--ink-muted);
             font-family: var(--font-sans);
             font-size: 0.85rem;
             text-align: center;
@@ -348,6 +407,123 @@
 
         footer p {
             margin-bottom: 8px;
+        }
+
+        /* KEY PROJECTS SECTION */
+        .key-project {
+            background: var(--paper-card);
+            border: 1px solid var(--border);
+            padding: 32px;
+            border-radius: var(--radius-md);
+            margin-bottom: 24px;
+            transition: all 0.2s ease;
+        }
+
+        .key-project:hover {
+            background: var(--paper-warm);
+            border-color: var(--border-dark);
+        }
+
+        .key-project h3 {
+            font-family: var(--font-serif);
+            font-size: 1.35rem;
+            font-weight: 400;
+            color: var(--ink);
+            margin: 0 0 8px 0;
+            line-height: 1.2;
+        }
+
+        .key-project .project-meta {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+            margin-bottom: 16px;
+        }
+
+        .key-project ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .key-project li {
+            font-family: var(--font-serif);
+            color: var(--ink-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .key-project li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        /* RESUME DOWNLOAD BUTTON */
+        .social-links .resume-btn {
+            width: auto !important;
+            height: auto !important;
+            border-radius: 4px !important;
+            padding: 12px 28px !important;
+            background: var(--paper-card) !important;
+            border: 1px solid var(--border) !important;
+        }
+
+        .resume-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 4px;
+            background: var(--paper-card);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: var(--ink);
+            font-family: var(--font-sans);
+            text-align: center;
+            margin-left: auto;
+            white-space: nowrap;
+            letter-spacing: 0.05em;
+        }
+
+        .resume-btn:hover {
+            background: var(--paper-warm);
+            border-color: var(--border-dark);
+        }
+
+        /* THEME TOGGLE BUTTON */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            background: var(--paper-card);
+            border: 1px solid var(--border);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 1000;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .theme-toggle:hover {
+            background: var(--paper-warm);
+            border-color: var(--border-dark);
         }
 
         @media (max-width: 768px) {
@@ -370,6 +546,9 @@
     </style>
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode" aria-label="Toggle theme">DARK</button>
+
     <!-- Header Section -->
     <header>
         <div class="hero-card">
@@ -388,6 +567,9 @@
                 </a>
                 <a href="mailto:mohammadfarhanalam09@gmail.com" title="Email">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z'/%3E%3C/svg%3E" alt="Email Icon">
+                </a>
+                <a href="https://drive.google.com/file/d/1bMZpdDzlKYpnIyAy0FMcJcPnG_SVLSfl/view?usp=sharing" target="_blank" class="resume-btn" title="Download Resume">
+                    Download My Resume
                 </a>
             </div>
         </div>
@@ -687,11 +869,6 @@
                     <h4>AI For Everyone</h4>
                 </a>
 
-                <a href="https://coursera.org/share/a6405ce5372a457b6999f334a54237ba" target="_blank" class="cert-card">
-                    <div class="card-meta">IBM</div>
-                    <h4>Introduction to AI</h4>
-                </a>
-
                 <a href="https://coursera.org/share/c0d21e68b3860104a386c4ddc7e24a32" target="_blank" class="cert-card">
                     <div class="card-meta">Chandigarh University</div>
                     <h4>Basics of Research Methodology</h4>
@@ -705,5 +882,35 @@
         <p>0 frameworks were used to make this interface. Pure HTML and CSS.</p>
         <p>&copy; 2026 Farhan. Built with a focus on correctness.</p>
     </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        // Get saved theme or default to light
+        const getSavedTheme = () => {
+            const saved = localStorage.getItem('theme');
+            return saved || 'light';
+        };
+        
+        // Set theme
+        const setTheme = (theme) => {
+            htmlElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            themeToggle.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+        };
+        
+        // Initialize theme immediately
+        const currentTheme = getSavedTheme();
+        setTheme(currentTheme);
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            const current = htmlElement.getAttribute('data-theme');
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+    </script>
 </body>
 </html>

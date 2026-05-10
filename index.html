@@ -1,40 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farhan | ML & AI Engineer</title>
     <meta name="description" content="Farhan | ML & AI Engineer building Agentic AI, LLMs, and MLOps pipelines.">
     
-    <!-- Finlo Design System: DM Serif Display + DM Sans -->
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:title" content="Farhan | ML & AI Engineer">
+    <meta property="og:description" content="Building Agentic AI, LLMs, RAG Pipelines, and MLOps Apps.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/124152754?v=4">
+    <meta property="og:url" content="https://farhanrhine.github.io">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Finlo Design System - Light Mode */
+            /* Light Mode */
             --ink: #1a1816;
             --ink-soft: #3d3a36;
             --ink-muted: #6b6357;
             --ink-faint: #9a9088;
-            
             --paper: #faf9f5;
             --paper-warm: #f2f0eb;
-            --paper-card: #f2f0eb;
-            
+            --paper-card: #ffffff;
             --accent: #E52b50;
             --accent-light: #fdecea;
-            
-            --danger: #c0392b;
-            --danger-light: #fdecea;
-            
             --border: #dcdad2;
             --border-soft: #e8e6df;
             --border-dark: #1a1816;
+            --glass: rgba(250, 249, 245, 0.85);
 
             --font-serif: 'DM Serif Display', Georgia, serif;
             --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
             
             --max-width: 1200px;
             --radius-sm: 6px;
@@ -42,88 +45,114 @@
             --radius-lg: 20px;
         }
 
-        /* Finlo Design System - Explicit Light Mode */
-        [data-theme="light"] {
-            --ink: #1a1816;
-            --ink-soft: #3d3a36;
-            --ink-muted: #6b6357;
-            --ink-faint: #9a9088;
-            
-            --paper: #faf9f5;
-            --paper-warm: #f2f0eb;
-            --paper-card: #f2f0eb;
-            
-            --accent: #E52b50;
-            --accent-light: #fdecea;
-            
-            --danger: #c0392b;
-            --danger-light: #fdecea;
-            
-            --border: #dcdad2;
-            --border-soft: #e8e6df;
-            --border-dark: #1a1816;
-        }
-
-        /* Finlo Design System - Dark Mode */
         [data-theme="dark"] {
             --ink: #f5f3f0;
             --ink-soft: #d9d4cf;
             --ink-muted: #b8b0a8;
             --ink-faint: #8f8680;
-            
             --paper: #1c1b19;
             --paper-warm: #282624;
-            --paper-card: #282624;
-            
+            --paper-card: #22201e;
             --accent: #E52b50;
             --accent-light: #5a2d3a;
-            
-            --danger: #e74c3c;
-            --danger-light: #5a2420;
-            
             --border: #4a4540;
-            --border-soft: #5a5550;
+            --border-soft: #3a3530;
+            --border-dark: #f5f3f0;
+            --glass: rgba(28, 27, 25, 0.85);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        ::selection {
-            background: var(--accent);
-            color: #fff;
-        }
+        ::selection { background: var(--accent); color: #fff; }
 
         body {
-            /* Changed from serif to sans to fix the heavy/bold text issue */
             font-family: var(--font-sans);
             line-height: 1.6;
             color: var(--ink);
             background-color: var(--paper);
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 80px 24px;
             transition: background-color 0.3s ease, color 0.3s ease;
             -webkit-font-smoothing: antialiased;
+            padding-top: 80px; /* Space for fixed nav */
         }
 
-        a {
-            color: var(--ink);
-            text-decoration: none;
-            transition: all 0.2s ease;
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
         }
+
+        a { color: var(--ink); text-decoration: none; transition: all 0.2s ease; }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .nav-logo {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--ink);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--ink-muted);
+        }
+
+        .nav-links a:hover { color: var(--ink); }
+
+        .theme-toggle {
+            background: transparent;
+            border: 1px solid var(--border);
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ink);
+            transition: all 0.2s;
+        }
+
+        .theme-toggle:hover { background: var(--paper-warm); }
+        .theme-toggle svg { width: 18px; height: 18px; fill: currentColor; }
 
         /* TYPOGRAPHY */
         h1 {
             font-family: var(--font-serif);
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 400;
-            margin: 24px 0 24px;
+            margin: 24px 0;
             letter-spacing: -0.02em;
             line-height: 1.1;
-            color: var(--ink);
         }
 
         h2 {
@@ -131,12 +160,11 @@
             font-size: 1.75rem;
             font-weight: 400;
             color: var(--ink-muted);
-            margin: 0 0 40px 0;
-            line-height: 1.2;
+            margin-bottom: 40px;
+            line-height: 1.3;
             max-width: 800px;
         }
 
-        /* Finlo Section Labels */
         .section-label {
             font-family: var(--font-sans);
             font-size: 0.75rem;
@@ -147,6 +175,17 @@
             border-bottom: 1px solid var(--border);
             padding-bottom: 16px;
             margin: 80px 0 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-label span.subtitle {
+            color: var(--ink-muted);
+            font-size: 0.7rem;
+            letter-spacing: 0;
+            text-transform: none;
+            font-weight: 400;
         }
 
         /* HERO CARD */
@@ -155,11 +194,9 @@
             border: 1px solid var(--border);
             padding: 56px;
             border-radius: var(--radius-lg);
-            margin-bottom: 40px;
-            transition: background-color 0.2s ease, border-color 0.2s ease;
+            margin: 40px 0;
         }
 
-        /* HEADER COMPONENTS */
         .profile-img {
             width: 96px;
             border-radius: 50%;
@@ -169,754 +206,467 @@
             transition: filter 0.4s ease;
         }
         
-        .profile-img:hover {
-            filter: grayscale(0%);
-        }
+        .profile-img:hover { filter: grayscale(0%); }
 
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 32px;
-            align-items: center;
+        .social-links { display: flex; gap: 12px; margin-top: 32px; align-items: center; }
+        .social-links a.icon-link {
+            display: flex; align-items: center; justify-content: center;
+            width: 44px; height: 44px; border-radius: 50%;
+            border: 1px solid var(--border); transition: all 0.2s;
         }
+        .social-links a.icon-link:hover { background: var(--paper-warm); }
+        .social-links img { width: 18px; height: 18px; opacity: 0.9; }
+        [data-theme="dark"] .social-links img { filter: invert(1) brightness(1.1); }
 
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            background: transparent;
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
+        .resume-btn {
+            display: flex; align-items: center; justify-content: center;
+            padding: 12px 28px; border-radius: 6px;
+            background: var(--ink); color: var(--paper) !important;
+            font-weight: 500; font-size: 0.85rem; margin-left: auto;
+            transition: opacity 0.2s;
         }
+        .resume-btn:hover { opacity: 0.9; }
 
-        .social-links a:hover {
-            background: var(--paper-warm);
-            border-color: var(--border-dark);
+        /* SKILLS */
+        .skill-group { margin-bottom: 32px; }
+        .skill-group:last-child { margin-bottom: 0; }
+        .skill-group p { font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag {
+            border: 1px solid var(--border); padding: 8px 16px; border-radius: 99px;
+            font-size: 0.8rem; font-weight: 500; transition: all 0.2s; cursor: default;
         }
+        .skill-tag:hover { border-color: var(--ink); background: var(--paper-warm); }
 
-        .social-links img {
-            width: 18px;
-            height: 18px;
-            opacity: 0.9;
-        }
-
-        [data-theme="dark"] .social-links img {
-            filter: invert(1) brightness(1.1);
-        }
-
-        /* PILL TAGS */
-        .skill-group {
-            margin-bottom: 32px;
+        /* FEATURED PROJECTS (New Layout) */
+        .featured-grid {
+            display: flex; flex-direction: column; gap: 32px; margin-bottom: 64px;
         }
         
-        .skill-group p {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--ink);
-            margin-bottom: 16px;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background: transparent;
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 9999px; /* Finlo pill style */
-            font-family: var(--font-sans);
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--ink);
-            transition: all 0.2s;
-            cursor: default;
-        }
-
-        .skill-tag:hover {
-            background: var(--paper-warm);
-            border-color: var(--border-dark);
-        }
-
-        /* PROJECT CARDS */
-        .projects-grid {
+        .featured-card {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-            margin: 32px 0 64px;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: var(--paper-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            transition: border-color 0.2s;
+        }
+
+        .featured-card:hover { border-color: var(--ink-muted); }
+
+        .fc-content h3 { font-family: var(--font-serif); font-size: 2rem; margin: 8px 0 16px; line-height: 1.1; font-weight: 400;}
+        .fc-content p { color: var(--ink-muted); margin-bottom: 24px; font-size: 1.05rem; }
+        .tech-stack { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 16px; display: block; }
+        
+        /* CSS Architecture Diagram */
+        .arch-diagram {
+            background: var(--paper-warm);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--ink-soft);
+        }
+
+        .arch-node {
+            background: var(--paper-card);
+            border: 1px solid var(--border);
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .arch-row { display: flex; gap: 24px; align-items: center; position: relative; }
+        .arch-arrow { color: var(--ink-muted); font-size: 1.2rem; }
+
+        /* STANDARD PROJECTS GRID */
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px;
         }
 
         .project-card {
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            padding: 32px;
-            border-radius: var(--radius-md);
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            transition: all 0.2s ease;
+            background: var(--paper-card); border: 1px solid var(--border);
+            padding: 32px; border-radius: var(--radius-md);
+            display: flex; flex-direction: column; transition: all 0.2s ease;
         }
 
-        .project-card:hover {
-            background: var(--paper-warm);
-            border-color: var(--border-dark);
+        .project-card:hover { border-color: var(--ink-soft); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
+        .project-card .tech-stack { margin-bottom: 12px; }
+        .project-card h4 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 12px; line-height: 1.2; }
+        .project-card p { color: var(--ink-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 24px; }
+        
+        .card-link {
+            font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: auto;
         }
+        .card-link::after { content: "→"; transition: transform 0.2s; }
+        .project-card:hover .card-link::after { transform: translateX(4px); color: var(--accent); }
 
-        .card-meta {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 16px;
-        }
+        .project-card .company { font-weight: 500; color: var(--ink); margin-bottom: 12px; font-size: 0.95rem; }
+        .project-card ul.exp-list { padding-left: 20px; color: var(--ink-muted); font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
+        .project-card ul.exp-list li { margin-bottom: 8px; }
 
-        .project-card h4 {
-            font-family: var(--font-serif);
-            font-weight: 400;
-            margin: 0 0 12px 0;
-            font-size: 1.5rem;
-            color: var(--ink);
-            line-height: 1.2;
-        }
-
-        .project-card p {
-            /* Changed to sans-serif to fix heavy text */
-            font-family: var(--font-sans); 
-            color: var(--ink-muted);
-            font-size: 1rem;
-            font-weight: 400;
-            flex-grow: 1;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .project-card .company {
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            color: var(--ink);
-            margin-bottom: 16px;
-        }
-
-        .project-card .company a {
-            text-decoration: underline;
-            text-decoration-color: var(--border);
-            text-underline-offset: 4px;
-            color: var(--ink);
-        }
-
-        .project-card .company a:hover {
-            color: var(--accent);
-            text-decoration-color: var(--accent);
-        }
-
-        .project-card ul {
-            /* Changed to sans-serif to fix heavy text */
-            font-family: var(--font-sans);
-            color: var(--ink-muted);
-            font-size: 1rem;
-            font-weight: 400;
-            line-height: 1.6;
-            margin-left: 20px;
-            flex-grow: 1;
-        }
-
-        .project-card li {
-            margin-bottom: 8px;
-            padding-left: 4px;
-        }
-
-        .card-footer {
-            margin-top: 24px;
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--ink);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: gap 0.2s, color 0.2s;
-        }
-
-        .card-footer::after {
-            content: "→";
-            font-size: 1.2rem;
-            transition: transform 0.2s;
-        }
-
-        .project-card:hover .card-footer {
-            color: var(--accent);
-            gap: 8px;
-        }
-
-        /* CERTIFICATIONS (Uses the same card aesthetic) */
-        .cert-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin: 32px 0 64px;
-        }
-
-        .cert-card {
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            padding: 24px;
-            border-radius: var(--radius-md);
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .cert-card:hover {
-            background: var(--paper-warm);
-            border-color: var(--border-dark);
-        }
-
-        .cert-card .card-meta {
-            margin-bottom: 12px;
-        }
-
-        .cert-card h4 {
-            font-family: var(--font-serif);
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin: 0;
-            color: var(--ink);
-            line-height: 1.3;
-            transition: color 0.2s;
-        }
-
-        .cert-card:hover h4 {
-            color: var(--accent);
-        }
-
-        /* FOOTER */
         footer {
-            margin-top: 100px;
-            padding-top: 40px;
-            border-top: 1px solid var(--border);
-            color: var(--ink-muted);
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            text-align: center;
-            width: 100%;
-            display: block;
+            margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border);
+            text-align: center; color: var(--ink-muted); font-size: 0.85rem;
         }
 
-        footer p {
-            margin-bottom: 8px;
-        }
-
-        /* KEY PROJECTS SECTION */
-        .key-project {
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            padding: 32px;
-            border-radius: var(--radius-md);
-            margin-bottom: 24px;
-            transition: all 0.2s ease;
-        }
-
-        .key-project:hover {
-            background: var(--paper-warm);
-            border-color: var(--border-dark);
-        }
-
-        .key-project h3 {
-            font-family: var(--font-serif);
-            font-size: 1.35rem;
-            font-weight: 400;
-            color: var(--ink);
-            margin: 0 0 8px 0;
-            line-height: 1.2;
-        }
-
-        .key-project .project-meta {
-            font-family: var(--font-sans);
-            font-size: 0.85rem;
-            color: var(--ink-muted);
-            margin-bottom: 16px;
-        }
-
-        .key-project ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .key-project li {
-            /* Changed to sans-serif to fix heavy text */
-            font-family: var(--font-sans);
-            color: var(--ink-muted);
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .key-project li:before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        /* RESUME DOWNLOAD BUTTON */
-        .social-links .resume-btn {
-            width: auto !important;
-            height: auto !important;
-            border-radius: 4px !important;
-            padding: 12px 28px !important;
-            background: var(--paper-card) !important;
-            border: 1px solid var(--border) !important;
-        }
-
-        .resume-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 28px;
-            border-radius: 4px;
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.8rem;
-            color: var(--ink);
-            font-family: var(--font-sans);
-            text-align: center;
-            margin-left: auto;
-            white-space: nowrap;
-            letter-spacing: 0.05em;
-        }
-
-        .resume-btn:hover {
-            background: var(--paper-warm);
-            border-color: var(--border-dark);
-        }
-
-        /* THEME TOGGLE BUTTON */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 0.5rem 0.75rem;
-            border-radius: 6px;
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s ease;
-            z-index: 1000;
-            font-size: 0.75rem;
-            font-weight: 600;
-            font-family: var(--font-sans);
-            color: var(--ink);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .theme-toggle:hover {
-            background: var(--paper-warm);
-            border-color: var(--border-dark);
+        @media (max-width: 900px) {
+            .featured-card { grid-template-columns: 1fr; padding: 32px; }
+            .arch-diagram { padding: 32px 16px; }
         }
 
         @media (max-width: 768px) {
-            body {
-                padding: 40px 20px;
-            }
-
-            h1 {
-                font-size: 3rem;
-            }
-
-            .hero-card {
-                padding: 32px 24px;
-            }
-
-            .editorial-row {
-                grid-template-columns: 1fr;
-            }
+            h1 { font-size: 3rem; }
+            .hero-card { padding: 32px 24px; }
+            .social-links { flex-wrap: wrap; }
+            .resume-btn { width: 100%; margin-left: 0; margin-top: 16px; }
+            .nav-links { display: none; } /* Mobile: hide text links, keep toggle */
         }
     </style>
 </head>
 <body>
-    <!-- Theme Toggle Button -->
-    <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode" aria-label="Toggle theme">DARK</button>
-
-    <!-- Header Section -->
-    <header>
-        <div class="hero-card">
-            <img src="https://avatars.githubusercontent.com/u/124152754?v=4" alt="Farhan's Profile Picture" class="profile-img">
-            
-            <h1>Farhan.</h1>
-            
-            <h2>I Build Agentic AI, LLMs, RAG Pipelines, ML & Deep Learning, and MLOps Apps.</h2>
-            
-            <div class="social-links">
-                <a href="https://github.com/farhanrhine" target="_blank" title="GitHub">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" alt="GitHub Logo">
-                </a>
-                <a href="https://linkedin.com/in/farhanrhine" target="_blank" title="LinkedIn">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'/%3E%3C/svg%3E" alt="LinkedIn Logo">
-                </a>
-                <a href="mailto:mohammadfarhanalam09@gmail.com" title="Email">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z'/%3E%3C/svg%3E" alt="Email Icon">
-                </a>
-                <a href="https://drive.google.com/file/d/1bMZpdDzlKYpnIyAy0FMcJcPnG_SVLSfl/view?usp=sharing" target="_blank" class="resume-btn" title="Download Resume">
-                    Download My Resume
-                </a>
+    <!-- Sticky Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="nav-logo">Farhan.</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#featured">Work</a>
+                <a href="#projects">More Projects</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <!-- Sun/Moon Icon updated via JS -->
+                    <svg id="theme-icon" viewBox="0 0 24 24"></svg>
+                </button>
             </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
-        <!-- Experience & Status Grid -->
-        <section>
-            <div class="section-label">Experience & Education</div>
+    <div class="container">
+        <!-- Hero Header Section -->
+        <header id="about" class="hero-card">
+            <img src="https://avatars.githubusercontent.com/u/124152754?v=4" alt="Farhan" class="profile-img">
+            <h1>Farhan.</h1>
+            <h2>I Build Agentic AI, MCP Servers, LLMs, RAG Pipelines, ML & Deep Learning, and MLOps Apps.</h2>
             
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="card-meta">2026 - Present</div>
-                    <h4>ML & AI Engineer</h4>
-                    <div class="company">Seeking Opportunities</div>
-                    <p>Focused on building advanced agentic workflows and mastering scalable MLOps pipelines. Specializing in LangGraph, RAG systems, MCP servers, and bridging the gap between "it works in a notebook" and "it works in production."</p>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-meta">Oct - Dec 2024</div>
-                    <h4>AI/ML Engineer Intern</h4>
-                    <div class="company"><a href="https://www.linkedin.com/in/farhanrhine/overlay/1739369171414/single-media-viewer/?profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank">Infosys Springboard 5.0</a></div>
-                    <ul>
-                        <li>Engineered a multilingual language detection model achieving 90% accuracy.</li>
-                        <li>Built and deployed Logistic Regression, Random Forest, and LSTM models.</li>
-                        <li>Preprocessed large datasets using advanced tokenization and embedding techniques.</li>
-                        <li>Documented end-to-end ML workflows for reproducibility.</li>
-                    </ul>
-                </div>
-
-                <div class="project-card">
-                    <div class="card-meta">2022 - 2026</div>
-                    <h4>Bachelor of Engineering in Computer Science</h4>
-                    <div class="company">Chandigarh University</div>
-                </div>
+            <div class="social-links">
+                <a href="https://github.com/farhanrhine" target="_blank" class="icon-link" title="GitHub">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" alt="GitHub">
+                </a>
+                <a href="https://linkedin.com/in/farhanrhine" target="_blank" class="icon-link" title="LinkedIn">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'/%3E%3C/svg%3E" alt="LinkedIn">
+                </a>
+                <a href="mailto:mohammadfarhanalam09@gmail.com" class="icon-link" title="Email">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z'/%3E%3C/svg%3E" alt="Email">
+                </a>
+                <a href="https://drive.google.com/file/d/1bMZpdDzlKYpnIyAy0FMcJcPnG_SVLSfl/view?usp=sharing" target="_blank" class="resume-btn">
+                    Download Resume
+                </a>
             </div>
-        </section>
+        </header>
 
-        <!-- Technical Skills (Pills) -->
+        <!-- Technical Capabilities -->
         <section>
-            <div class="section-label">Technical Capabilities</div>
-            
             <div class="hero-card" style="margin-bottom: 0;">
                 <div class="skill-group">
                     <p>Generative AI & LLMs</p>
                     <div class="skills">
-                        <span class="skill-tag">LangChain</span>
-                        <span class="skill-tag">LangGraph</span>
-                        <span class="skill-tag">LangSmith</span>
-                        <span class="skill-tag">RAG</span>
-                        <span class="skill-tag">MCP</span>
-                        <span class="skill-tag">Ollama</span>
-                        <span class="skill-tag">HuggingFace</span>
-                        <span class="skill-tag">OpenAI</span>
-                        <span class="skill-tag">Anthropic</span>
-                        <span class="skill-tag">Qwen</span>
-                        <span class="skill-tag">Llama</span>
+                        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">LangSmith</span><span class="skill-tag">RAG</span><span class="skill-tag">MCP</span><span class="skill-tag">Ollama</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">OpenAI</span><span class="skill-tag">Anthropic</span>
                     </div>
                 </div>
-
-                <div class="skill-group">
-                    <p>Machine Learning & Deep Learning</p>
+                <div class="skill-group" style="margin-top: 32px;">
+                    <p>Machine Learning & MLOps</p>
                     <div class="skills">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Scikit-learn</span>
-                        <span class="skill-tag">NumPy</span>
-                        <span class="skill-tag">Pandas</span>
-                        <span class="skill-tag">Keras</span>
-                        <span class="skill-tag">LSTM</span>
-                        <span class="skill-tag">CNNs</span>
-                        <span class="skill-tag">OpenCV</span>
-                        <span class="skill-tag">Transformer model</span>
-                    </div>
-                </div>
-
-                <div class="skill-group" style="margin-bottom: 0;">
-                    <p>MLOps & Infrastructure</p>
-                    <div class="skills">
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">MLflow</span>
-                        <span class="skill-tag">DVC</span>
-                        <span class="skill-tag">Jenkins</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">ChromaDB</span>
-                        <span class="skill-tag">FAISS</span>
+                        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">MLflow</span><span class="skill-tag">DVC</span><span class="skill-tag">Jenkins</span><span class="skill-tag">GCP</span><span class="skill-tag">AWS</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Cards -->
-        <section>
-            <div class="section-label">Selected Projects [2026]</div>
+        <!-- EXPERIENCE & EDUCATION -->
+        <section id="experience">
+            <div class="section-label">Experience & Education</div>
             
             <div class="projects-grid">
-                <a href="https://github.com/farhanrhine/Deep_Learning-Tourism_Recommendation" target="_blank" class="project-card">
-                    <div class="card-meta">PyTorch • Hybrid Deep Learning • Streamlit</div>
-                    <h4>Tourism Recommendation System</h4>
-                    <p>A personalized travel recommendation engine utilizing hybrid deep learning. It integrates Neural Collaborative Filtering (NCF) and content-based models via a learnable attention fusion mechanism to dynamically predict user destination preferences.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
+                <div class="project-card">
+                    <span class="tech-stack">Oct - Dec 2024</span>
+                    <h4>AI/ML Engineer Intern</h4>
+                    <div class="company"><a href="https://www.linkedin.com/in/farhanrhine/overlay/1739369171414/single-media-viewer/?profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank" style="text-decoration: underline;">Infosys Springboard 5.0</a></div>
+                    <ul class="exp-list">
+                        <li>Engineered a multilingual language detection model achieving 90% accuracy.</li>
+                        <li>Built and deployed Logistic Regression, Random Forest, and LSTM models.</li>
+                    </ul>
+                </div>
 
-                <a href="https://github.com/farhanrhine/OpenClaw-Retail-Support-Agent" target="_blank" class="project-card">
-                    <div class="card-meta">OpenClaw • GLM-4.5-Air • WhatsApp Integration</div>
-                    <h4>OpenClaw Retail Support</h4>
-                    <p>An autonomous customer support assistant integrated with WhatsApp and Telegram via OpenClaw. It features a custom tool-invocation layer to resolve order status and policy queries using local data, complete with smart escalation logic for complex human interventions.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
+                <div class="project-card">
+                    <span class="tech-stack">2022 - 2026</span>
+                    <h4>Bachelor of Engineering in CS</h4>
+                    <div class="company">Chandigarh University</div>
+                    <p>Computer Science Engineer who got serious about ML & AI and never looked back.</p>
+                </div>
+            </div>
+        </section>
 
-                <a href="https://github.com/farhanrhine/Retail-AI-Agent" target="_blank" class="project-card">
-                    <div class="card-meta">LangChain • Qwen3-32B • LangSmith • FastAPI</div>
-                    <h4>Retail AI Agent</h4>
-                    <p>A dual-purpose AI agent acting as a Personal Shopper and Customer Support Assistant. Built with LangChain and LangSmith, it autonomously routes between 4 custom tools to recommend products and accurately enforce return policies using real CSV data with zero hallucinations.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
+        <!-- FEATURED PROJECTS -->
+        <section id="featured">
+            <div class="section-label">
+                Featured Architectures
+                <span class="subtitle">Deep Dives</span>
+            </div>
+            
+            <div class="featured-grid">
+                <!-- Featured 1 -->
+                <article class="featured-card">
+                    <div class="fc-content">
+                        <span class="tech-stack">FastAPI • Whisper STT • LLM • Render</span>
+                        <h3>AI Tutor Screener</h3>
+                        <p>Voice-first AI interviewer that conducts adaptive tutor screening conversations. Features dual STT (OpenAI Whisper + Web Speech), structured assessment reports with full PDF exports, and a secure admin dashboard.</p>
+                        <a href="https://github.com/farhanrhine/ai-tutor-screener" target="_blank" class="card-link">View Source Code</a>
+                    </div>
+                    <!-- Architecture Vis -->
+                    <div class="arch-diagram">
+                        <div class="arch-row">
+                            <div class="arch-node">User Voice</div>
+                            <span class="arch-arrow">→</span>
+                            <div class="arch-node" style="border-color: var(--accent);">Dual STT Engine</div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-node" style="border-color: var(--accent);">AI Interviewer (LLM)</div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-row">
+                            <div class="arch-node">Admin Dashboard</div>
+                            <span class="arch-arrow">←</span>
+                            <div class="arch-node">PDF Export</div>
+                        </div>
+                    </div>
+                </article>
 
+                <!-- Featured 2 -->
+                <article class="featured-card">
+                    <div class="fc-content">
+                        <span class="tech-stack">PostgreSQL • RBAC • Zero-Framework</span>
+                        <h3>FlowDesk</h3>
+                        <p>Secure, aesthetic, and high-performance task management system. Streamlines team collaboration with Role-Based Access Control, a zero-framework pure frontend, and robust PostgreSQL deployment on Railway.</p>
+                        <a href="https://github.com/farhanrhine/FlowDesk" target="_blank" class="card-link">View Source Code</a>
+                    </div>
+                    <!-- Architecture Vis -->
+                    <div class="arch-diagram">
+                        <div class="arch-node">Pure HTML/CSS/JS Client</div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-node" style="border-color: var(--accent);">RESTful API Layer</div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-row">
+                            <div class="arch-node">RBAC Middleware</div>
+                            <span class="arch-arrow">→</span>
+                            <div class="arch-node" style="border-color: var(--accent);">PostgreSQL DB</div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Featured 3 -->
+                <article class="featured-card">
+                    <div class="fc-content">
+                        <span class="tech-stack">MCP SDK • Claude Desktop • SQLite</span>
+                        <h3>Paytm Local MCP Server</h3>
+                        <p>Privacy-first Model Context Protocol (MCP) server for analyzing personal UPI transactions locally. Features standard stdio + SSE transport, processing 950+ transactions entirely on-device with zero data sharing.</p>
+                        <a href="https://github.com/farhanrhine/paytm-local-mcp-server" target="_blank" class="card-link">View Source Code</a>
+                    </div>
+                    <!-- Architecture Vis -->
+                    <div class="arch-diagram">
+                        <div class="arch-node">Claude Desktop</div>
+                        <div class="arch-arrow">↓ (MCP Protocol)</div>
+                        <div class="arch-row">
+                            <div class="arch-node" style="border-color: var(--accent);">Local MCP Server</div>
+                        </div>
+                        <div class="arch-arrow">↓</div>
+                        <div class="arch-row">
+                            <div class="arch-node">Schema Validation</div>
+                            <span class="arch-arrow">→</span>
+                            <div class="arch-node">Local DB / CSV</div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- AGENTIC AI & LLMs -->
+        <section id="projects">
+            <div class="section-label">Agentic Workflows & RAG</div>
+            <div class="projects-grid">
                 <a href="https://github.com/farhanrhine/multi-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">LangGraph • Groq • FastAPI • Cloud Run</div>
+                    <span class="tech-stack">LangGraph • Llama 3 • FastAPI</span>
                     <h4>Multi-AI Agent System</h4>
-                    <p>Production multi-agent application with custom LangGraph StateGraph, Groq LLM, and Tavily Search. Real-time streaming, FastAPI backend, Single-File HTML frontend, GCP Cloud Run deployment.</p>
-                    <div class="card-footer">View Project</div>
+                    <p>Production multi-agent application utilizing a custom LangGraph StateGraph, Llama 3, and Tavily Search. Implements real-time streaming via a FastAPI backend and deployed on GCP Cloud Run.</p>
+                    <span class="card-link">View Project</span>
                 </a>
-
-                <a href="https://github.com/farhanrhine/IoT-Power-Consumption-Analysis" target="_blank" class="project-card">
-                    <div class="card-meta">Scikit-Learn • Pandas • Time-Series EDA</div>
-                    <h4>IoT Power Consumption Analysis</h4>
-                    <p>An end-to-end data analysis and machine learning project exploring electrical time-series data. Processes IoT device metrics (voltage and current) to compute power, identify patterns, and isolate high-power usage anomalies.</p>
-                    <div class="card-footer">View Project</div>
+                <a href="https://github.com/farhanrhine/OpenClaw-Retail-Support-Agent" target="_blank" class="project-card">
+                    <span class="tech-stack">OpenClaw • GLM-4.5 • APIs</span>
+                    <h4>OpenClaw Retail Support</h4>
+                    <p>Autonomous customer support assistant integrated natively with WhatsApp and Telegram. Resolves order queries via a sophisticated tool-invocation layer.</p>
+                    <span class="card-link">View Project</span>
                 </a>
-
-                <a href="https://github.com/farhanrhine/music-composer-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">LangChain • NumPy/SciPy • Streamlit • GKE</div>
-                    <h4>AI Music Composer Agent</h4>
-                    <p>Agentic music composition tool with LangChain multi-step reasoning. Custom NumPy/SciPy additive synthesis engine with ADSR envelopes, Streamlit UI, deployed on GKE via GitLab CI/CD.</p>
-                    <div class="card-footer">View Project</div>
+                <a href="https://github.com/farhanrhine/discord-notion-sync" target="_blank" class="project-card">
+                    <span class="tech-stack">Discord API • Notion • AI Agents</span>
+                    <h4>Discord-Notion-Sync</h4>
+                    <p>Bot bridging Discord chat to Notion, featuring AI note refinement and an autonomous web search agent.</p>
+                    <span class="card-link">View Project</span>
                 </a>
-
-                <a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">OpenCV • Groq Llama 4 • Flask • Kubernetes</div>
-                    <h4>Celebrity Face Detection</h4>
-                    <p>AI-powered celebrity identification using OpenCV face detection and Groq Llama 4. Flask app with Q&A engine, deployed on GKE with CircleCI pipeline.</p>
-                    <div class="card-footer">View Project</div>
+                <a href="https://github.com/farhanrhine/discord-thread-notion-mind" target="_blank" class="project-card">
+                    <span class="tech-stack">Pydantic • LLM • Notion • Discord</span>
+                    <h4>Student Study Assistant</h4>
+                    <p>Study bot managing private threads with Pydantic structured LLM explanations and Notion-based progress tracking.</p>
+                    <span class="card-link">View Project</span>
                 </a>
-
-                <a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">LangChain • FastAPI • Argo CD • Kubernetes</div>
-                    <h4>Recall AI Study Agent</h4>
-                    <p>Single-File Architecture (SFA) study companion with teach-then-test workflow. Contextual quiz generation from chat history, FastAPI-LangChain backend, Kubernetes deployment with Argo CD.</p>
-                    <div class="card-footer">View Project</div>
+                <a href="https://github.com/farhanrhine/Retail-AI-Agent" target="_blank" class="project-card">
+                    <span class="tech-stack">LangChain • Qwen3-32B • LangSmith</span>
+                    <h4>Retail AI Agent</h4>
+                    <p>Dual-purpose AI agent acting as a Personal Shopper and Support Assistant. Autonomously routes between 4 custom tools enforcing policies with zero hallucinations.</p>
+                    <span class="card-link">View Project</span>
                 </a>
-                
-                <a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">FAISS • Flask • GCP Cloud Run • RAG</div>
-                    <h4>Medical RAG AI Agent</h4>
-                    <p>Healthcare chatbot with RAG-powered medical knowledge retrieval from GALE Encyclopedia. FAISS vector store, source citations, Flask backend, deployed on GCP Cloud Run.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
-
-                <a href="https://github.com/farhanrhine/research-deepagent" target="_blank" class="project-card">
-                    <div class="card-meta">LangGraph • LangChain • Autonomous Agents</div>
-                    <h4>Research DeepAgent</h4>
-                    <p>Advanced research agent with planning capabilities, filesystem backend, and subagent spawning. Built on LangChain and LangGraph for complex autonomous research tasks.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
-
-                <a href="https://github.com/farhanrhine/travel-planner-ai-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">Whisper STT • Orpheus TTS • LangChain • Folium</div>
-                    <h4>Travel Planner AI Agent</h4>
-                    <p>An AI-powered travel planning agent featuring natural voice input (Whisper STT), narrated summaries (Orpheus TTS), and interactive route mapping. Built with LangChain and Streamlit, and deployed on Kubernetes with ELK stack monitoring.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
-
-                <a href="https://github.com/farhanrhine/flipkart-shopping-agent-gcp" target="_blank" class="project-card">
-                    <div class="card-meta">Cloud-Native • NLP • GCP • CI/CD</div>
-                    <h4>Flipkart Shopping Agent</h4>
-                    <p>Production-grade intelligent shopping assistant deployed on Google Cloud Platform. Natural language product search and comparison with cloud-native architecture, complete CI/CD pipeline.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
-
-                <a href="https://github.com/farhanrhine/Multi-Agent-Wedding-Planner" target="_blank" class="project-card">
-                    <div class="card-meta">Multi-Agent System • Coordination • Planning</div>
-                    <h4>Multi-Agent Wedding Planner</h4>
-                    <p>Collaborative multi-agent system for wedding planning. Coordinates multiple specialized agents to handle venue selection, catering, budgeting, and timeline management.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
-
-                <a href="https://github.com/farhanrhine/quran-bigram-model" target="_blank" class="project-card">
-                    <div class="card-meta">NLP • Bigram Analysis • Statistical Modeling</div>
-                    <h4>Quran Bigram Model</h4>
-                    <p>Statistical language model built on Quranic text using bigram analysis. Explores patterns and linguistic structures in classical Arabic.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
-
-                <a href="https://github.com/farhanrhine/moltbook-analysis" target="_blank" class="project-card">
-                    <div class="card-meta">Data Analytics • Visualization • Statistics</div>
-                    <h4>Moltbook Analysis</h4>
-                    <p>Data analysis and insights extraction from Moltbook platform. Statistical analysis and visualization of user behavior patterns.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
-            </div>
-
-            <div class="section-label">Selected Projects [2025]</div>
-            
-            <div class="projects-grid" style="margin-top: 40px;">
                 <a href="https://github.com/farhanrhine/ai-anime-recommender-rag" target="_blank" class="project-card">
-                    <div class="card-meta">ChromaDB • Groq Llama 3.1 • FastAPI • GKE</div>
-                    <h4>AI Anime Recommender RAG</h4>
-                    <p>Production-grade RAG system deployed on Google Kubernetes Engine. Features ChromaDB vector store, Groq Llama 3.1 LLM, FastAPI backend, and CI/CD pipeline.</p>
-                    <div class="card-footer">View Project</div>
+                    <span class="tech-stack">ChromaDB • Llama 3.1 • GKE</span>
+                    <h4>AI Anime Recommender</h4>
+                    <p>Production-grade RAG deployed on Kubernetes. Features ChromaDB vector store, FastAPI backend, and a complete CI/CD pipeline.</p>
+                    <span class="card-link">View Project</span>
                 </a>
+                <a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank" class="project-card">
+                    <span class="tech-stack">FAISS • Flask • GCP Cloud Run</span>
+                    <h4>Medical RAG Agent</h4>
+                    <p>Healthcare chatbot with RAG-powered knowledge retrieval from GALE Encyclopedia. FAISS vector store and automated source citations.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+                <a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank" class="project-card">
+                    <span class="tech-stack">Argo CD • Kubernetes • LangChain</span>
+                    <h4>Recall AI Study Agent</h4>
+                    <p>Single-File Architecture study companion with teach-then-test workflows. Contextual quiz generation deployed via Argo CD.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+                <a href="https://github.com/farhanrhine/travel-planner-ai-agent-gcp" target="_blank" class="project-card">
+                    <span class="tech-stack">Whisper STT • Orpheus TTS • Folium</span>
+                    <h4>Travel Planner AI</h4>
+                    <p>AI agent featuring natural voice input, narrated summaries, and interactive mapping. Monitored via ELK stack on Kubernetes.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+                <a href="https://github.com/farhanrhine/research-deepagent" target="_blank" class="project-card">
+                    <span class="tech-stack">LangGraph • Subagents • Local FS</span>
+                    <h4>Research DeepAgent</h4>
+                    <p>Advanced agent with planning capabilities, filesystem backend, and subagent spawning for complex, long-running research tasks.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+                <a href="https://github.com/farhanrhine/flipkart-shopping-agent-gcp" target="_blank" class="project-card">
+                    <span class="tech-stack">Cloud-Native • NLP • GCP</span>
+                    <h4>Flipkart Shopping Agent</h4>
+                    <p>Production-grade intelligent shopping assistant deployed on Google Cloud Platform featuring natural language product search and a full CI/CD pipeline.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+                <a href="https://github.com/farhanrhine/Multi-Agent-Wedding-Planner" target="_blank" class="project-card">
+                    <span class="tech-stack">Multi-Agent System • Planning</span>
+                    <h4>Multi-Agent Wedding Planner</h4>
+                    <p>Collaborative multi-agent system coordinating specialized agents to handle venue selection, catering, budgeting, and timeline management.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+            </div>
 
+            <!-- MLOPS & CLASSIC ML -->
+            <div class="section-label">Machine Learning & MLOps</div>
+            <div class="projects-grid">
+                <a href="https://github.com/farhanrhine/Deep_Learning-Tourism_Recommendation" target="_blank" class="project-card">
+                    <span class="tech-stack">PyTorch • Hybrid Deep Learning • NCF</span>
+                    <h4>Tourism Recommendation</h4>
+                    <p>Personalized travel engine utilizing Neural Collaborative Filtering (NCF) and content-based models via a learnable attention fusion mechanism.</p>
+                    <span class="card-link">View Project</span>
+                </a>
                 <a href="https://github.com/farhanrhine/flight-satisfaction-mlops" target="_blank" class="project-card">
-                    <div class="card-meta">LightGBM • MLflow • DVC • Jenkins</div>
+                    <span class="tech-stack">LightGBM • MLflow • DVC • Jenkins</span>
                     <h4>Flight Satisfaction MLOps</h4>
-                    <p>End-to-end MLOps pipeline with LightGBM, MLflow, DVC, Jenkins, Flask, and Docker. Complete data versioning and reproducible experiment tracking.</p>
-                    <div class="card-footer">View Project</div>
+                    <p>End-to-end pipeline handling data versioning and reproducible tracking. Deployed with Flask and Docker.</p>
+                    <span class="card-link">View Project</span>
                 </a>
-
-                <a href="https://github.com/farhanrhine/paytm-local-mcp-server" target="_blank" class="project-card">
-                    <div class="card-meta">MCP Server • Claude AI • Local Processing</div>
-                    <h4>Paytm Local MCP Server</h4>
-                    <p>Privacy-first MCP server for analyzing Paytm UPI transactions using natural language with Claude AI. 100% local processing with strict schema validation.</p>
-                    <div class="card-footer">View Project</div>
+                <a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank" class="project-card">
+                    <span class="tech-stack">OpenCV • Llama 4 • Kubernetes</span>
+                    <h4>Celebrity Face Detection</h4>
+                    <p>Computer vision app combining OpenCV cascades with an LLM Q&A engine, deployed on GKE using CircleCI.</p>
+                    <span class="card-link">View Project</span>
                 </a>
-
-                <a href="https://github.com/farhanrhine/web-eater" target="_blank" class="project-card">
-                    <div class="card-meta">Web Scraping • Data Extraction • Python</div>
-                    <h4>Web Eater</h4>
-                    <p>Web scraping and data extraction tool. Efficiently processes and structures web content for downstream analysis and LLM consumption.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
-
-                <a href="https://github.com/farhanrhine/ai-tutor-skill" target="_blank" class="project-card">
-                    <div class="card-meta">Claude AI • Prompt Engineering • EdTech</div>
-                    <h4>AI Tutor Skill</h4>
-                    <p>Claude skill for explaining technical AI concepts. Interactive educational tool that adapts explanations to user understanding level.</p>
-                    <div class="card-footer">View Project</div>
-                </a>
-
                 <a href="https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws" target="_blank" class="project-card">
-                    <div class="card-meta">Regression • FastAPI • Docker • AWS EC2</div>
-                    <h4>Insurance Premium Prediction API</h4>
-                    <p>ML regression model served via FastAPI, containerized with Docker, and deployed on AWS EC2. High-performance inference with horizontal scaling.</p>
-                    <div class="card-footer">View Project</div>
+                    <span class="tech-stack">Regression • FastAPI • AWS EC2</span>
+                    <h4>Insurance Prediction API</h4>
+                    <p>Scalable ML regression model served via high-performance FastAPI, containerized, and scaled horizontally on AWS.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+                <a href="https://github.com/farhanrhine/IoT-Power-Consumption-Analysis" target="_blank" class="project-card">
+                    <span class="tech-stack">Scikit-Learn • Pandas • EDA</span>
+                    <h4>IoT Power Analysis</h4>
+                    <p>Processes electrical time-series data to compute power metrics, identify usage patterns, and isolate anomalies.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+                <a href="https://github.com/farhanrhine/quran-bigram-model" target="_blank" class="project-card">
+                    <span class="tech-stack">NLP • Bigram Analysis • Stats</span>
+                    <h4>Quran Bigram Model</h4>
+                    <p>Statistical language modeling exploring classical Arabic linguistic structures via extensive bigram analysis.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+            </div>
+
+            <!-- DATA & MISC -->
+            <div class="section-label">Software & Data Engineering</div>
+            <div class="projects-grid">
+                <a href="https://github.com/farhanrhine/Finlo" target="_blank" class="project-card">
+                    <span class="tech-stack">Raw SQL • Claude Code • Pure HTML</span>
+                    <h4>Finlo</h4>
+                    <p>Minimalist personal expense tracker built with raw SQL (no ORM) and zero frameworks, utilizing Spec-Driven Development via Claude Code.</p>
+                    <span class="card-link">View Project</span>
+                </a>
+                <a href="https://github.com/farhanrhine/web-eater" target="_blank" class="project-card">
+                    <span class="tech-stack">Web Scraping • Data Extraction</span>
+                    <h4>Web Eater</h4>
+                    <p>Web scraping and structured data extraction pipeline optimized for downstream LLM consumption and RAG systems.</p>
+                    <span class="card-link">View Project</span>
                 </a>
             </div>
         </section>
 
-        <!-- Certifications -->
-        <section>
-            <div class="section-label">Certifications</div>
-            
-            <div class="cert-grid">
-                <a href="https://academy.langchain.com/certificates/5c6dqdikrw" target="_blank" class="cert-card">
-                    <div class="card-meta">LangChain Academy</div>
-                    <h4>Project: Deep Agents</h4>
-                </a>
-                
-                <a href="https://www.udemy.com/certificate/UC-af7ba73d-22ce-4804-90dc-bb9f523e5c44/" target="_blank" class="cert-card">
-                    <div class="card-meta">Udemy</div>
-                    <h4>LLMOps And AIOps Bootcamp</h4>
-                </a>
-                
-                <a href="https://academy.langchain.com/certificates/sgwwul3tgp" target="_blank" class="cert-card">
-                    <div class="card-meta">LangChain Academy</div>
-                    <h4>Intro to LangChain</h4>
-                </a>
-                
-                <a href="https://coursera.org/share/ee82b26d5d154fbda135d7b84095d8e5" target="_blank" class="cert-card">
-                    <div class="card-meta">DeepLearning.AI</div>
-                    <h4>Retrieval Augmented Generation</h4>
-                </a>
-                
-                <a href="https://www.linkedin.com/in/farhanrhine/details/certifications/1749842070696/single-media-viewer/?type=DOCUMENT&profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank" class="cert-card">
-                    <div class="card-meta">NPTEL</div>
-                    <h4>Deep Learning</h4>
-                </a>
-                
-                <a href="https://archive.nptel.ac.in/content/noc/NOC24/SEM2/Ecertificates/106/noc24-cs81/Course/NPTEL24CS81S33290026902612520.pdf" target="_blank" class="cert-card">
-                    <div class="card-meta">NPTEL</div>
-                    <h4>Intro to Machine Learning</h4>
-                </a>
-
-                <a href="https://coursera.org/share/a4d76a4505c78d9bdbd88707c973c0cc" target="_blank" class="cert-card">
-                    <div class="card-meta">University of Michigan</div>
-                    <h4>Python for Everybody</h4>
-                </a>
-
-                <a href="https://coursera.org/share/ac3bb60541c6cfe3c78be60158902c3f" target="_blank" class="cert-card">
-                    <div class="card-meta">DeepLearning.AI</div>
-                    <h4>AI For Everyone</h4>
-                </a>
-
-                <a href="https://coursera.org/share/c0d21e68b3860104a386c4ddc7e24a32" target="_blank" class="cert-card">
-                    <div class="card-meta">Chandigarh University</div>
-                    <h4>Basics of Research Methodology</h4>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>0 frameworks were used to make this interface. Pure HTML and CSS.</p>
-        <p>&copy; 2026 Farhan. Built with a focus on correctness.</p>
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <p>0 frameworks were used to make this interface. Pure HTML & CSS.</p>
+            <p>&copy; 2026 Farhan. Built with a focus on correctness.</p>
+        </footer>
+    </div>
 
     <script>
-        // Theme Toggle Functionality
         const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
         const htmlElement = document.documentElement;
-        
-        // Get saved theme or default to light
-        const getSavedTheme = () => {
-            const saved = localStorage.getItem('theme');
-            return saved || 'light';
+
+        const svgs = {
+            light: `<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />`,
+            dark: `<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />`
         };
+
+        const getSavedTheme = () => localStorage.getItem('theme') || 'dark';
         
-        // Set theme
         const setTheme = (theme) => {
             htmlElement.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
-            themeToggle.textContent = theme === 'dark' ? 'LIGHT' : 'DARK';
+            themeIcon.innerHTML = theme === 'dark' ? svgs.dark : svgs.light;
         };
-        
-        // Initialize theme immediately
-        const currentTheme = getSavedTheme();
-        setTheme(currentTheme);
-        
-        // Toggle theme on button click
+
+        setTheme(getSavedTheme());
+
         themeToggle.addEventListener('click', () => {
             const current = htmlElement.getAttribute('data-theme');
-            const newTheme = current === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
+            setTheme(current === 'dark' ? 'light' : 'dark');
         });
     </script>
 </body>

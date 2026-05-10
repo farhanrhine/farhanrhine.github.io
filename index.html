@@ -160,9 +160,10 @@
             font-size: 1.75rem;
             font-weight: 400;
             color: var(--ink-muted);
-            margin-bottom: 40px;
+            margin: 0 auto 40px auto;
             line-height: 1.3;
             max-width: 800px;
+            text-align: center;
         }
 
         .section-label {
@@ -195,20 +196,28 @@
             padding: 56px;
             border-radius: var(--radius-lg);
             margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         .profile-img {
-            width: 96px;
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
             border-radius: 50%;
-            margin-bottom: 8px;
-            border: 1px solid var(--border);
-            filter: grayscale(100%);
-            transition: filter 0.4s ease;
+            margin-bottom: 16px;
+            border: 2px solid var(--border);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
         
-        .profile-img:hover { filter: grayscale(0%); }
+        .profile-img:hover { 
+            transform: scale(1.05);
+            border-color: var(--ink-soft);
+        }
 
-        .social-links { display: flex; gap: 12px; margin-top: 32px; align-items: center; }
+        .social-links { display: flex; gap: 16px; margin-top: 24px; align-items: center; justify-content: center; flex-wrap: wrap; }
         .social-links a.icon-link {
             display: flex; align-items: center; justify-content: center;
             width: 44px; height: 44px; border-radius: 50%;
@@ -222,21 +231,21 @@
             display: flex; align-items: center; justify-content: center;
             padding: 12px 28px; border-radius: 6px;
             background: var(--ink); color: var(--paper) !important;
-            font-weight: 500; font-size: 0.85rem; margin-left: auto;
+            font-weight: 500; font-size: 0.85rem;
             transition: opacity 0.2s;
         }
         .resume-btn:hover { opacity: 0.9; }
 
         /* SKILLS */
-        .skill-group { margin-bottom: 32px; }
+        .skill-group { margin-bottom: 32px; width: 100%; }
         .skill-group:last-child { margin-bottom: 0; }
-        .skill-group p { font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; }
-        .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-group p { font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
+        .skills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
         .skill-tag {
             border: 1px solid var(--border); padding: 8px 16px; border-radius: 99px;
             font-size: 0.8rem; font-weight: 500; transition: all 0.2s; cursor: default;
         }
-        .skill-tag:hover { border-color: var(--ink); background: var(--paper-warm); }
+        .skill-tag:hover { border-color: var(--ink); background: var(--paper-warm); transform: translateY(-1px); }
 
         /* FEATURED PROJECTS (New Layout) */
         .featured-grid {
@@ -329,8 +338,8 @@
         @media (max-width: 768px) {
             h1 { font-size: 3rem; }
             .hero-card { padding: 32px 24px; }
-            .social-links { flex-wrap: wrap; }
-            .resume-btn { width: 100%; margin-left: 0; margin-top: 16px; }
+            .social-links { flex-wrap: wrap; justify-content: center; }
+            .resume-btn { width: 100%; margin-top: 8px; }
             .nav-links { display: none; } /* Mobile: hide text links, keep toggle */
         }
     </style>
@@ -382,13 +391,19 @@
                 <div class="skill-group">
                     <p>Generative AI & LLMs</p>
                     <div class="skills">
-                        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">LangSmith</span><span class="skill-tag">RAG</span><span class="skill-tag">MCP</span><span class="skill-tag">Ollama</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">OpenAI</span><span class="skill-tag">Anthropic</span>
+                        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">LangSmith</span><span class="skill-tag">RAG</span><span class="skill-tag">MCP</span><span class="skill-tag">Ollama</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">OpenAI</span><span class="skill-tag">Anthropic</span><span class="skill-tag">Llama 3</span>
                     </div>
                 </div>
                 <div class="skill-group" style="margin-top: 32px;">
                     <p>Machine Learning & MLOps</p>
                     <div class="skills">
-                        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">MLflow</span><span class="skill-tag">DVC</span><span class="skill-tag">Jenkins</span><span class="skill-tag">GCP</span><span class="skill-tag">AWS</span>
+                        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Scikit-Learn</span><span class="skill-tag">Pandas</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">MLflow</span><span class="skill-tag">DVC</span><span class="skill-tag">Jenkins</span><span class="skill-tag">GCP</span><span class="skill-tag">AWS</span>
+                    </div>
+                </div>
+                <div class="skill-group" style="margin-top: 32px;">
+                    <p>Software Engineering & Backend</p>
+                    <div class="skills">
+                        <span class="skill-tag">Python</span><span class="skill-tag">FastAPI</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Raw SQL</span><span class="skill-tag">SQLite</span><span class="skill-tag">REST APIs</span>
                     </div>
                 </div>
             </div>

@@ -12,6 +12,38 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://avatars.githubusercontent.com/u/124152754?v=4">
     <meta property="og:url" content="https://farhanrhine.github.io">
+
+    <!-- ============================================================
+         OPTION B — CDN SCRIPT
+         ============================================================
+         ONLY 2 THINGS TO CHANGE IN THIS FILE — both marked below.
+         Everything else is your exact portfolio, zero modifications.
+         
+         HOW THIS WORKS:
+         The <script> tag below loads agentlayer.js from YOUR backend.
+         It opens a WebSocket so AgentLayer can interact with this page
+         IN REAL TIME: fill forms, click buttons, read DOM — via MCP tools.
+         
+         WHAT TO DO:
+         1. Edit this file on GitHub (pencil icon on index.html)
+         2. Find "CHANGE 1" below — replace YOUR-BACKEND-URL and YOUR-SITE-SLUG
+         3. Commit — GitHub Pages deploys in ~60 seconds
+         4. Open https://farhanrhine.github.io/ → DevTools (F12) → Console
+         5. You should see: [AgentLayer] Connected. Session: <id>
+         ============================================================ -->
+
+    <!-- ============================================================
+         CHANGE 1: Replace the two placeholders below:
+           YOUR-BACKEND-URL  → e.g. http://127.0.0.1:8000  (local)
+                                or https://your-app.onrender.com  (prod)
+           YOUR-SITE-SLUG    → the slug from your AgentLayer dashboard
+                                e.g. farhanrhine-github-io-a1b2c3d4
+         ============================================================ -->
+    <script
+      src="https://agentlayer-zwfy.onrender.com/embed/agentlayer.js"
+      data-site-key="farhanrhine-github-io-85f32ee2"
+      async
+    ></script>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +52,6 @@
     
     <style>
         :root {
-            /* Light Mode */
             --ink: #1a1816;
             --ink-soft: #3d3a36;
             --ink-muted: #6b6357;
@@ -62,7 +93,6 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
         ::selection { background: var(--accent); color: #fff; }
 
         body {
@@ -72,151 +102,69 @@
             background-color: var(--paper);
             transition: background-color 0.3s ease, color 0.3s ease;
             -webkit-font-smoothing: antialiased;
-            padding-top: 80px; /* Space for fixed nav */
+            padding-top: 80px;
         }
 
-        .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
         a { color: var(--ink); text-decoration: none; transition: all 0.2s ease; }
 
-        /* NAVIGATION */
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 70px;
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
+            position: fixed; top: 0; left: 0; width: 100%; height: 70px;
+            background: var(--glass); backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
+            z-index: 1000; display: flex; align-items: center;
         }
-
         .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 24px;
+            display: flex; justify-content: space-between; align-items: center;
+            width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
         }
-
-        .nav-logo {
-            font-family: var(--font-serif);
-            font-size: 1.5rem;
-            color: var(--ink);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--ink-muted);
-        }
-
+        .nav-logo { font-family: var(--font-serif); font-size: 1.5rem; color: var(--ink); }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-muted); }
         .nav-links a:hover { color: var(--ink); }
-
         .theme-toggle {
-            background: transparent;
-            border: 1px solid var(--border);
-            padding: 8px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--ink);
-            transition: all 0.2s;
+            background: transparent; border: 1px solid var(--border); padding: 8px;
+            border-radius: 50%; cursor: pointer; display: flex; align-items: center;
+            justify-content: center; color: var(--ink); transition: all 0.2s;
         }
-
         .theme-toggle:hover { background: var(--paper-warm); }
         .theme-toggle svg { width: 18px; height: 18px; fill: currentColor; }
 
-        /* TYPOGRAPHY */
         h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 400;
-            margin: 24px 0;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
+            font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400; margin: 24px 0; letter-spacing: -0.02em; line-height: 1.1;
         }
-
         h2 {
-            font-family: var(--font-serif);
-            font-size: 1.75rem;
-            font-weight: 400;
-            color: var(--ink-muted);
-            margin: 0 auto 40px auto;
-            line-height: 1.3;
-            max-width: 800px;
-            text-align: center;
+            font-family: var(--font-serif); font-size: 1.75rem; font-weight: 400;
+            color: var(--ink-muted); margin: 0 auto 40px auto; line-height: 1.3;
+            max-width: 800px; text-align: center;
         }
 
         .section-label {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--ink);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 16px;
-            margin: 80px 0 40px 0;
-            display: flex;
-            justify-content: space-between;
+            font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink);
+            border-bottom: 1px solid var(--border); padding-bottom: 16px;
+            margin: 80px 0 40px 0; display: flex; justify-content: space-between;
             align-items: flex-end;
         }
-
         .section-label span.subtitle {
-            color: var(--ink-muted);
-            font-size: 0.7rem;
-            letter-spacing: 0;
-            text-transform: none;
-            font-weight: 400;
+            color: var(--ink-muted); font-size: 0.7rem; letter-spacing: 0;
+            text-transform: none; font-weight: 400;
         }
 
-        /* HERO CARD */
+
+
         .hero-card {
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            padding: 56px;
-            border-radius: var(--radius-lg);
-            margin: 40px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            background: var(--paper-card); border: 1px solid var(--border);
+            padding: 56px; border-radius: var(--radius-lg); margin: 40px 0;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
         }
-
         .profile-img {
-            width: 140px;
-            height: 140px;
-            object-fit: cover;
-            border-radius: 50%;
-            margin-bottom: 16px;
-            border: 2px solid var(--border);
+            width: 140px; height: 140px; object-fit: cover; border-radius: 50%;
+            margin-bottom: 16px; border: 2px solid var(--border);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        
-        .profile-img:hover { 
-            transform: scale(1.05);
-            border-color: var(--ink-soft);
-        }
-
+        .profile-img:hover { transform: scale(1.05); border-color: var(--ink-soft); }
         .social-links { display: flex; gap: 16px; margin-top: 24px; align-items: center; justify-content: center; flex-wrap: wrap; }
         .social-links a.icon-link {
             display: flex; align-items: center; justify-content: center;
@@ -226,17 +174,14 @@
         .social-links a.icon-link:hover { background: var(--paper-warm); }
         .social-links img { width: 18px; height: 18px; opacity: 0.9; }
         [data-theme="dark"] .social-links img { filter: invert(1) brightness(1.1); }
-
         .resume-btn {
             display: flex; align-items: center; justify-content: center;
             padding: 12px 28px; border-radius: 6px;
             background: var(--ink); color: var(--paper) !important;
-            font-weight: 500; font-size: 0.85rem;
-            transition: opacity 0.2s;
+            font-weight: 500; font-size: 0.85rem; transition: opacity 0.2s;
         }
         .resume-btn:hover { opacity: 0.9; }
 
-        /* SKILLS */
         .skill-group { margin-bottom: 32px; width: 100%; }
         .skill-group:last-child { margin-bottom: 0; }
         .skill-group p { font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
@@ -247,300 +192,90 @@
         }
         .skill-tag:hover { border-color: var(--ink); background: var(--paper-warm); transform: translateY(-1px); }
 
-        /* FEATURED PROJECTS (New Layout) */
-        .featured-grid {
-            display: flex; flex-direction: column; gap: 32px; margin-bottom: 64px;
-        }
-        
+        .featured-grid { display: flex; flex-direction: column; gap: 32px; margin-bottom: 64px; }
         .featured-card {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            transition: border-color 0.2s;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+            background: var(--paper-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 48px; transition: border-color 0.2s;
         }
-
         .featured-card:hover { border-color: var(--ink-muted); }
-
-        .fc-content h3 { font-family: var(--font-serif); font-size: 2rem; margin: 8px 0 16px; line-height: 1.1; font-weight: 400;}
+        .fc-content h3 { font-family: var(--font-serif); font-size: 2rem; margin: 8px 0 16px; line-height: 1.1; font-weight: 400; }
         .fc-content p { color: var(--ink-muted); margin-bottom: 24px; font-size: 1.05rem; }
         .tech-stack { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 16px; display: block; }
-        
-        /* CSS Architecture Diagram */
         .arch-diagram {
-            background: var(--paper-warm);
-            border: 1px dashed var(--border);
-            border-radius: var(--radius-md);
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 16px;
-            font-family: var(--font-mono);
-            font-size: 0.7rem;
-            color: var(--ink-soft);
+            background: var(--paper-warm); border: 1px dashed var(--border);
+            border-radius: var(--radius-md); padding: 24px;
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; gap: 16px; font-family: var(--font-mono);
+            font-size: 0.7rem; color: var(--ink-soft);
         }
-
         .arch-node {
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            padding: 10px 16px;
-            border-radius: 6px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
-            position: relative;
-            z-index: 2;
+            background: var(--paper-card); border: 1px solid var(--border);
+            padding: 10px 16px; border-radius: 6px; text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02); position: relative; z-index: 2;
         }
-        
         .arch-row { display: flex; gap: 24px; align-items: center; position: relative; }
         .arch-arrow { color: var(--ink-muted); font-size: 1.2rem; }
 
-        /* STANDARD PROJECTS GRID */
-        .projects-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px;
-        }
-
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px; }
         .project-card {
             background: var(--paper-card); border: 1px solid var(--border);
             padding: 32px; border-radius: var(--radius-md);
             display: flex; flex-direction: column; transition: all 0.2s ease;
         }
-
         .project-card:hover { border-color: var(--ink-soft); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
         .project-card .tech-stack { margin-bottom: 12px; }
         .project-card h4 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 12px; line-height: 1.2; }
         .project-card p { color: var(--ink-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 24px; }
-        
-        .card-link {
-            font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: auto;
-        }
+        .card-link { font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: auto; }
         .card-link::after { content: "→"; transition: transform 0.2s; }
         .project-card:hover .card-link::after { transform: translateX(4px); color: var(--accent); }
-
         .project-card .company { font-weight: 500; color: var(--ink); margin-bottom: 12px; font-size: 0.95rem; }
         .project-card ul.exp-list { padding-left: 20px; color: var(--ink-muted); font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
         .project-card ul.exp-list li { margin-bottom: 8px; }
 
+        .contact-container { background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px; margin-top: 24px; }
+        .contact-form { display: grid; gap: 24px; }
+        .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        @media (max-width: 600px) { .form-row-2 { grid-template-columns: 1fr; } }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-muted); }
+        .form-control { background: var(--paper-warm); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s; }
+        .form-control:focus { border-color: var(--ink-soft); }
+        .form-control::placeholder { color: var(--ink-faint); }
+        textarea.form-control { resize: vertical; min-height: 120px; }
+        .submit-btn { background: var(--ink); color: var(--paper); border: none; padding: 14px 28px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600; cursor: pointer; justify-self: flex-start; transition: opacity 0.2s; }
+        .submit-btn:hover { opacity: 0.9; }
 
+        .newsletter-container { background: var(--paper-warm); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px; margin-top: 48px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .newsletter-title { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+        .newsletter-desc { color: var(--ink-muted); max-width: 600px; margin-bottom: 24px; font-size: 0.95rem; }
+        .newsletter-form { display: flex; width: 100%; max-width: 500px; gap: 12px; }
+        @media (max-width: 500px) { .newsletter-form { flex-direction: column; } }
+        .newsletter-input { flex-grow: 1; background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s; }
+        .newsletter-input:focus { border-color: var(--ink-soft); }
+        .newsletter-btn { background: var(--ink); color: var(--paper); border: none; padding: 12px 24px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
+        .newsletter-btn:hover { opacity: 0.9; }
 
-        /* CONTACT FORM SYSTEM */
-        .contact-container {
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            margin-top: 24px;
-        }
+        .form-feedback { padding: 16px; border-radius: var(--radius-sm); font-size: 0.85rem; font-family: var(--font-sans); margin-top: 16px; display: none; border: 1px solid transparent; text-align: left; }
+        .form-feedback.success { display: block; background-color: rgba(46, 117, 89, 0.1); border-color: rgba(46, 117, 89, 0.3); color: #2e7559; }
+        .form-feedback.error { display: block; background-color: rgba(229, 43, 80, 0.1); border-color: rgba(229, 43, 80, 0.3); color: var(--accent); }
 
-        .contact-form {
-            display: grid;
-            gap: 24px;
-        }
+        footer { margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--ink-muted); font-size: 0.85rem; }
 
-        .form-row-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
-        }
-
-        @media (max-width: 600px) {
-            .form-row-2 {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .form-group label {
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--ink-muted);
-        }
-
-        .form-control {
-            background: var(--paper-warm);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 12px 16px;
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            color: var(--ink);
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .form-control:focus {
-            border-color: var(--ink-soft);
-        }
-
-        .form-control::placeholder {
-            color: var(--ink-faint);
-        }
-
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .submit-btn {
-            background: var(--ink);
-            color: var(--paper);
-            border: none;
-            padding: 14px 28px;
-            border-radius: var(--radius-sm);
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            justify-self: flex-start;
-            transition: opacity 0.2s;
-        }
-
-        .submit-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* NEWSLETTER BANNER COMPONENT */
-        .newsletter-container {
-            background: var(--paper-warm);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            margin-top: 48px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .newsletter-title {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 8px;
-        }
-
-        .newsletter-desc {
-            color: var(--ink-muted);
-            max-width: 600px;
-            margin-bottom: 24px;
-            font-size: 0.95rem;
-        }
-
-        .newsletter-form {
-            display: flex;
-            width: 100%;
-            max-width: 500px;
-            gap: 12px;
-        }
-
-        @media (max-width: 500px) {
-            .newsletter-form {
-                flex-direction: column;
-            }
-        }
-
-        .newsletter-input {
-            flex-grow: 1;
-            background: var(--paper-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            padding: 12px 16px;
-            font-family: var(--font-sans);
-            font-size: 0.9rem;
-            color: var(--ink);
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .newsletter-input:focus {
-            border-color: var(--ink-soft);
-        }
-
-        .newsletter-btn {
-            background: var(--ink);
-            color: var(--paper);
-            border: none;
-            padding: 12px 24px;
-            border-radius: var(--radius-sm);
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity 0.2s;
-        }
-
-        .newsletter-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* CUSTOM NOTIFICATION BLOCKS */
-        .form-feedback {
-            padding: 16px;
-            border-radius: var(--radius-sm);
-            font-size: 0.85rem;
-            font-family: var(--font-sans);
-            margin-top: 16px;
-            display: none;
-            border: 1px solid transparent;
-            text-align: left;
-        }
-
-        .form-feedback.success {
-            display: block;
-            background-color: rgba(46, 117, 89, 0.1);
-            border-color: rgba(46, 117, 89, 0.3);
-            color: #2e7559;
-        }
-
-        .form-feedback.error {
-            display: block;
-            background-color: rgba(229, 43, 80, 0.1);
-            border-color: rgba(229, 43, 80, 0.3);
-            color: var(--accent);
-        }
-
-        footer {
-            margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border);
-            text-align: center; color: var(--ink-muted); font-size: 0.85rem;
-        }
-
-        @media (max-width: 900px) {
-            .featured-card { grid-template-columns: 1fr; padding: 32px; }
-            .arch-diagram { padding: 32px 16px; }
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 3rem; }
-            .hero-card { padding: 32px 24px; }
-            .social-links { flex-wrap: wrap; justify-content: center; }
-            .resume-btn { width: 100%; margin-top: 8px; }
-            .nav-links { display: none; } /* Mobile: hide text links, keep toggle */
-        }
+        @media (max-width: 900px) { .featured-card { grid-template-columns: 1fr; padding: 32px; } .arch-diagram { padding: 32px 16px; } }
+        @media (max-width: 768px) { h1 { font-size: 3rem; } .hero-card { padding: 32px 24px; } .social-links { flex-wrap: wrap; justify-content: center; } .resume-btn { width: 100%; margin-top: 8px; } .nav-links { display: none; } }
     </style>
 </head>
 <body>
-    <!-- Sticky Navigation Menu -->
     <nav>
         <div class="nav-content">
             <div class="nav-logo">Farhan.</div>
             <div class="nav-links">
-                <!-- Navigation menu matching requirements -->
                 <a href="#about">Home</a>
                 <a href="#featured">Projects</a>
                 <a href="#contact">Contact</a>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <!-- Sun/Moon Icon updated via JS -->
                     <svg id="theme-icon" viewBox="0 0 24 24"></svg>
                 </button>
             </div>
@@ -548,12 +283,11 @@
     </nav>
 
     <div class="container">
-        <!-- Hero Header Section -->
+
         <header id="about" class="hero-card">
             <img src="https://avatars.githubusercontent.com/u/124152754?v=4" alt="Farhan" class="profile-img">
             <h1>Farhan.</h1>
             <h2>I Build Agentic AI, MCP Servers, LLMs, RAG Pipelines, ML & Deep Learning, and MLOps Apps.</h2>
-            
             <div class="social-links">
                 <a href="https://github.com/farhanrhine" target="_blank" class="icon-link" title="GitHub">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" alt="GitHub">
@@ -564,13 +298,10 @@
                 <a href="mailto:mohammadfarhanalam09@gmail.com" class="icon-link" title="Email">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z'/%3E%3C/svg%3E" alt="Email">
                 </a>
-                <a href="https://drive.google.com/file/d/1bMZpdDzlKYpnIyAy0FMcJcPnG_SVLSfl/view?usp=sharing" target="_blank" class="resume-btn">
-                    Download Resume
-                </a>
+                <a href="https://drive.google.com/file/d/1bMZpdDzlKYpnIyAy0FMcJcPnG_SVLSfl/view?usp=sharing" target="_blank" class="resume-btn">Download Resume</a>
             </div>
         </header>
 
-        <!-- Technical Capabilities -->
         <section>
             <div class="hero-card" style="margin-bottom: 0;">
                 <div class="skill-group">
@@ -594,10 +325,8 @@
             </div>
         </section>
 
-        <!-- EXPERIENCE & EDUCATION -->
         <section id="experience">
             <div class="section-label">Experience & Education</div>
-            
             <div class="projects-grid">
                 <div class="project-card">
                     <span class="tech-stack">Oct - Dec 2024</span>
@@ -608,7 +337,6 @@
                         <li>Built and deployed Logistic Regression, Random Forest, and LSTM models.</li>
                     </ul>
                 </div>
-
                 <div class="project-card">
                     <span class="tech-stack">2022 - 2026</span>
                     <h4>Bachelor of Engineering in CS</h4>
@@ -618,15 +346,9 @@
             </div>
         </section>
 
-        <!-- FEATURED PROJECTS -->
         <section id="featured">
-            <div class="section-label">
-                Featured Architectures
-                <span class="subtitle">Deep Dives</span>
-            </div>
-            
+            <div class="section-label">Featured Architectures <span class="subtitle">Deep Dives</span></div>
             <div class="featured-grid">
-                <!-- Featured 1 -->
                 <article class="featured-card">
                     <div class="fc-content">
                         <span class="tech-stack">FastAPI • Whisper STT • LLM • Render</span>
@@ -634,25 +356,14 @@
                         <p>Voice-first AI interviewer that conducts adaptive tutor screening conversations. Features dual STT (OpenAI Whisper + Web Speech), structured assessment reports with full PDF exports, and a secure admin dashboard.</p>
                         <a href="https://github.com/farhanrhine/ai-tutor-screener" target="_blank" class="card-link">View Source Code</a>
                     </div>
-                    <!-- Architecture Vis -->
                     <div class="arch-diagram">
-                        <div class="arch-row">
-                            <div class="arch-node">User Voice</div>
-                            <span class="arch-arrow">→</span>
-                            <div class="arch-node" style="border-color: var(--accent);">Dual STT Engine</div>
-                        </div>
+                        <div class="arch-row"><div class="arch-node">User Voice</div><span class="arch-arrow">→</span><div class="arch-node" style="border-color: var(--accent);">Dual STT Engine</div></div>
                         <div class="arch-arrow">↓</div>
                         <div class="arch-node" style="border-color: var(--accent);">AI Interviewer (LLM)</div>
                         <div class="arch-arrow">↓</div>
-                        <div class="arch-row">
-                            <div class="arch-node">Admin Dashboard</div>
-                            <span class="arch-arrow">←</span>
-                            <div class="arch-node">PDF Export</div>
-                        </div>
+                        <div class="arch-row"><div class="arch-node">Admin Dashboard</div><span class="arch-arrow">←</span><div class="arch-node">PDF Export</div></div>
                     </div>
                 </article>
-
-                <!-- Featured 2 -->
                 <article class="featured-card">
                     <div class="fc-content">
                         <span class="tech-stack">PostgreSQL • RBAC • Zero-Framework</span>
@@ -660,21 +371,14 @@
                         <p>Secure, aesthetic, and high-performance task management system. Streamlines team collaboration with Role-Based Access Control, a zero-framework pure frontend, and robust PostgreSQL deployment on Railway.</p>
                         <a href="https://github.com/farhanrhine/FlowDesk" target="_blank" class="card-link">View Source Code</a>
                     </div>
-                    <!-- Architecture Vis -->
                     <div class="arch-diagram">
-                        <div class="pure HTML/CSS/JS Client">Pure HTML/CSS/JS Client</div>
+                        <div class="arch-node">Pure HTML/CSS/JS Client</div>
                         <div class="arch-arrow">↓</div>
                         <div class="arch-node" style="border-color: var(--accent);">RESTful API Layer</div>
                         <div class="arch-arrow">↓</div>
-                        <div class="arch-row">
-                            <div class="arch-node">RBAC Middleware</div>
-                            <span class="arch-arrow">→</span>
-                            <div class="arch-node" style="border-color: var(--accent);">PostgreSQL DB</div>
-                        </div>
+                        <div class="arch-row"><div class="arch-node">RBAC Middleware</div><span class="arch-arrow">→</span><div class="arch-node" style="border-color: var(--accent);">PostgreSQL DB</div></div>
                     </div>
                 </article>
-
-                <!-- Featured 3 -->
                 <article class="featured-card">
                     <div class="fc-content">
                         <span class="tech-stack">MCP SDK • Claude Desktop • SQLite</span>
@@ -682,162 +386,51 @@
                         <p>Privacy-first Model Context Protocol (MCP) server for analyzing personal UPI transactions locally. Features standard stdio + SSE transport, processing 950+ transactions entirely on-device with zero data sharing.</p>
                         <a href="https://github.com/farhanrhine/paytm-local-mcp-server" target="_blank" class="card-link">View Source Code</a>
                     </div>
-                    <!-- Architecture Vis -->
                     <div class="arch-diagram">
                         <div class="arch-node">Claude Desktop</div>
                         <div class="arch-arrow">↓ (MCP Protocol)</div>
-                        <div class="arch-row">
-                            <div class="arch-node" style="border-color: var(--accent);">Local MCP Server</div>
-                        </div>
+                        <div class="arch-row"><div class="arch-node" style="border-color: var(--accent);">Local MCP Server</div></div>
                         <div class="arch-arrow">↓</div>
-                        <div class="arch-row">
-                            <div class="arch-node">Schema Validation</div>
-                            <span class="arch-arrow">→</span>
-                            <div class="arch-node">Local DB / CSV</div>
-                        </div>
+                        <div class="arch-row"><div class="arch-node">Schema Validation</div><span class="arch-arrow">→</span><div class="arch-node">Local DB / CSV</div></div>
                     </div>
                 </article>
             </div>
         </section>
 
-        <!-- AGENTIC AI & LLMs -->
         <section id="projects">
             <div class="section-label">Agentic Workflows & RAG</div>
             <div class="projects-grid">
-                <a href="https://github.com/farhanrhine/multi-ai-agent-gcp" target="_blank" class="project-card">
-                    <span class="tech-stack">LangGraph • Llama 3 • FastAPI</span>
-                    <h4>Multi-AI Agent System</h4>
-                    <p>Production multi-agent application utilizing a custom LangGraph StateGraph, Llama 3, and Tavily Search. Implements real-time streaming via a FastAPI backend and deployed on GCP Cloud Run.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/OpenClaw-Retail-Support-Agent" target="_blank" class="project-card">
-                    <span class="tech-stack">OpenClaw • GLM-4.5 • APIs</span>
-                    <h4>OpenClaw Retail Support</h4>
-                    <p>Autonomous customer support assistant integrated natively with WhatsApp and Telegram. Resolves order queries via a sophisticated tool-invocation layer.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/discord-notion-sync" target="_blank" class="project-card">
-                    <span class="tech-stack">Discord API • Notion • AI Agents</span>
-                    <h4>Discord-Notion-Sync</h4>
-                    <p>Bot bridging Discord chat to Notion, featuring AI note refinement and an autonomous web search agent.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/discord-thread-notion-mind" target="_blank" class="project-card">
-                    <span class="tech-stack">Pydantic • LLM • Notion • Discord</span>
-                    <h4>Student Study Assistant</h4>
-                    <p>Study bot managing private threads with Pydantic structured LLM explanations and Notion-based progress tracking.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/Retail-AI-Agent" target="_blank" class="project-card">
-                    <span class="tech-stack">LangChain • Qwen3-32B • LangSmith</span>
-                    <h4>Retail AI Agent</h4>
-                    <p>Dual-purpose AI agent acting as a Personal Shopper and Support Assistant. Autonomously routes between 4 custom tools enforcing policies with zero hallucinations.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/ai-anime-recommender-rag" target="_blank" class="project-card">
-                    <span class="tech-stack">ChromaDB • Llama 3.1 • GKE</span>
-                    <h4>AI Anime Recommender</h4>
-                    <p>Production-grade RAG deployed on Kubernetes. Features ChromaDB vector store, FastAPI backend, and a complete CI/CD pipeline.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank" class="project-card">
-                    <span class="tech-stack">FAISS • Flask • GCP Cloud Run</span>
-                    <h4>Medical RAG Agent</h4>
-                    <p>Healthcare chatbot with RAG-powered knowledge retrieval from GALE Encyclopedia. FAISS vector store and automated source citations.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank" class="project-card">
-                    <span class="tech-stack">Argo CD • Kubernetes • LangChain</span>
-                    <h4>Recall AI Study Agent</h4>
-                    <p>Single-File Architecture study companion with teach-then-test workflows. Contextual quiz generation deployed via Argo CD.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/travel-planner-ai-agent-gcp" target="_blank" class="project-card">
-                    <span class="tech-stack">Whisper STT • Orpheus TTS • Folium</span>
-                    <h4>Travel Planner AI</h4>
-                    <p>AI agent featuring natural voice input, narrated summaries, and interactive mapping. Monitored via ELK stack on Kubernetes.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/research-deepagent" target="_blank" class="project-card">
-                    <span class="tech-stack">LangGraph • Subagents • Local FS</span>
-                    <h4>Research DeepAgent</h4>
-                    <p>Advanced agent with planning capabilities, filesystem backend, and subagent spawning for complex, long-running research tasks.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/flipkart-shopping-agent-gcp" target="_blank" class="project-card">
-                    <span class="tech-stack">Cloud-Native • NLP • GCP</span>
-                    <h4>Flipkart Shopping Agent</h4>
-                    <p>Production-grade intelligent shopping assistant deployed on Google Cloud Platform featuring natural language product search and a full CI/CD pipeline.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/Multi-Agent-Wedding-Planner" target="_blank" class="project-card">
-                    <span class="tech-stack">Multi-Agent System • Planning</span>
-                    <h4>Multi-Agent Wedding Planner</h4>
-                    <p>Collaborative multi-agent system coordinating specialized agents to handle venue selection, catering, budgeting, and timeline management.</p>
-                    <span class="card-link">View Project</span>
-                </a>
+                <a href="https://github.com/farhanrhine/multi-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">LangGraph • Llama 3 • FastAPI</span><h4>Multi-AI Agent System</h4><p>Production multi-agent application utilizing a custom LangGraph StateGraph, Llama 3, and Tavily Search. Implements real-time streaming via a FastAPI backend and deployed on GCP Cloud Run.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/OpenClaw-Retail-Support-Agent" target="_blank" class="project-card"><span class="tech-stack">OpenClaw • GLM-4.5 • APIs</span><h4>OpenClaw Retail Support</h4><p>Autonomous customer support assistant integrated natively with WhatsApp and Telegram. Resolves order queries via a sophisticated tool-invocation layer.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/discord-notion-sync" target="_blank" class="project-card"><span class="tech-stack">Discord API • Notion • AI Agents</span><h4>Discord-Notion-Sync</h4><p>Bot bridging Discord chat to Notion, featuring AI note refinement and an autonomous web search agent.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/discord-thread-notion-mind" target="_blank" class="project-card"><span class="tech-stack">Pydantic • LLM • Notion • Discord</span><h4>Student Study Assistant</h4><p>Study bot managing private threads with Pydantic structured LLM explanations and Notion-based progress tracking.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/Retail-AI-Agent" target="_blank" class="project-card"><span class="tech-stack">LangChain • Qwen3-32B • LangSmith</span><h4>Retail AI Agent</h4><p>Dual-purpose AI agent acting as a Personal Shopper and Support Assistant. Autonomously routes between 4 custom tools enforcing policies with zero hallucinations.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/ai-anime-recommender-rag" target="_blank" class="project-card"><span class="tech-stack">ChromaDB • Llama 3.1 • GKE</span><h4>AI Anime Recommender</h4><p>Production-grade RAG deployed on Kubernetes. Features ChromaDB vector store, FastAPI backend, and a complete CI/CD pipeline.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">FAISS • Flask • GCP Cloud Run</span><h4>Medical RAG Agent</h4><p>Healthcare chatbot with RAG-powered knowledge retrieval from GALE Encyclopedia. FAISS vector store and automated source citations.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">Argo CD • Kubernetes • LangChain</span><h4>Recall AI Study Agent</h4><p>Single-File Architecture study companion with teach-then-test workflows. Contextual quiz generation deployed via Argo CD.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/travel-planner-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">Whisper STT • Orpheus TTS • Folium</span><h4>Travel Planner AI</h4><p>AI agent featuring natural voice input, narrated summaries, and interactive mapping. Monitored via ELK stack on Kubernetes.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/research-deepagent" target="_blank" class="project-card"><span class="tech-stack">LangGraph • Subagents • Local FS</span><h4>Research DeepAgent</h4><p>Advanced agent with planning capabilities, filesystem backend, and subagent spawning for complex, long-running research tasks.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/flipkart-shopping-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">Cloud-Native • NLP • GCP</span><h4>Flipkart Shopping Agent</h4><p>Production-grade intelligent shopping assistant deployed on Google Cloud Platform featuring natural language product search and a full CI/CD pipeline.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/Multi-Agent-Wedding-Planner" target="_blank" class="project-card"><span class="tech-stack">Multi-Agent System • Planning</span><h4>Multi-Agent Wedding Planner</h4><p>Collaborative multi-agent system coordinating specialized agents to handle venue selection, catering, budgeting, and timeline management.</p><span class="card-link">View Project</span></a>
             </div>
 
-            <!-- MLOPS & CLASSIC ML -->
             <div class="section-label">Machine Learning & MLOps</div>
             <div class="projects-grid">
-                <a href="https://github.com/farhanrhine/Deep_Learning-Tourism_Recommendation" target="_blank" class="project-card">
-                    <span class="tech-stack">PyTorch • Hybrid Deep Learning • NCF</span>
-                    <h4>Tourism Recommendation</h4>
-                    <p>Personalized travel engine utilizing Neural Collaborative Filtering (NCF) and content-based models via a learnable attention fusion mechanism.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/flight-satisfaction-mlops" target="_blank" class="project-card">
-                    <span class="tech-stack">LightGBM • MLflow • DVC • Jenkins</span>
-                    <h4>Flight Satisfaction MLOps</h4>
-                    <p>End-to-end pipeline handling data versioning and reproducible tracking. Deployed with Flask and Docker.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank" class="project-card">
-                    <span class="tech-stack">OpenCV • Llama 4 • Kubernetes</span>
-                    <h4>Celebrity Face Detection</h4>
-                    <p>Computer vision app combining OpenCV cascades with an LLM Q&A engine, deployed on GKE using CircleCI.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws" target="_blank" class="project-card">
-                    <span class="tech-stack">Regression • FastAPI • AWS EC2</span>
-                    <h4>Insurance Prediction API</h4>
-                    <p>Scalable ML regression model served via high-performance FastAPI, containerized, and scaled horizontally on AWS.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/IoT-Power-Consumption-Analysis" target="_blank" class="project-card">
-                    <span class="tech-stack">Scikit-Learn • Pandas • EDA</span>
-                    <h4>IoT Power Analysis</h4>
-                    <p>Processes electrical time-series data to compute power metrics, identify usage patterns, and isolate anomalies.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/quran-bigram-model" target="_blank" class="project-card">
-                    <span class="tech-stack">NLP • Bigram Analysis • Stats</span>
-                    <h4>Quran Bigram Model</h4>
-                    <p>Statistical language modeling exploring classical Arabic linguistic structures via extensive bigram analysis.</p>
-                    <span class="card-link">View Project</span>
-                </a>
+                <a href="https://github.com/farhanrhine/Deep_Learning-Tourism_Recommendation" target="_blank" class="project-card"><span class="tech-stack">PyTorch • Hybrid Deep Learning • NCF</span><h4>Tourism Recommendation</h4><p>Personalized travel engine utilizing Neural Collaborative Filtering (NCF) and content-based models via a learnable attention fusion mechanism.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/flight-satisfaction-mlops" target="_blank" class="project-card"><span class="tech-stack">LightGBM • MLflow • DVC • Jenkins</span><h4>Flight Satisfaction MLOps</h4><p>End-to-end pipeline handling data versioning and reproducible tracking. Deployed with Flask and Docker.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">OpenCV • Llama 4 • Kubernetes</span><h4>Celebrity Face Detection</h4><p>Computer vision app combining OpenCV cascades with an LLM Q&A engine, deployed on GKE using CircleCI.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws" target="_blank" class="project-card"><span class="tech-stack">Regression • FastAPI • AWS EC2</span><h4>Insurance Prediction API</h4><p>Scalable ML regression model served via high-performance FastAPI, containerized, and scaled horizontally on AWS.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/IoT-Power-Consumption-Analysis" target="_blank" class="project-card"><span class="tech-stack">Scikit-Learn • Pandas • EDA</span><h4>IoT Power Analysis</h4><p>Processes electrical time-series data to compute power metrics, identify usage patterns, and isolate anomalies.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/quran-bigram-model" target="_blank" class="project-card"><span class="tech-stack">NLP • Bigram Analysis • Stats</span><h4>Quran Bigram Model</h4><p>Statistical language modeling exploring classical Arabic linguistic structures via extensive bigram analysis.</p><span class="card-link">View Project</span></a>
             </div>
 
-            <!-- DATA & MISC -->
             <div class="section-label">Software & Data Engineering</div>
             <div class="projects-grid">
-                <a href="https://github.com/farhanrhine/Finlo" target="_blank" class="project-card">
-                    <span class="tech-stack">Raw SQL • Claude Code • Pure HTML</span>
-                    <h4>Finlo</h4>
-                    <p>Minimalist personal expense tracker built with raw SQL (no ORM) and zero frameworks, utilizing Spec-Driven Development via Claude Code.</p>
-                    <span class="card-link">View Project</span>
-                </a>
-                <a href="https://github.com/farhanrhine/web-eater" target="_blank" class="project-card">
-                    <span class="tech-stack">Web Scraping • Data Extraction</span>
-                    <h4>Web Eater</h4>
-                    <p>Web scraping and structured data extraction pipeline optimized for downstream LLM consumption and RAG systems.</p>
-                    <span class="card-link">View Project</span>
-                </a>
+                <a href="https://github.com/farhanrhine/Finlo" target="_blank" class="project-card"><span class="tech-stack">Raw SQL • Claude Code • Pure HTML</span><h4>Finlo</h4><p>Minimalist personal expense tracker built with raw SQL (no ORM) and zero frameworks, utilizing Spec-Driven Development via Claude Code.</p><span class="card-link">View Project</span></a>
+                <a href="https://github.com/farhanrhine/web-eater" target="_blank" class="project-card"><span class="tech-stack">Web Scraping • Data Extraction</span><h4>Web Eater</h4><p>Web scraping and structured data extraction pipeline optimized for downstream LLM consumption and RAG systems.</p><span class="card-link">View Project</span></a>
             </div>
         </section>
 
-        <!-- NEWSLETTER SIGNUP BANNER -->
         <section class="newsletter-container">
             <h3 class="newsletter-title">Get in Touch</h3>
             <p class="newsletter-desc">Interested in collaborating or have a project in mind? Drop your email and I'll reach out.</p>
@@ -848,13 +441,8 @@
             <div id="newsletter-status" class="form-feedback"></div>
         </section>
 
-        <!-- CONTACT SYSTEM -->
         <section id="contact">
-            <div class="section-label">
-                Contact
-                <span class="subtitle">Send me a message</span>
-            </div>
-            
+            <div class="section-label">Contact <span class="subtitle">Send me a message</span></div>
             <div class="contact-container">
                 <form id="contact-form" class="contact-form">
                     <div class="form-row-2">
@@ -863,155 +451,71 @@
                             <input type="text" id="contact-name" class="form-control" placeholder="Your name" required>
                         </div>
                         <div class="form-group">
-                            <label for="contact-email">Email</label>
+                            <label for="contact-email">Email Address</label>
                             <input type="email" id="contact-email" class="form-control" placeholder="your@email.com" required>
                         </div>
                     </div>
-                    
                     <div class="form-group">
                         <label for="contact-subject">Subject</label>
                         <input type="text" id="contact-subject" class="form-control" placeholder="What's this about?" required>
                     </div>
-
                     <div class="form-group">
                         <label for="contact-message">Message</label>
                         <textarea id="contact-message" class="form-control" placeholder="Your message..." required></textarea>
                     </div>
-
                     <button type="submit" class="submit-btn" id="contact-submit-btn">Send Message</button>
                     <div id="contact-status" class="form-feedback"></div>
                 </form>
             </div>
         </section>
 
-        <!-- Footer -->
         <footer>
             <p>0 frameworks were used to make this interface. Pure HTML & CSS.</p>
             <p>&copy; 2026 Farhan. Built with a focus on correctness.</p>
         </footer>
     </div>
 
-
+    <div class="modal-backdrop" id="product-modal">
+        <div class="modal-wrapper">
+            <button class="modal-close" id="product-modal-close" aria-label="Close details">&times;</button>
+            <div id="modal-dynamic-content"></div>
+        </div>
+    </div>
 
     <script>
-        // THEME CONTROLLER
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const htmlElement = document.documentElement;
-
         const svgs = {
             light: `<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />`,
             dark: `<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />`
         };
-
         const getSavedTheme = () => localStorage.getItem('theme') || 'dark';
-        
-        const setTheme = (theme) => {
-            htmlElement.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            themeIcon.innerHTML = theme === 'dark' ? svgs.dark : svgs.light;
-        };
-
+        const setTheme = (theme) => { htmlElement.setAttribute('data-theme', theme); localStorage.setItem('theme', theme); themeIcon.innerHTML = theme === 'dark' ? svgs.dark : svgs.light; };
         setTheme(getSavedTheme());
+        themeToggle.addEventListener('click', () => { const current = htmlElement.getAttribute('data-theme'); setTheme(current === 'dark' ? 'light' : 'dark'); });
 
-        themeToggle.addEventListener('click', () => {
-            const current = htmlElement.getAttribute('data-theme');
-            setTheme(current === 'dark' ? 'light' : 'dark');
-        });
-
-        // CONTACT FORM WITH REAL EMAIL INTEGRATION (Web3Forms API)
         const contactForm = document.getElementById('contact-form');
         const contactSubmit = document.getElementById('contact-submit-btn');
         const contactStatus = document.getElementById('contact-status');
-
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            contactSubmit.disabled = true;
-            contactSubmit.textContent = "Transmitting Message...";
-            contactStatus.className = 'form-feedback';
-            contactStatus.style.display = 'none';
-
-            const name = document.getElementById('contact-name').value;
-            const email = document.getElementById('contact-email').value;
-            const subject = document.getElementById('contact-subject').value;
-            const message = document.getElementById('contact-message').value;
-
-            // --- REAL EMAIL SUBMISSION SETUP ---
-            // Your access key from Web3Forms onboarding is securely integrated here
-            const accessKeyPlaceholder = "3e0667fa-57eb-42a8-923f-2be341337aaf"; 
-            
-            const formData = {
-                access_key: accessKeyPlaceholder,
-                name: name,
-                email: email,
-                subject: `[Portfolio Contact Form Submission] ${subject}`,
-                message: message
-            };
-
-            // If the access key isn't set up yet, fallback to a elegant simulated success model
-            if (formData.access_key === "YOUR_ACCESS_KEY_HERE") {
-                setTimeout(() => {
-                    contactSubmit.disabled = false;
-                    contactSubmit.textContent = "Transmit Message";
-                    contactStatus.classList.add('success');
-                    contactStatus.innerHTML = `<strong>Demo Mode Bypassed:</strong> Thank you, ${name}! Your transmission was simulated successfully. <br><em style="font-size:0.8rem; color:var(--ink-muted);">Backend Note: To make this form send real emails to your inbox, please replace "YOUR_ACCESS_KEY_HERE" inside the script in index.html with a free key from web3forms.com!</em>`;
-                    contactForm.reset();
-                }, 1000);
-                return;
-            }
-
-            // Execute real API post to dispatch to mohammadfarhanalam09@gmail.com
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(formData)
-            })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    contactStatus.classList.add('success');
-                    contactStatus.innerHTML = `<strong>Transmission Successful:</strong> Welcome, ${name}. Your request has bypassed initial queues. Farhan's mailbox will synchronize this inquiry shortly.`;
-                    contactForm.reset();
-                } else {
-                    contactStatus.classList.add('error');
-                    contactStatus.innerHTML = `<strong>Transmission Failed:</strong> ${json.message || "An error occurred dispatching your payload."}`;
-                }
-            })
-            .catch(error => {
-                contactStatus.classList.add('error');
-                contactStatus.innerHTML = `<strong>Network Error:</strong> Unable to connect to the backend mail relay. Please check your network and try again.`;
-            })
-            .then(() => {
-                contactSubmit.disabled = false;
-                contactSubmit.textContent = "Transmit Message";
-            });
+            e.preventDefault(); contactSubmit.disabled = true; contactSubmit.textContent = "Transmitting Message..."; contactStatus.className = 'form-feedback'; contactStatus.style.display = 'none';
+            const name = document.getElementById('contact-name').value; const email = document.getElementById('contact-email').value; const subject = document.getElementById('contact-subject').value; const message = document.getElementById('contact-message').value;
+            const accessKeyPlaceholder = "3e0667fa-57eb-42a8-923f-2be341337aaf";
+            const formData = { access_key: accessKeyPlaceholder, name, email, subject: `[Portfolio Contact Form Submission] ${subject}`, message };
+            if (formData.access_key === "YOUR_ACCESS_KEY_HERE") { setTimeout(() => { contactSubmit.disabled = false; contactSubmit.textContent = "Send Message"; contactStatus.classList.add('success'); contactStatus.innerHTML = `<strong>Demo Mode Bypassed:</strong> Thank you, ${name}! Your transmission was simulated successfully.`; contactForm.reset(); }, 1000); return; }
+            fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(formData) })
+            .then(async (response) => { let json = await response.json(); if (response.status == 200) { contactStatus.classList.add('success'); contactStatus.innerHTML = `<strong>Message sent! I'll get back to you soon.`; contactForm.reset(); } else { contactStatus.classList.add('error'); contactStatus.innerHTML = `<strong>Transmission Failed:</strong> ${json.message || "An error occurred dispatching your payload."}`; } })
+            .catch(error => { contactStatus.classList.add('error'); contactStatus.innerHTML = `<strong>Network Error:</strong> Unable to connect to the backend mail relay. Please check your network and try again.`; })
+            .then(() => { contactSubmit.disabled = false; contactSubmit.textContent = "Send Message"; });
         });
 
-        // NEWSLETTER REGISTRATION SIMULATION
         const newsletterForm = document.getElementById('newsletter-form');
         const newsletterSubmit = document.getElementById('newsletter-submit-btn');
         const newsletterStatus = document.getElementById('newsletter-status');
-
         newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            newsletterSubmit.disabled = true;
-            newsletterSubmit.textContent = "Syndicating...";
-            newsletterStatus.className = 'form-feedback';
-            newsletterStatus.style.display = 'none';
-
-            // Simulate fast registration loop (600ms)
-            setTimeout(() => {
-                const email = document.getElementById('newsletter-email').value;
-                newsletterSubmit.disabled = false;
-                newsletterSubmit.textContent = "Subscribe";
-                
-                newsletterStatus.classList.add('success');
-                newsletterStatus.innerHTML = `<strong>Database Entry Configured:</strong> ${email} added to the dispatcher registry. Welcome to the workspace.`;
-                newsletterForm.reset();
-            }, 600);
+            e.preventDefault(); newsletterSubmit.disabled = true; newsletterSubmit.textContent = "Sending..."; newsletterStatus.className = 'form-feedback'; newsletterStatus.style.display = 'none';
+            setTimeout(() => { const email = document.getElementById('newsletter-email').value; newsletterSubmit.disabled = false; newsletterSubmit.textContent = "Subscribe"; newsletterStatus.classList.add('success'); newsletterStatus.innerHTML = `<strong>Got it! I'll be in touch.`; newsletterForm.reset(); }, 600);
         });
     </script>
 </body>

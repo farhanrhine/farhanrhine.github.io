@@ -7,67 +7,25 @@
     <meta name="description" content="Farhan | ML & AI Engineer building Agentic AI, MCP Servers, LLMs, RAG Pipelines, and Production MLOps." />
     
     <!-- Open Graph / Social Meta Tags -->
-    <meta property="og:title" content="Farhan | ML & AI Engineer">
-    <meta property="og:description" content="Building Agentic AI, LLMs, RAG Pipelines, and MLOps Apps.">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/124152754?v=4">
-    <meta property="og:url" content="https://farhanrhine.github.io">
+    <meta property="og:title" content="Farhan | ML & AI Engineer" />
+    <meta property="og:description" content="Building Agentic AI, LLMs, RAG Pipelines, and MLOps Apps." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/124152754?v=4" />
+    <meta property="og:url" content="https://farhanrhine.github.io" />
 
-    <!-- ============================================================
-         OPTION B — CDN SCRIPT
-         ============================================================
-         ONLY 2 THINGS TO CHANGE IN THIS FILE — both marked below.
-         Everything else is your exact portfolio, zero modifications.
-         
-         HOW THIS WORKS:
-         The <script> tag below loads agentlayer.js from YOUR backend.
-         It opens a WebSocket so AgentLayer can interact with this page
-         IN REAL TIME: fill forms, click buttons, read DOM — via MCP tools.
-         
-         WHAT TO DO:
-         1. Edit this file on GitHub (pencil icon on index.html)
-         2. Find "CHANGE 1" below — replace YOUR-BACKEND-URL and YOUR-SITE-SLUG
-         3. Commit — GitHub Pages deploys in ~60 seconds
-         4. Open https://farhanrhine.github.io/ → DevTools (F12) → Console
-         5. You should see: [AgentLayer] Connected. Session: <id>
-         ============================================================ -->
+    <!-- Modern Bold & Monospace Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- ============================================================
-         CHANGE 1: Replace the two placeholders below:
-           YOUR-BACKEND-URL  → e.g. http://127.0.0.1:8000  (local)
-                                or https://your-app.onrender.com  (prod)
-           YOUR-SITE-SLUG    → the slug from your AgentLayer dashboard
-                                e.g. farhanrhine-github-io-a1b2c3d4
-         ============================================================ -->
-    <script
-      src="https://agentlayer-zwfy.onrender.com/embed/agentlayer.js"
-      data-site-key="farhanrhine-github-io-85f32ee2"
-      async
-    ></script>
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
     <style>
         /* ==========================================================================
            NEO-BRUTALIST DESIGN SYSTEM & MULTI-THEME TOKENS
            ========================================================================== */
         :root {
-            --ink: #1a1816;
-            --ink-soft: #3d3a36;
-            --ink-muted: #6b6357;
-            --ink-faint: #9a9088;
-            --paper: #faf9f5;
-            --paper-warm: #f2f0eb;
-            --paper-card: #ffffff;
-            --accent: #E52b50;
-            --accent-light: #fdecea;
-            --border: #dcdad2;
-            --border-soft: #e8e6df;
-            --border-dark: #1a1816;
-            --glass: rgba(250, 249, 245, 0.85);
+            --font-display: 'Archivo Black', 'Plus Jakarta Sans', sans-serif;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
 
             /* Metrics & Brutalist Physics */
             --border-thick: 2.5px solid #000000;
@@ -127,8 +85,48 @@
             --accent-pill-text: #FFC700;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        ::selection { background: var(--accent); color: #fff; }
+        /* THEME 2: CYBER DARK NEO */
+        html[data-theme="neo-dark"] {
+            --bg-canvas: #0F0F12;
+            --bg-surface: #191920;
+            --bg-surface-alt: #23232C;
+            --bg-surface-subtle: #141418;
+            --text-main: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --text-secondary: #E4E4E7;
+            --primary: #FFC700;
+            --primary-hover: #FFE066;
+            --primary-contrast: #000000;
+            --card-bg: #191920;
+            --card-border: #FFFFFF;
+            --dot-color: rgba(255, 255, 255, 0.06);
+            --code-bg: #09090B;
+            --code-text: #F4F4F5;
+            --accent-pill: #FFC700;
+            --accent-pill-text: #000000;
+            --border-thick: 2.5px solid #FFFFFF;
+            --border-medium: 2px solid #FFFFFF;
+            --border-thin: 1.5px solid rgba(255, 255, 255, 0.5);
+            --shadow-neo-xs: 2px 2px 0px #FFC700;
+            --shadow-neo-sm: 3px 3px 0px #FFC700;
+            --shadow-neo: 4px 4px 0px #FFC700;
+            --shadow-neo-lg: 6px 6px 0px #FFC700;
+            --shadow-neo-xl: 8px 8px 0px #FFC700;
+        }
+
+        /* ==========================================================================
+           BASE RESET & LAYOUT
+           ========================================================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
 
         body {
             background-color: var(--bg-canvas);
@@ -140,210 +138,1234 @@
             font-size: 15px;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            padding-top: 80px;
+            transition: background-color 0.25s ease, color 0.25s ease;
         }
 
-        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-        a { color: var(--ink); text-decoration: none; transition: all 0.2s ease; }
-
-        nav {
-            position: fixed; top: 0; left: 0; width: 100%; height: 70px;
-            background: var(--glass); backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--border);
-            z-index: 1000; display: flex; align-items: center;
-        }
-        .nav-content {
-            display: flex; justify-content: space-between; align-items: center;
-            width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
-        }
-        .nav-logo { font-family: var(--font-serif); font-size: 1.5rem; color: var(--ink); }
-        .nav-links { display: flex; gap: 24px; align-items: center; }
-        .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--ink-muted); }
-        .nav-links a:hover { color: var(--ink); }
-        .theme-toggle {
-            background: transparent; border: 1px solid var(--border); padding: 8px;
-            border-radius: 50%; cursor: pointer; display: flex; align-items: center;
-            justify-content: center; color: var(--ink); transition: all 0.2s;
-        }
-        .theme-toggle:hover { background: var(--paper-warm); }
-        .theme-toggle svg { width: 18px; height: 18px; fill: currentColor; }
-
-        h1 {
-            font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 400; margin: 24px 0; letter-spacing: -0.02em; line-height: 1.1;
-        }
-        h2 {
-            font-family: var(--font-serif); font-size: 1.75rem; font-weight: 400;
-            color: var(--ink-muted); margin: 0 auto 40px auto; line-height: 1.3;
-            max-width: 800px; text-align: center;
+        ::selection {
+            background: var(--primary);
+            color: #000000;
         }
 
-        .section-label {
-            font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink);
-            border-bottom: 1px solid var(--border); padding-bottom: 16px;
-            margin: 80px 0 40px 0; display: flex; justify-content: space-between;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Focus states */
+        :focus-visible {
+            outline: 3px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* ==========================================================================
+           TOP NAVIGATION BAR
+           ========================================================================== */
+        .neo-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--bg-surface);
+            border-bottom: var(--border-thick);
+            padding: 0.85rem 1.5rem;
+            transition: background 0.25s ease;
+        }
+
+        .neo-nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .neo-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .neo-logo-badge {
+            background: #000000;
+            color: #FFC700;
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            padding: 4px 12px;
+            border-radius: var(--radius-sm);
+            border: 2px solid var(--card-border);
+            box-shadow: var(--shadow-neo-xs);
+            letter-spacing: -0.03em;
+        }
+
+        .neo-logo-role {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            background: var(--primary);
+            color: #000000;
+            border: var(--border-thin);
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+            box-shadow: 1.5px 1.5px 0px #000;
+        }
+
+        .neo-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .neo-nav-link {
+            color: var(--text-main);
+            font-weight: 700;
+            font-size: 0.875rem;
+            padding: 6px 12px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid transparent;
+            transition: all 0.15s ease;
+        }
+
+        .neo-nav-link:hover {
+            background: var(--primary);
+            color: #000000;
+            border-color: #000000;
+            box-shadow: 2px 2px 0px #000;
+            transform: translate(-1px, -1px);
+        }
+
+        .neo-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* Palette Chip Switcher */
+        .neo-theme-picker {
+            display: flex;
+            align-items: center;
+            background: var(--bg-surface-alt);
+            border: var(--border-medium);
+            border-radius: var(--radius-pill);
+            padding: 3px;
+            gap: 4px;
+            box-shadow: var(--shadow-neo-xs);
+        }
+
+        .theme-chip-btn {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1.5px solid #000;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            position: relative;
+        }
+
+        .theme-chip-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .theme-chip-btn.active {
+            outline: 2px solid var(--text-main);
+            outline-offset: 2px;
+            transform: scale(1.1);
+        }
+
+        /* ==========================================================================
+           NEO BUTTON SYSTEM
+           ========================================================================== */
+        .neo-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: var(--font-sans);
+            font-size: 0.875rem;
+            font-weight: 800;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            border: var(--border-thick);
+            box-shadow: var(--shadow-neo-sm);
+            cursor: pointer;
+            text-decoration: none;
+            color: #000000;
+            background: #FFFFFF;
+            transition: all 0.12s cubic-bezier(0.2, 0.8, 0.2, 1);
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .neo-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-neo);
+        }
+
+        .neo-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: var(--shadow-neo-active);
+        }
+
+        .neo-btn-primary {
+            background: var(--primary);
+            color: #000000;
+        }
+        .neo-btn-primary:hover { background: var(--primary-hover); }
+
+        .neo-btn-black {
+            background: #000000;
+            color: #FFFFFF;
+            border-color: var(--card-border);
+        }
+        .neo-btn-black:hover { background: #1C1C1F; }
+
+        .neo-btn-white {
+            background: var(--bg-surface);
+            color: var(--text-main);
+        }
+
+        .neo-btn-pill {
+            border-radius: var(--radius-pill);
+        }
+
+        .neo-btn-lg {
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-neo);
+        }
+        .neo-btn-lg:hover {
+            box-shadow: var(--shadow-neo-lg);
+        }
+
+        /* ==========================================================================
+           HERO SECTION
+           ========================================================================== */
+        .neo-hero-section {
+            padding: 3.5rem 0 3rem;
+            border-bottom: var(--border-thick);
+            background: var(--bg-canvas);
+            position: relative;
+        }
+
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.4fr 0.9fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .hero-badge-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-pill);
+            padding: 5px 14px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: var(--shadow-neo-xs);
+            color: var(--text-main);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #22C55E;
+            box-shadow: 0 0 0 rgba(34, 197, 94, 0.4);
+            animation: pulseGreen 1.8s infinite;
+        }
+
+        @keyframes pulseGreen {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            line-height: 1.08;
+            letter-spacing: -0.035em;
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .hero-highlight {
+            background: var(--primary);
+            color: #000000;
+            padding: 2px 10px;
+            border-radius: var(--radius-sm);
+            border: var(--border-thick);
+            box-shadow: var(--shadow-neo-xs);
+            display: inline-block;
+            transform: rotate(-1.5deg);
+        }
+
+        .hero-bio {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 1.75rem;
+            max-width: 620px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-social-links {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .hero-social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: var(--radius-sm);
+            border: var(--border-thick);
+            background: var(--bg-surface);
+            box-shadow: var(--shadow-neo-xs);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            transition: all 0.12s ease;
+        }
+
+        .hero-social-btn:hover {
+            background: var(--primary);
+            color: #000000;
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-neo);
+        }
+
+        .hero-social-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Hero Avatar Card */
+        .hero-avatar-card {
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-xl);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-neo-xl);
+            text-align: center;
+            position: relative;
+        }
+
+        .avatar-img-wrap {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.25rem;
+        }
+
+        .avatar-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: var(--border-thick);
+            object-fit: cover;
+            box-shadow: var(--shadow-neo);
+            display: block;
+        }
+
+        .avatar-verified-pill {
+            position: absolute;
+            bottom: -6px;
+            right: 0;
+            background: #22C55E;
+            color: #000000;
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 800;
+            border: 1.5px solid #000000;
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        .avatar-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+            color: var(--text-main);
+        }
+
+        .avatar-sub {
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .hero-metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            text-align: left;
+            margin-top: 1rem;
+        }
+
+        .hero-mini-stat {
+            background: var(--bg-surface-alt);
+            border: var(--border-medium);
+            border-radius: var(--radius-sm);
+            padding: 0.65rem 0.75rem;
+            box-shadow: var(--shadow-neo-xs);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            cursor: default;
+        }
+
+        .hero-mini-stat:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-neo-sm);
+        }
+
+        .hero-mini-stat.stat-yellow {
+            background: #FEF08A;
+        }
+
+        .hero-mini-stat.stat-blue {
+            background: #BAE6FD;
+        }
+
+        .hero-mini-stat.stat-green {
+            background: #BBF7D0;
+        }
+
+        .hero-mini-stat.stat-pink {
+            background: #FED7AA;
+        }
+
+        html[data-theme="neo-dark"] .hero-mini-stat.stat-yellow {
+            background: rgba(255, 199, 0, 0.12);
+            border-color: #FFC700;
+        }
+        html[data-theme="neo-dark"] .hero-mini-stat.stat-yellow .mini-stat-num {
+            color: #FFC700;
+        }
+
+        html[data-theme="neo-dark"] .hero-mini-stat.stat-blue {
+            background: rgba(56, 189, 248, 0.12);
+            border-color: #38BDF8;
+        }
+        html[data-theme="neo-dark"] .hero-mini-stat.stat-blue .mini-stat-num {
+            color: #38BDF8;
+        }
+
+        html[data-theme="neo-dark"] .hero-mini-stat.stat-green {
+            background: rgba(34, 197, 94, 0.12);
+            border-color: #4ADE80;
+        }
+        html[data-theme="neo-dark"] .hero-mini-stat.stat-green .mini-stat-num {
+            color: #4ADE80;
+        }
+
+        html[data-theme="neo-dark"] .hero-mini-stat.stat-pink {
+            background: rgba(244, 114, 182, 0.12);
+            border-color: #F472B6;
+        }
+        html[data-theme="neo-dark"] .hero-mini-stat.stat-pink .mini-stat-num {
+            color: #F472B6;
+        }
+
+        .mini-stat-num {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .mini-stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 800;
+            color: #242424;
+            text-transform: uppercase;
+            margin-top: 0.15rem;
+        }
+
+        html[data-theme="neo-dark"] .mini-stat-label {
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================================
+           SECTION HEADERS & LABELS
+           ========================================================================== */
+        .section-wrap {
+            padding: 4.5rem 0;
+            border-bottom: var(--border-thick);
+        }
+
+        .section-header-block {
+            display: flex;
             align-items: flex-end;
-        }
-        .section-label span.subtitle {
-            color: var(--ink-muted); font-size: 0.7rem; letter-spacing: 0;
-            text-transform: none; font-weight: 400;
-        }
-
-
-
-        .hero-card {
-            background: var(--paper-card); border: 1px solid var(--border);
-            padding: 56px; border-radius: var(--radius-lg); margin: 40px 0;
-            display: flex; flex-direction: column; align-items: center; text-align: center;
-        }
-        .profile-img {
-            width: 140px; height: 140px; object-fit: cover; border-radius: 50%;
-            margin-bottom: 16px; border: 2px solid var(--border);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .profile-img:hover { transform: scale(1.05); border-color: var(--ink-soft); }
-        .social-links { display: flex; gap: 16px; margin-top: 24px; align-items: center; justify-content: center; flex-wrap: wrap; }
-        .social-links a.icon-link {
-            display: flex; align-items: center; justify-content: center;
-            width: 44px; height: 44px; border-radius: 50%;
-            border: 1px solid var(--border); transition: all 0.2s;
-        }
-        .social-links a.icon-link:hover { background: var(--paper-warm); }
-        .social-links img { width: 18px; height: 18px; opacity: 0.9; }
-        [data-theme="dark"] .social-links img { filter: invert(1) brightness(1.1); }
-        .resume-btn {
-            display: flex; align-items: center; justify-content: center;
-            padding: 12px 28px; border-radius: 6px;
-            background: var(--ink); color: var(--paper) !important;
-            font-weight: 500; font-size: 0.85rem; transition: opacity 0.2s;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
         }
 
-        .skill-group { margin-bottom: 32px; width: 100%; }
-        .skill-group:last-child { margin-bottom: 0; }
-        .skill-group p { font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; text-align: center; }
-        .skills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-        .skill-tag {
-            border: 1px solid var(--border); padding: 8px 16px; border-radius: 99px;
-            font-size: 0.8rem; font-weight: 500; transition: all 0.2s; cursor: default;
+        .section-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
-        .featured-grid { display: flex; flex-direction: column; gap: 32px; margin-bottom: 64px; }
-        .featured-card {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-            background: var(--paper-card); border: 1px solid var(--border);
-            border-radius: var(--radius-lg); padding: 48px; transition: border-color 0.2s;
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--text-main);
         }
-        .featured-card:hover { border-color: var(--ink-muted); }
-        .fc-content h3 { font-family: var(--font-serif); font-size: 2rem; margin: 8px 0 16px; line-height: 1.1; font-weight: 400; }
-        .fc-content p { color: var(--ink-muted); margin-bottom: 24px; font-size: 1.05rem; }
-        .tech-stack { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 16px; display: block; }
-        .arch-diagram {
-            background: var(--paper-warm); border: 1px dashed var(--border);
-            border-radius: var(--radius-md); padding: 24px;
-            display: flex; flex-direction: column; align-items: center;
-            justify-content: center; gap: 16px; font-family: var(--font-mono);
-            font-size: 0.7rem; color: var(--ink-soft);
+
+        .section-badge-counter {
+            background: var(--primary);
+            color: #000000;
+            border: var(--border-thin);
+            padding: 4px 12px;
+            border-radius: var(--radius-pill);
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            box-shadow: var(--shadow-neo-xs);
         }
+
+        /* ==========================================================================
+           CORE CAPABILITY MATRIX / PILLARS
+           ========================================================================== */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .capability-card {
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-neo);
+            transition: all 0.15s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-neo-lg);
+        }
+
+        .capability-card.card-accent-1 { border-top: 8px solid var(--color-yellow); }
+        .capability-card.card-accent-2 { border-top: 8px solid var(--color-blue); }
+        .capability-card.card-accent-3 { border-top: 8px solid var(--color-green); }
+
+        .cap-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .cap-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            border: var(--border-medium);
+            background: var(--bg-surface-alt);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-neo-xs);
+        }
+
+        .cap-tag {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 800;
+            background: #000000;
+            color: #FFFFFF;
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+            text-transform: uppercase;
+        }
+
+        .cap-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            color: var(--text-main);
+        }
+
+        .cap-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .cap-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .skill-pill {
+            background: var(--bg-surface-alt);
+            border: var(--border-thin);
+            border-radius: var(--radius-pill);
+            padding: 4px 10px;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-main);
+            transition: all 0.12s ease;
+        }
+
+        .skill-pill:hover {
+            background: var(--primary);
+            color: #000000;
+            transform: translateY(-1px);
+            box-shadow: 1.5px 1.5px 0px #000;
+        }
+
+        /* ==========================================================================
+           FEATURED ARCHITECTURE SHOWCASE (FLAGSHIP DEEP DIVES)
+           ========================================================================== */
+        .featured-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2.25rem;
+        }
+
+        .featured-neo-card {
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-xl);
+            padding: 2.25rem;
+            box-shadow: var(--shadow-neo-lg);
+            display: grid;
+            grid-template-columns: 1.15fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .featured-neo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-neo-xl);
+        }
+
+        .flagship-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--primary);
+            color: #000000;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: var(--radius-pill);
+            border: var(--border-thin);
+            box-shadow: var(--shadow-neo-xs);
+            margin-bottom: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .fc-name {
+            font-family: var(--font-display);
+            font-size: 1.9rem;
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .fc-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.55;
+        }
+
+        .fc-tech-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-badge-solid {
+            background: #000000;
+            color: #FFFFFF;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: var(--radius-xs);
+            border: 1px solid var(--card-border);
+        }
+
+        /* Architecture Visual Canvas */
+        .arch-canvas-box {
+            background: var(--bg-surface-alt);
+            border: var(--border-thick);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-neo-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: relative;
+        }
+
+        .arch-canvas-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1.5px dashed var(--text-muted);
+            padding-bottom: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .arch-flow-diagram {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .arch-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
         .arch-node {
-            background: var(--paper-card); border: 1px solid var(--border);
-            padding: 10px 16px; border-radius: 6px; text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02); position: relative; z-index: 2;
+            background: var(--bg-surface);
+            border: var(--border-medium);
+            border-radius: var(--radius-sm);
+            padding: 8px 14px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 800;
+            box-shadow: var(--shadow-neo-xs);
+            text-align: center;
+            color: var(--text-main);
+            transition: all 0.12s ease;
         }
-        .arch-row { display: flex; gap: 24px; align-items: center; position: relative; }
-        .arch-arrow { color: var(--ink-muted); font-size: 1.2rem; }
 
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; margin-bottom: 40px; }
-        .project-card {
-            background: var(--paper-card); border: 1px solid var(--border);
-            padding: 32px; border-radius: var(--radius-md);
-            display: flex; flex-direction: column; transition: all 0.2s ease;
+        .arch-node.highlight {
+            background: var(--primary);
+            color: #000000;
         }
-        .project-card:hover { border-color: var(--ink-soft); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
-        .project-card .tech-stack { margin-bottom: 12px; }
-        .project-card h4 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 12px; line-height: 1.2; }
-        .project-card p { color: var(--ink-muted); font-size: 0.95rem; flex-grow: 1; margin-bottom: 24px; }
-        .card-link { font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: auto; }
-        .card-link::after { content: "→"; transition: transform 0.2s; }
-        .project-card:hover .card-link::after { transform: translateX(4px); color: var(--accent); }
-        .project-card .company { font-weight: 500; color: var(--ink); margin-bottom: 12px; font-size: 0.95rem; }
-        .project-card ul.exp-list { padding-left: 20px; color: var(--ink-muted); font-size: 0.95rem; margin-bottom: 24px; flex-grow: 1; }
-        .project-card ul.exp-list li { margin-bottom: 8px; }
 
-        .contact-container { background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px; margin-top: 24px; }
-        .contact-form { display: grid; gap: 24px; }
-        .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-        @media (max-width: 600px) { .form-row-2 { grid-template-columns: 1fr; } }
-        .form-group { display: flex; flex-direction: column; gap: 8px; }
-        .form-group label { font-family: var(--font-sans); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-muted); }
-        .form-control { background: var(--paper-warm); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s; }
-        .form-control:focus { border-color: var(--ink-soft); }
-        .form-control::placeholder { color: var(--ink-faint); }
-        textarea.form-control { resize: vertical; min-height: 120px; }
-        .submit-btn { background: var(--ink); color: var(--paper); border: none; padding: 14px 28px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600; cursor: pointer; justify-self: flex-start; transition: opacity 0.2s; }
-        .submit-btn:hover { opacity: 0.9; }
+        .arch-arrow {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: var(--text-main);
+        }
 
-        .newsletter-container { background: var(--paper-warm); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 48px; margin-top: 48px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .newsletter-title { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
-        .newsletter-desc { color: var(--ink-muted); max-width: 600px; margin-bottom: 24px; font-size: 0.95rem; }
-        .newsletter-form { display: flex; width: 100%; max-width: 500px; gap: 12px; }
-        @media (max-width: 500px) { .newsletter-form { flex-direction: column; } }
-        .newsletter-input { flex-grow: 1; background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 12px 16px; font-family: var(--font-sans); font-size: 0.9rem; color: var(--ink); outline: none; transition: border-color 0.2s; }
-        .newsletter-input:focus { border-color: var(--ink-soft); }
-        .newsletter-btn { background: var(--ink); color: var(--paper); border: none; padding: 12px 24px; border-radius: var(--radius-sm); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: opacity 0.2s; }
-        .newsletter-btn:hover { opacity: 0.9; }
+        /* ==========================================================================
+           SEARCHABLE & FILTERABLE PROJECT EXPLORER
+           ========================================================================== */
+        .project-search-container {
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-neo);
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-        .form-feedback { padding: 16px; border-radius: var(--radius-sm); font-size: 0.85rem; font-family: var(--font-sans); margin-top: 16px; display: none; border: 1px solid transparent; text-align: left; }
-        .form-feedback.success { display: block; background-color: rgba(46, 117, 89, 0.1); border-color: rgba(46, 117, 89, 0.3); color: #2e7559; }
-        .form-feedback.error { display: block; background-color: rgba(229, 43, 80, 0.1); border-color: rgba(229, 43, 80, 0.3); color: var(--accent); }
+        .search-input-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--bg-surface-alt);
+            border: var(--border-medium);
+            border-radius: var(--radius-md);
+            padding: 0.5rem 1rem;
+        }
 
-        footer { margin-top: 80px; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--ink-muted); font-size: 0.85rem; }
+        .search-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-muted);
+        }
 
-        @media (max-width: 900px) { .featured-card { grid-template-columns: 1fr; padding: 32px; } .arch-diagram { padding: 32px 16px; } }
-        @media (max-width: 768px) { h1 { font-size: 3rem; } .hero-card { padding: 32px 24px; } .social-links { flex-wrap: wrap; justify-content: center; } .resume-btn { width: 100%; margin-top: 8px; } .nav-links { display: none; } }
+        .project-search-input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        .project-search-input::placeholder {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .search-filter-chips {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-chip-btn {
+            background: var(--bg-surface);
+            border: var(--border-thin);
+            border-radius: var(--radius-pill);
+            padding: 5px 14px;
+            font-family: var(--font-sans);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            cursor: pointer;
+            color: var(--text-main);
+            box-shadow: 1.5px 1.5px 0px #000;
+            transition: all 0.12s ease;
+        }
+
+        .filter-chip-btn:hover {
+            background: var(--color-yellow-light);
+            transform: translateY(-1px);
+        }
+
+        .filter-chip-btn.active {
+            background: var(--primary);
+            color: #000000;
+            border-color: #000000;
+            box-shadow: var(--shadow-neo-xs);
+            transform: translateY(-1px);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-item-card {
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-neo);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.15s ease;
+            position: relative;
+        }
+
+        .project-item-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-neo-lg);
+        }
+
+        .card-top-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-cat-pill {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: var(--bg-surface-alt);
+            border: var(--border-thin);
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+            color: var(--text-main);
+        }
+
+        .project-card-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .project-card-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .project-card-stack {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-main);
+            background: var(--bg-surface-alt);
+            padding: 4px 8px;
+            border-radius: var(--radius-xs);
+            border: 1px solid var(--dot-color);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .project-card-link {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: auto;
+            border-bottom: 2px solid var(--primary);
+            width: fit-content;
+            padding-bottom: 1px;
+            transition: all 0.15s ease;
+        }
+
+        .project-card-link:hover {
+            background: var(--primary);
+            color: #000000;
+            padding: 2px 6px;
+            border-radius: var(--radius-xs);
+        }
+
+        .no-results-msg {
+            grid-column: 1 / -1;
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-md);
+            padding: 3rem;
+            text-align: center;
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            display: none;
+        }
+
+        /* ==========================================================================
+           EXPERIENCE & EDUCATION TIMELINE
+           ========================================================================== */
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .timeline-card {
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-xl);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-neo);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .timeline-badge {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 800;
+            background: var(--primary);
+            color: #000000;
+            border: var(--border-thin);
+            padding: 2px 10px;
+            border-radius: var(--radius-pill);
+            box-shadow: var(--shadow-neo-xs);
+            width: fit-content;
+        }
+
+        .timeline-title {
+            font-family: var(--font-display);
+            font-size: 1.35rem;
+            color: var(--text-main);
+        }
+
+        .timeline-org {
+            font-weight: 800;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-list {
+            padding-left: 1.25rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        /* ==========================================================================
+           CONTACT & FOOTER
+           ========================================================================== */
+        .neo-footer-card {
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-xl);
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-neo-lg);
+            text-align: center;
+            margin: 4.5rem 0 3rem;
+        }
+
+        .footer-tag {
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: var(--primary);
+            color: #000000;
+            border: var(--border-thin);
+            padding: 3px 12px;
+            border-radius: var(--radius-pill);
+            display: inline-block;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-neo-xs);
+        }
+
+        .footer-headline {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .footer-sub {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .footer-action-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+
+        .footer-credits {
+            border-top: 1.5px dashed var(--dot-color);
+            padding-top: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        /* Toast notification */
+        .neo-toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--primary);
+            color: #000000;
+            border: var(--border-thick);
+            border-radius: var(--radius-sm);
+            padding: 10px 18px;
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 0.875rem;
+            box-shadow: var(--shadow-neo);
+            z-index: 9999;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .neo-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE MEDIA QUERIES
+           ========================================================================== */
+        @media (max-width: 960px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+            }
+            .featured-neo-card {
+                grid-template-columns: 1fr;
+            }
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .neo-nav-links {
+                display: none;
+            }
+            .hero-title {
+                font-size: 2.25rem;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .neo-footer-card {
+                padding: 2rem 1.25rem;
+            }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <div class="nav-logo">Farhan.</div>
-            <div class="nav-links">
-                <a href="#about">Home</a>
-                <a href="#featured">Projects</a>
-                <a href="#contact">Contact</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <svg id="theme-icon" viewBox="0 0 24 24"></svg>
-                </button>
+
+    <!-- Sticky Neo-Navbar -->
+    <nav class="neo-navbar">
+        <div class="neo-nav-content">
+            <a href="#" class="neo-logo">
+                <span class="neo-logo-badge">F</span>
+                <span class="neo-logo-role">Agentic AI Engineer</span>
+            </a>
+
+            <ul class="neo-nav-links">
+                <li><a href="#about" class="neo-nav-link">About</a></li>
+                <li><a href="#capabilities" class="neo-nav-link">Capabilities</a></li>
+                <li><a href="#featured" class="neo-nav-link">Deep Dives</a></li>
+                <li><a href="#projects" class="neo-nav-link">Explorer</a></li>
+                <li><a href="#experience" class="neo-nav-link">Experience</a></li>
+            </ul>
+
+            <div class="neo-nav-actions">
+                <!-- Theme Palette Switcher: Neo Yellow / Cyber Dark -->
+                <div class="neo-theme-picker" title="Switch Theme (Neo Yellow / Cyber Dark)">
+                    <button class="theme-chip-btn active" data-theme-val="neo-yellow" style="background:#FFC700;" title="Neo Yellow"></button>
+                    <button class="theme-chip-btn" data-theme-val="neo-dark" style="background:#191920;" title="Cyber Dark"></button>
+                </div>
+
+                <a href="https://drive.google.com/file/d/19Q-KK8EkbgBFiBuNjCR9i2lOLnOjxbdN/view?usp=sharing" target="_blank" class="neo-btn neo-btn-primary neo-btn-pill">
+                    Resume ↗
+                </a>
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <main class="container">
+        <!-- ====================================================================
+             HERO SECTION
+             ==================================================================== -->
+        <section id="about" class="neo-hero-section">
+            <div class="hero-layout">
+                <!-- Left Details -->
+                <div class="hero-left">
+                    <div class="hero-badge-row">
+                        <div class="hero-status-pill">
+                            <span class="pulse-dot"></span>
+                            Available for AI/ML & Agentic Roles
+                        </div>
+                        <div class="hero-status-pill" style="background: var(--bg-surface-alt);">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>New Delhi, India
+                        </div>
+                    </div>
 
-        <header id="about" class="hero-card">
-            <img src="https://avatars.githubusercontent.com/u/124152754?v=4" alt="Farhan" class="profile-img">
-            <h1>Farhan.</h1>
-            <h2>I Build Agentic AI, MCP Servers, LLMs, RAG Pipelines, ML & Deep Learning, and MLOps Apps.</h2>
-            <div class="social-links">
-                <a href="https://github.com/farhanrhine" target="_blank" class="icon-link" title="GitHub">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z'/%3E%3C/svg%3E" alt="GitHub">
-                </a>
-                <a href="https://linkedin.com/in/farhanrhine" target="_blank" class="icon-link" title="LinkedIn">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z'/%3E%3C/svg%3E" alt="LinkedIn">
-                </a>
-                <a href="mailto:mohammadfarhanalam09@gmail.com" class="icon-link" title="Email">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23141413'%3E%3Cpath d='M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z'/%3E%3C/svg%3E" alt="Email">
-                </a>
-                <a href="https://drive.google.com/file/d/1bMZpdDzlKYpnIyAy0FMcJcPnG_SVLSfl/view?usp=sharing" target="_blank" class="resume-btn">Download Resume</a>
-            </div>
-        </header>
+                    <h1 class="hero-title">
+                        Building <span class="hero-highlight">Agentic AI</span>, MCP Servers & <span class="hero-highlight">Production ML</span>
+                    </h1>
 
-        <section>
-            <div class="hero-card" style="margin-bottom: 0;">
-                <div class="skill-group">
-                    <p>Generative AI & LLMs</p>
-                    <div class="skills">
-                        <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">LangSmith</span><span class="skill-tag">RAG</span><span class="skill-tag">MCP</span><span class="skill-tag">Ollama</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">OpenAI</span><span class="skill-tag">Anthropic</span><span class="skill-tag">Llama 3</span>
+                    <p class="hero-bio">
+                        Hey, I'm <strong>Farhan</strong> — an AI & Machine Learning Engineer specializing in autonomous multi-agent systems, local MCP tooling, RAG architectures, and zero-overhead engineering.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="#featured" class="neo-btn neo-btn-primary neo-btn-lg">
+                            Explore Architectures ↓
+                        </a>
+                        <a href="#projects" class="neo-btn neo-btn-white neo-btn-lg">
+                            Browse All Projects
+                        </a>
+                        <button class="neo-btn neo-btn-white neo-btn-lg copy-email-btn" data-email="mohammadfarhanalam09@gmail.com">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle;margin-right:5px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>Copy Email
+                        </button>
+                    </div>
+
+                    <div class="hero-social-links">
+                        <a href="https://github.com/farhanrhine" target="_blank" class="hero-social-btn" title="GitHub">
+                            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/farhanrhine" target="_blank" class="hero-social-btn" title="LinkedIn">
+                            <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        </a>
+                        <a href="mailto:mohammadfarhanalam09@gmail.com" class="hero-social-btn" title="Email">
+                            <svg viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm6.623 7.929l-4.623 5.712v-9.458l4.623 3.746zm-4.141-5.929h19.035l-9.517 7.713-9.518-7.713zm5.694 7.188l3.824 3.099 3.83-3.104 5.612 6.817h-18.779l5.513-6.812zm9.208-1.264l4.616-3.741v9.348l-4.616-5.607z"/></svg>
+                        </a>
                     </div>
                 </div>
 
@@ -381,198 +1403,804 @@
             </div>
         </section>
 
-        <section id="experience">
-            <div class="section-label">Experience & Education</div>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <span class="tech-stack">Oct - Dec 2024</span>
-                    <h4>AI/ML Engineer Intern</h4>
-                    <div class="company"><a href="https://www.linkedin.com/in/farhanrhine/overlay/1739369171414/single-media-viewer/?profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank" style="text-decoration: underline;">Infosys Springboard 5.0</a></div>
-                    <ul class="exp-list">
-                        <li>Engineered a multilingual language detection model achieving 90% accuracy.</li>
-                        <li>Built and deployed Logistic Regression, Random Forest, and LSTM models.</li>
+        <!-- ====================================================================
+             CORE CAPABILITIES MATRIX
+             ==================================================================== -->
+        <section id="capabilities" class="section-wrap">
+            <div class="section-header-block">
+                <div>
+                    <div class="section-eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg> Technical Specializations</div>
+                    <h2 class="section-title">Core Engineering Matrix</h2>
+                </div>
+                <div class="section-badge-counter">3 Core Domains</div>
+            </div>
+
+            <div class="capabilities-grid">
+                <!-- Pillar 1 -->
+                <div class="capability-card card-accent-1">
+                    <div class="cap-header">
+                        <div class="cap-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zM7.5 13A1.5 1.5 0 0 0 6 14.5 1.5 1.5 0 0 0 7.5 16 1.5 1.5 0 0 0 9 14.5 1.5 1.5 0 0 0 7.5 13zm9 0a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5z"/></svg></div>
+                        <span class="cap-tag">Agentic AI</span>
+                    </div>
+                    <h3 class="cap-title">Generative AI & LLMs</h3>
+                    <p class="cap-desc">Autonomous multi-agent workflows, tool-calling pipelines, RAG retrieval with vector stores, and custom MCP integrations.</p>
+                    <div class="cap-skills">
+                        <span class="skill-pill">LangChain</span>
+                        <span class="skill-pill">LangGraph</span>
+                        <span class="skill-pill">LangSmith</span>
+                        <span class="skill-pill">MCP Protocol</span>
+                        <span class="skill-pill">ChromaDB / FAISS</span>
+                        <span class="skill-pill">Llama 3</span>
+                        <span class="skill-pill">OpenAI & Claude</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 2 -->
+                <div class="capability-card card-accent-2">
+                    <div class="cap-header">
+                        <div class="cap-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.488.488 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54A.484.484 0 0 0 14 2h-4c-.25 0-.46.18-.49.42l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.63 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h4c.25 0 .46-.18.49-.42l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/></svg></div>
+                        <span class="cap-tag">MLOps & Deep Learning</span>
+                    </div>
+                    <h3 class="cap-title">Machine Learning & Vision</h3>
+                    <p class="cap-desc">Production pipelines with reproducible data tracking, containerization, Kubernetes scaling, and neural architectures.</p>
+                    <div class="cap-skills">
+                        <span class="skill-pill">PyTorch</span>
+                        <span class="skill-pill">TensorFlow</span>
+                        <span class="skill-pill">Scikit-Learn</span>
+                        <span class="skill-pill">MLflow & DVC</span>
+                        <span class="skill-pill">Docker & K8s</span>
+                        <span class="skill-pill">OpenCV</span>
+                        <span class="skill-pill">GCP Cloud Run</span>
+                    </div>
+                </div>
+
+                <!-- Pillar 3 -->
+                <div class="capability-card card-accent-3">
+                    <div class="cap-header">
+                        <div class="cap-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M4 1h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zm0 8h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1zM6 4h2V3H6v1zm0 8h2v-1H6v1zm0 8h2v-1H6v1z"/></svg></div>
+                        <span class="cap-tag">Engineering</span>
+                    </div>
+                    <h3 class="cap-title">Backend & Infrastructure</h3>
+                    <p class="cap-desc">High-throughput RESTful APIs, zero-framework lightweight frontends, raw SQL optimization, and RBAC security systems.</p>
+                    <div class="cap-skills">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">FastAPI</span>
+                        <span class="skill-pill">PostgreSQL</span>
+                        <span class="skill-pill">Raw SQL</span>
+                        <span class="skill-pill">Vanilla JS</span>
+                        <span class="skill-pill">CI/CD Pipelines</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             FLAGSHIP ARCHITECTURES (DEEP DIVES)
+             ==================================================================== -->
+        <section id="featured" class="section-wrap">
+            <div class="section-header-block">
+                <div>
+                    <div class="section-eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg> Architectural Deep Dives</div>
+                    <h2 class="section-title">Flagship Architectures</h2>
+                </div>
+                <div class="section-badge-counter">4 Case Studies</div>
+            </div>
+
+            <div class="featured-stack">
+                <!-- Flagship 1: AgentLayer -->
+                <article class="featured-neo-card">
+                    <div class="fc-info">
+                        <span class="flagship-badge">★ Flagship 01 • MCP Infrastructure</span>
+                        <h3 class="fc-name">AgentLayer</h3>
+                        <p class="fc-description">
+                            The autonomous infrastructure layer between AI agents and the web. Automatically turns any website into a machine-readable FastMCP server in 30 seconds. Features asynchronous BFS crawling, LLM tool code generation, self-healing E2B Python sandbox validation, and dynamic SSE hosting for Claude Desktop and Cursor.
+                        </p>
+                        <div class="fc-tech-row">
+                            <span class="tech-badge-solid">FastMCP</span>
+                            <span class="tech-badge-solid">FastAPI</span>
+                            <span class="tech-badge-solid">E2B Sandbox</span>
+                            <span class="tech-badge-solid">React 19 & Vite</span>
+                            <span class="tech-badge-solid">Render</span>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <a href="https://agentlayer-zwfy.onrender.com" target="_blank" class="neo-btn neo-btn-primary">
+                                Live Demo ↗
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Architecture Vis -->
+                    <div class="arch-canvas-box">
+                        <div class="arch-canvas-header">
+                            <span>Self-Healing MCP Pipeline</span>
+                            <span>Live Cloud</span>
+                        </div>
+                        <div class="arch-flow-diagram">
+                            <div class="arch-row">
+                                <div class="arch-node">Target Website URL</div>
+                                <span class="arch-arrow">→</span>
+                                <div class="arch-node highlight">Asymmetric BFS Crawler</div>
+                            </div>
+                            <span class="arch-arrow">↓</span>
+                            <div class="arch-node highlight" style="background:var(--color-blue);color:#FFF;">LLM Tool Generator (Python MCP)</div>
+                            <span class="arch-arrow">↓</span>
+                            <div class="arch-row">
+                                <div class="arch-node">E2B Sandbox (Self-Healing)</div>
+                                <span class="arch-arrow">→</span>
+                                <div class="arch-node highlight" style="background:var(--color-green);color:#000;">SSE Host (Claude / Cursor)</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Flagship 2: Audisift -->
+                <article class="featured-neo-card">
+                    <div class="fc-info">
+                        <span class="flagship-badge">★ Flagship 02 • Adaptive Voice AI</span>
+                        <h3 class="fc-name">Audisift</h3>
+                        <p class="fc-description">
+                            Production-grade, voice-first screening engine designed to evaluate candidate communication, structured explanation, and teamwork through high-fidelity adaptive conversation. Features Whisper large-v3-turbo, dual-role RBAC auth, recruiter analytics, real-time WebSocket streaming, and print-to-PDF reports.
+                        </p>
+                        <div class="fc-tech-row">
+                            <span class="tech-badge-solid">FastAPI</span>
+                            <span class="tech-badge-solid">Groq Whisper</span>
+                            <span class="tech-badge-solid">GPT-OSS & Llama 3.3</span>
+                            <span class="tech-badge-solid">WebSockets</span>
+                            <span class="tech-badge-solid">Render</span>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <a href="https://audisift.onrender.com/" target="_blank" class="neo-btn neo-btn-primary">
+                                Live Demo ↗
+                            </a>
+                            <a href="https://github.com/farhanrhine/ai-tutor-screener" target="_blank" class="neo-btn neo-btn-black">
+                                View Source Repository ↗
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Architecture Vis -->
+                    <div class="arch-canvas-box">
+                        <div class="arch-canvas-header">
+                            <span>Adaptive Voice Flow</span>
+                            <span>Real-Time Pipeline</span>
+                        </div>
+                        <div class="arch-flow-diagram">
+                            <div class="arch-row">
+                                <div class="arch-node">Candidate Voice (Mic)</div>
+                                <span class="arch-arrow">→</span>
+                                <div class="arch-node highlight">Whisper Large Turbo (STT)</div>
+                            </div>
+                            <span class="arch-arrow">↓</span>
+                            <div class="arch-node highlight" style="background:var(--color-blue);color:#FFF;">GPT-OSS 120B (Sarah Adaptive Brain)</div>
+                            <span class="arch-arrow">↓</span>
+                            <div class="arch-row">
+                                <div class="arch-node">Llama 3.3 (5-Dim Scoring)</div>
+                                <span class="arch-arrow">→</span>
+                                <div class="arch-node highlight" style="background:var(--color-green);color:#000;">Dashboard & PDF Report</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Flagship 3: CrowdFlow AI -->
+                <article class="featured-neo-card">
+                    <div class="fc-info">
+                        <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                            <span class="flagship-badge" style="margin-bottom: 0;">★ Flagship 03 • Digital Twin & Predictive ML</span>
+                            <a href="https://luma.com/h3dute0f" target="_blank" style="display:inline-flex; align-items:center; gap:0.35rem; background:var(--color-yellow); color:#000; border:1.5px solid #000; font-family:var(--font-mono); font-size:0.75rem; font-weight:800; padding:0.25rem 0.6rem; border-radius:var(--radius-pill); box-shadow:1.5px 1.5px 0px #000; text-decoration:none;">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
+                                Top 19 / 500+ Teams • GrandPrix @ Paytm ↗
+                            </a>
+                        </div>
+                        <h3 class="fc-name">CrowdFlow AI</h3>
+                        <p class="fc-description">
+                            Predictive crowd flow and dynamic rerouting platform for large event spaces (stadiums, transit hubs). Combines a 9-feature RandomForest congestion prediction model (trained on 16,899 ETH/UCY pedestrian & synthetic samples) with NetworkX A* dynamic graph rerouting and a real-time digital twin simulation to prevent crowd crush bottlenecks.
+                        </p>
+                        <div class="fc-tech-row">
+                            <span class="tech-badge-solid">RandomForest ML</span>
+                            <span class="tech-badge-solid">NetworkX A* Router</span>
+                            <span class="tech-badge-solid">Digital Twin Sim</span>
+                            <span class="tech-badge-solid">FastAPI & WebSockets</span>
+                            <span class="tech-badge-solid">ETH/UCY Benchmark</span>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <a href="https://github.com/MaheepSeharawat/hackathon" target="_blank" class="neo-btn neo-btn-black">
+                                View Source Repository ↗
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Architecture Vis -->
+                    <div class="arch-canvas-box">
+                        <div class="arch-canvas-header">
+                            <span>Predictive Twin Flow</span>
+                            <span>Real-Time A* Routing</span>
+                        </div>
+                        <div class="arch-flow-diagram">
+                            <div class="arch-row">
+                                <div class="arch-node">Venue Topology (React Flow)</div>
+                                <span class="arch-arrow">→</span>
+                                <div class="arch-node highlight">Agent Sim (ETH/UCY Data)</div>
+                            </div>
+                            <span class="arch-arrow">↓</span>
+                            <div class="arch-node highlight" style="background:var(--color-blue);color:#FFF;">RandomForest ML (9-Feature Congestion)</div>
+                            <span class="arch-arrow">↓</span>
+                            <div class="arch-row">
+                                <div class="arch-node">NetworkX A* Dynamic Router</div>
+                                <span class="arch-arrow">→</span>
+                                <div class="arch-node highlight" style="background:var(--color-green);color:#000;">WebSocket Broadcast & UI</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Flagship 4: Paytm Local MCP Server -->
+                <article class="featured-neo-card">
+                    <div class="fc-info">
+                        <span class="flagship-badge">★ Flagship 04 • Model Context Protocol</span>
+                        <h3 class="fc-name">Paytm Local MCP Server</h3>
+                        <p class="fc-description">
+                            Privacy-first Model Context Protocol (MCP) server for inspecting personal UPI transactions locally. Features standard stdio + SSE transports, processing 950+ transactions completely on-device with zero external cloud telemetry.
+                        </p>
+                        <div class="fc-tech-row">
+                            <span class="tech-badge-solid">MCP SDK</span>
+                            <span class="tech-badge-solid">Claude Desktop</span>
+                            <span class="tech-badge-solid">SQLite Local</span>
+                            <span class="tech-badge-solid">Pydantic Schemas</span>
+                        </div>
+                        <a href="https://github.com/farhanrhine/paytm-local-mcp-server" target="_blank" class="neo-btn neo-btn-black">
+                            View Source Repository ↗
+                        </a>
+                    </div>
+                    <!-- Architecture Vis -->
+                    <div class="arch-canvas-box">
+                        <div class="arch-canvas-header">
+                            <span>MCP Communication</span>
+                            <span>Local-Only</span>
+                        </div>
+                        <div class="arch-flow-diagram">
+                            <div class="arch-node">Claude Desktop Client</div>
+                            <span class="arch-arrow">↓ (stdio / SSE MCP)</span>
+                            <div class="arch-node highlight">Local MCP Server</div>
+                            <span class="arch-arrow">↓</span>
+                            <div class="arch-row">
+                                <div class="arch-node">Pydantic Schema</div>
+                                <span class="arch-arrow">→</span>
+                                <div class="arch-node highlight" style="background:var(--color-yellow);color:#000;">Local DB (0-Cloud)</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             SEARCHABLE & FILTERABLE PROJECT EXPLORER
+             ==================================================================== -->
+        <section id="projects" class="section-wrap">
+            <div class="section-header-block">
+                <div>
+                    <div class="section-eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg> Interactive Repository Hub</div>
+                    <h2 class="section-title">Project Explorer</h2>
+                </div>
+                <div class="section-badge-counter" id="projectCountBadge">Showing 23 Projects</div>
+            </div>
+
+            <!-- Instant Search & Category Filter Box -->
+            <div class="project-search-container">
+                <div class="search-input-row">
+                    <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                    <input type="text" id="projectSearchInput" class="project-search-input" placeholder="Search projects by name, technology (e.g. LangGraph, FastAPI, Docker, RAG, PyTorch)..." />
+                </div>
+
+                <div class="search-filter-chips">
+                    <button class="filter-chip-btn active" data-category="all">All (23)</button>
+                    <button class="filter-chip-btn" data-category="agentic">Agentic & LLMs (9)</button>
+                    <button class="filter-chip-btn" data-category="rag">RAG & Vector DB (4)</button>
+                    <button class="filter-chip-btn" data-category="mlops">MLOps & Vision (7)</button>
+                    <button class="filter-chip-btn" data-category="backend">Software & Data (3)</button>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projectsGrid">
+                <!-- 0 -->
+                <article class="project-item-card" data-category="agentic" data-search="ai powered resume analyzer gemini 3.5 flash langchain pypdf2 streamlit ats keyword match gap analysis scoring">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">AI Orchestration</span>
+                        <span class="tech-badge-solid">Gemini 3.5 Flash</span>
+                    </div>
+                    <h3 class="project-card-title">AI Resume Analyzer</h3>
+                    <p class="project-card-desc">ATS alignment platform evaluating candidate resumes against job descriptions with Gemini 3.5 Flash, computing match scores, identifying skill gaps, and generating actionable improvement recommendations.</p>
+                    <span class="project-card-stack">Gemini 3.5 Flash • LangChain • PyPDF2 • Streamlit</span>
+                    <a href="https://github.com/farhanrhine" target="_blank" class="project-card-link">View Project ↗</a>
+                </article>
+
+                <!-- 1 -->
+                <article class="project-item-card" data-category="agentic" data-search="multi ai agent system langgraph llama 3 fastapi gcp cloud run tavily">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Agentic AI</span>
+                        <span class="tech-badge-solid">GCP Cloud Run</span>
+                    </div>
+                    <h3 class="project-card-title">Multi-AI Agent System</h3>
+                    <p class="project-card-desc">Production multi-agent application utilizing custom LangGraph StateGraph, Llama 3, and Tavily Search with real-time streaming backend.</p>
+                    <span class="project-card-stack">LangGraph • Llama 3 • FastAPI • GCP</span>
+                    <a href="https://github.com/farhanrhine/multi-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 2 -->
+                <article class="project-item-card" data-category="agentic" data-search="openclaw retail support autonomous customer assistant glm 4.5 whatsapp telegram tool invocation">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Agentic AI</span>
+                        <span class="tech-badge-solid">Messaging Bot</span>
+                    </div>
+                    <h3 class="project-card-title">OpenClaw Retail Support</h3>
+                    <p class="project-card-desc">Autonomous customer support assistant integrated natively with WhatsApp and Telegram, resolving queries via custom tool-invocation.</p>
+                    <span class="project-card-stack">OpenClaw • GLM-4.5 • Tool Calling</span>
+                    <a href="https://github.com/farhanrhine/OpenClaw-Retail-Support-Agent" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 3 -->
+                <article class="project-item-card" data-category="agentic" data-search="discord notion sync ai note refinement web search agent bot">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Agentic AI</span>
+                        <span class="tech-badge-solid">Automation</span>
+                    </div>
+                    <h3 class="project-card-title">Discord-Notion-Sync</h3>
+                    <p class="project-card-desc">Bot bridging Discord communication directly into Notion workspace, featuring automated AI note refinement and web search capabilities.</p>
+                    <span class="project-card-stack">Discord API • Notion • AI Agents</span>
+                    <a href="https://github.com/farhanrhine/discord-notion-sync" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 4 -->
+                <article class="project-item-card" data-category="agentic" data-search="student study assistant discord pydantic llm notion progress tracking">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Agentic AI</span>
+                        <span class="tech-badge-solid">EdTech</span>
+                    </div>
+                    <h3 class="project-card-title">Student Study Assistant</h3>
+                    <p class="project-card-desc">Study bot managing private threads with Pydantic structured LLM explanations and Notion-based learning progress tracking.</p>
+                    <span class="project-card-stack">Pydantic • LLM • Notion • Discord</span>
+                    <a href="https://github.com/farhanrhine/discord-thread-notion-mind" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 5 -->
+                <article class="project-item-card" data-category="agentic" data-search="retail ai agent langchain qwen3 langsmith personal shopper support routing">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Agentic AI</span>
+                        <span class="tech-badge-solid">LangSmith</span>
+                    </div>
+                    <h3 class="project-card-title">Retail AI Agent</h3>
+                    <p class="project-card-desc">Dual-purpose AI agent acting as Personal Shopper and Support Assistant, routing between 4 custom tools with zero hallucinations.</p>
+                    <span class="project-card-stack">LangChain • Qwen3-32B • LangSmith</span>
+                    <a href="https://github.com/farhanrhine/Retail-AI-Agent" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 6 -->
+                <article class="project-item-card" data-category="rag" data-search="ai anime recommender chromadb llama 3.1 gke kubernetes rag fastapi vector">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">RAG & Vector</span>
+                        <span class="tech-badge-solid">Kubernetes</span>
+                    </div>
+                    <h3 class="project-card-title">AI Anime Recommender</h3>
+                    <p class="project-card-desc">Production-grade RAG engine deployed on Kubernetes. Features ChromaDB vector embeddings, FastAPI backend, and complete CI/CD.</p>
+                    <span class="project-card-stack">ChromaDB • Llama 3.1 • GKE • FastAPI</span>
+                    <a href="https://github.com/farhanrhine/ai-anime-recommender-rag" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 7 -->
+                <article class="project-item-card" data-category="rag" data-search="medical rag ai agent faiss flask gcp cloud run healthcare citations">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">RAG & Vector</span>
+                        <span class="tech-badge-solid">Healthcare AI</span>
+                    </div>
+                    <h3 class="project-card-title">Medical RAG Agent</h3>
+                    <p class="project-card-desc">Healthcare chatbot with RAG retrieval from the GALE Encyclopedia, FAISS vector indexing, and automated source citations.</p>
+                    <span class="project-card-stack">FAISS • Flask • GCP Cloud Run</span>
+                    <a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 8 -->
+                <article class="project-item-card" data-category="rag" data-search="recall ai study agent argo cd kubernetes langchain single file teach test">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">RAG & Vector</span>
+                        <span class="tech-badge-solid">GitOps</span>
+                    </div>
+                    <h3 class="project-card-title">Recall AI Study Agent</h3>
+                    <p class="project-card-desc">Single-file architecture study companion with teach-then-test workflows and contextual quiz generation deployed via Argo CD.</p>
+                    <span class="project-card-stack">Argo CD • Kubernetes • LangChain</span>
+                    <a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 9 -->
+                <article class="project-item-card" data-category="rag" data-search="travel planner ai agent whisper stt orpheus tts folium elk kubernetes voice maps">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">RAG & Vector</span>
+                        <span class="tech-badge-solid">Voice & TTS</span>
+                    </div>
+                    <h3 class="project-card-title">Travel Planner AI</h3>
+                    <p class="project-card-desc">AI travel companion featuring natural voice input, narrated audio summaries, and interactive geospatial mapping monitored on ELK.</p>
+                    <span class="project-card-stack">Whisper STT • Orpheus TTS • Folium</span>
+                    <a href="https://github.com/farhanrhine/travel-planner-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 10 -->
+                <article class="project-item-card" data-category="agentic" data-search="research deepagent langgraph subagents planning local filesystem long running">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Agentic AI</span>
+                        <span class="tech-badge-solid">Deep Research</span>
+                    </div>
+                    <h3 class="project-card-title">Research DeepAgent</h3>
+                    <p class="project-card-desc">Advanced agent with planning capabilities, filesystem memory backend, and subagent spawning for complex multi-step research.</p>
+                    <span class="project-card-stack">LangGraph • Subagents • FS Memory</span>
+                    <a href="https://github.com/farhanrhine/research-deepagent" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 11 -->
+                <article class="project-item-card" data-category="agentic" data-search="flipkart shopping agent cloud native nlp gcp cicd pipeline">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Agentic AI</span>
+                        <span class="tech-badge-solid">Cloud Native</span>
+                    </div>
+                    <h3 class="project-card-title">Flipkart Shopping Agent</h3>
+                    <p class="project-card-desc">Production-grade intelligent shopping assistant deployed on Google Cloud Platform with NLP product matching and automated CI/CD.</p>
+                    <span class="project-card-stack">Cloud-Native • NLP • GCP Pipeline</span>
+                    <a href="https://github.com/farhanrhine/flipkart-shopping-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 12 -->
+                <article class="project-item-card" data-category="agentic" data-search="multi agent wedding planner collaborative coordination budgeting venue">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Agentic AI</span>
+                        <span class="tech-badge-solid">Multi-Agent</span>
+                    </div>
+                    <h3 class="project-card-title">Multi-Agent Wedding Planner</h3>
+                    <p class="project-card-desc">Collaborative multi-agent system coordinating specialized agents across venue selection, catering, budgeting, and timelines.</p>
+                    <span class="project-card-stack">Multi-Agent System • Planning Nodes</span>
+                    <a href="https://github.com/farhanrhine/Multi-Agent-Wedding-Planner" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 13 -->
+                <article class="project-item-card" data-category="mlops" data-search="crowdflow ai predictive crowd flow dynamic rerouting randomforest ml networkx a star digital twin react flow eth ucy pedestrian benchmark fastapi websockets simulation">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Digital Twin & ML</span>
+                        <span class="tech-badge-solid">A* & RandomForest</span>
+                    </div>
+                    <h3 class="project-card-title">CrowdFlow AI</h3>
+                    <p class="project-card-desc">Predictive crowd flow optimizer combining a 9-feature RandomForest model trained on 16,899 pedestrian samples with NetworkX A* dynamic rerouting and a real-time digital twin simulation.</p>
+                    <span class="project-card-stack">RandomForest • NetworkX A* • React Flow • WebSockets</span>
+                    <a href="https://github.com/MaheepSeharawat/hackathon" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 14 -->
+                <article class="project-item-card" data-category="mlops" data-search="tourism recommendation deep learning pytorch ncf neural collaborative filtering attention">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">ML & Deep Learning</span>
+                        <span class="tech-badge-solid">PyTorch</span>
+                    </div>
+                    <h3 class="project-card-title">Tourism Recommendation</h3>
+                    <p class="project-card-desc">Personalized travel engine utilizing Neural Collaborative Filtering (NCF) and content embeddings fused with learnable attention.</p>
+                    <span class="project-card-stack">PyTorch • Hybrid NCF • Attention</span>
+                    <a href="https://github.com/farhanrhine/Deep_Learning-Tourism_Recommendation" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 14 -->
+                <article class="project-item-card" data-category="mlops" data-search="flight satisfaction mlops lightgbm mlflow dvc jenkins flask docker reproducible">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">MLOps</span>
+                        <span class="tech-badge-solid">MLflow & DVC</span>
+                    </div>
+                    <h3 class="project-card-title">Flight Satisfaction MLOps</h3>
+                    <p class="project-card-desc">End-to-end production ML pipeline handling dataset versioning, reproducible experiment tracking, and Dockerized serving.</p>
+                    <span class="project-card-stack">LightGBM • MLflow • DVC • Jenkins</span>
+                    <a href="https://github.com/farhanrhine/flight-satisfaction-mlops" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 15 -->
+                <article class="project-item-card" data-category="mlops" data-search="celebrity face detection opencv llama 4 kubernetes circleci computer vision">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Computer Vision</span>
+                        <span class="tech-badge-solid">GKE & OpenCV</span>
+                    </div>
+                    <h3 class="project-card-title">Celebrity Face Detection</h3>
+                    <p class="project-card-desc">Computer vision application combining OpenCV cascades with an LLM Q&A engine, continuously deployed on GKE via CircleCI.</p>
+                    <span class="project-card-stack">OpenCV • Llama 4 • Kubernetes</span>
+                    <a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 16 -->
+                <article class="project-item-card" data-category="mlops" data-search="insurance premium prediction fastapi docker aws ec2 regression horizontal scaling">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">MLOps</span>
+                        <span class="tech-badge-solid">AWS EC2</span>
+                    </div>
+                    <h3 class="project-card-title">Insurance Prediction API</h3>
+                    <p class="project-card-desc">Scalable ML regression model served via high-performance FastAPI, containerized and deployed with auto-scaling on AWS.</p>
+                    <span class="project-card-stack">Regression • FastAPI • Docker • AWS</span>
+                    <a href="https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 17 -->
+                <article class="project-item-card" data-category="mlops" data-search="iot power consumption analysis scikit learn pandas time series anomalies">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">ML & Data</span>
+                        <span class="tech-badge-solid">Time Series</span>
+                    </div>
+                    <h3 class="project-card-title">IoT Power Analysis</h3>
+                    <p class="project-card-desc">Processes electrical time-series IoT data to compute high-load metrics, identify seasonal patterns, and isolate system anomalies.</p>
+                    <span class="project-card-stack">Scikit-Learn • Pandas • EDA</span>
+                    <a href="https://github.com/farhanrhine/IoT-Power-Consumption-Analysis" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 18 -->
+                <article class="project-item-card" data-category="mlops" data-search="quran bigram model nlp statistical language arabic linguistic structure">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">NLP</span>
+                        <span class="tech-badge-solid">Language Model</span>
+                    </div>
+                    <h3 class="project-card-title">Quran Bigram Model</h3>
+                    <p class="project-card-desc">Statistical language modeling exploring classical Arabic linguistic structures via corpus-wide n-gram probabilistic modeling.</p>
+                    <span class="project-card-stack">NLP • Bigram Analysis • Stats</span>
+                    <a href="https://github.com/farhanrhine/quran-bigram-model" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 19 -->
+                <article class="project-item-card" data-category="backend" data-search="finlo raw sql claude code pure html expense tracker zero frameworks spec driven">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Software Engineering</span>
+                        <span class="tech-badge-solid">Raw SQL</span>
+                    </div>
+                    <h3 class="project-card-title">Finlo Expense Tracker</h3>
+                    <p class="project-card-desc">Minimalist personal expense tracker built with raw SQL (zero ORM) and pure HTML/CSS, following Spec-Driven Development with Claude Code.</p>
+                    <span class="project-card-stack">Raw SQL • Claude Code • Pure HTML</span>
+                    <a href="https://github.com/farhanrhine/Finlo" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 20 -->
+                <article class="project-item-card" data-category="backend" data-search="web eater web scraping structured data extraction pipeline llm rag">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Data Engineering</span>
+                        <span class="tech-badge-solid">Web Scraping</span>
+                    </div>
+                    <h3 class="project-card-title">Web Eater</h3>
+                    <p class="project-card-desc">High-speed web scraping and structured data extraction pipeline optimized for downstream LLM consumption and RAG indexers.</p>
+                    <span class="project-card-stack">Python • Data Extraction • RAG</span>
+                    <a href="https://github.com/farhanrhine/web-eater" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- 21 -->
+                <article class="project-item-card" data-category="backend" data-search="flowdesk task management platform zero framework pure html css javascript postgresql rbac railway access control">
+                    <div class="card-top-meta">
+                        <span class="project-cat-pill">Fullstack & RBAC</span>
+                        <span class="tech-badge-solid">Zero-Framework</span>
+                    </div>
+                    <h3 class="project-card-title">FlowDesk Task Platform</h3>
+                    <p class="project-card-desc">High-performance task management system engineered with pure HTML/CSS/JS (zero runtime overhead) and PostgreSQL backend on Railway with RBAC security.</p>
+                    <span class="project-card-stack">PostgreSQL • RBAC • Pure JS • Railway</span>
+                    <a href="https://github.com/farhanrhine/FlowDesk" target="_blank" class="project-card-link">View Repository ↗</a>
+                </article>
+
+                <!-- Empty State -->
+                <div class="no-results-msg" id="noResultsMsg">
+                    No matching projects found. Try a different search term or category filter!
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+             EXPERIENCE & EDUCATION
+             ==================================================================== -->
+        <section id="experience" class="section-wrap">
+            <div class="section-header-block">
+                <div>
+                    <div class="section-eyebrow"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg> Career & Credentials</div>
+                    <h2 class="section-title">Experience & Education</h2>
+                </div>
+                <div class="section-badge-counter">Verified Background</div>
+            </div>
+
+            <div class="timeline-grid">
+                <!-- Exp 1: SmartBridge -->
+                <div class="timeline-card">
+                    <span class="timeline-badge">June – July 2026</span>
+                    <h3 class="timeline-title">AI Engineer Intern</h3>
+                    <div class="timeline-org">SmartBridge Educational Services Pvt. Ltd.</div>
+                    <ul class="timeline-list">
+                        <li>Built an AI-Powered Resume Analyzer, owning the work from design through deployment.</li>
+                        <li>Delivered internal Knowledge Transfer (KT) sessions on Agentic AI, RAG, and Claude Code for the technical team.</li>
                     </ul>
                 </div>
-                <div class="project-card">
-                    <span class="tech-stack">2022 - 2026</span>
-                    <h4>Bachelor of Engineering in CS</h4>
-                    <div class="company">Chandigarh University</div>
-                    <p>Computer Science Engineer who got serious about ML & AI and never looked back.</p>
+
+                <!-- Exp 2: Infosys -->
+                <div class="timeline-card">
+                    <span class="timeline-badge">Oct – Dec 2024</span>
+                    <h3 class="timeline-title">AI/ML Engineer Intern</h3>
+                    <div class="timeline-org">
+                        <a href="https://www.linkedin.com/in/farhanrhine/overlay/1739369171414/single-media-viewer/?profileId=ACoAADnswakBhLaU0AxShVqizbtvdF0VtslDSpI" target="_blank" style="text-decoration: underline; color: var(--text-main);">
+                            Infosys Springboard 5.0 ↗
+                        </a>
+                    </div>
+                    <ul class="timeline-list">
+                        <li>Engineered a multilingual language detection model achieving 90% test accuracy.</li>
+                        <li>Trained, benchmarked, and deployed Logistic Regression, Random Forest, and LSTM architectures for text processing.</li>
+                        <li>Evaluated feature representations and streamlined end-to-end inference pipelines.</li>
+                    </ul>
+                </div>
+
+                <!-- Exp 3: Chandigarh University -->
+                <div class="timeline-card">
+                    <span class="timeline-badge">2022 – 2026</span>
+                    <h3 class="timeline-title">Bachelor of Engineering in CS</h3>
+                    <div class="timeline-org">Chandigarh University</div>
+                    <ul class="timeline-list">
+                        <li>Core focus on Machine Learning, Distributed Systems, Data Structures & Algorithms.</li>
+                        <li>Built 20+ open-source AI projects, MCP servers, and cloud-native microservices.</li>
+                        <li>Actively contributing to autonomous agent workflows and RAG tooling ecosystems.</li>
+                    </ul>
+                </div>
+
+                <!-- Exp 4: Hackathon Honor -->
+                <div class="timeline-card" style="border-top: 4px solid var(--color-yellow);">
+                    <span class="timeline-badge" style="background: var(--color-yellow); color: #000;">Aug 2026</span>
+                    <h3 class="timeline-title">GrandPrix Finalist (Top 19 / 500+ Teams)</h3>
+                    <div class="timeline-org">
+                        <a href="https://luma.com/h3dute0f" target="_blank" style="text-decoration: underline; color: var(--text-main);">
+                            AI Race Month GrandPrix @ Paytm (Geek Room × SheBuilds) ↗
+                        </a>
+                    </div>
+                    <ul class="timeline-list">
+                        <li><strong>Ranked in the top 19 among 500+ teams</strong> in the national hackathon hosted by Geek Room & SheBuilds at Paytm Headquarters.</li>
+                        <li>Architected <em>CrowdFlow AI</em>: a predictive crowd-flow optimizer combining a 9-feature RandomForest ML model with NetworkX A* dynamic graph rerouting and a real-time digital twin.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section id="featured">
-            <div class="section-label">Featured Architectures <span class="subtitle">Deep Dives</span></div>
-            <div class="featured-grid">
-                <article class="featured-card">
-                    <div class="fc-content">
-                        <span class="tech-stack">FastAPI • Whisper STT • LLM • Render</span>
-                        <h3>AI Tutor Screener</h3>
-                        <p>Voice-first AI interviewer that conducts adaptive tutor screening conversations. Features dual STT (OpenAI Whisper + Web Speech), structured assessment reports with full PDF exports, and a secure admin dashboard.</p>
-                        <a href="https://github.com/farhanrhine/ai-tutor-screener" target="_blank" class="card-link">View Source Code</a>
-                    </div>
-                    <div class="arch-diagram">
-                        <div class="arch-row"><div class="arch-node">User Voice</div><span class="arch-arrow">→</span><div class="arch-node" style="border-color: var(--accent);">Dual STT Engine</div></div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-node" style="border-color: var(--accent);">AI Interviewer (LLM)</div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-row"><div class="arch-node">Admin Dashboard</div><span class="arch-arrow">←</span><div class="arch-node">PDF Export</div></div>
-                    </div>
-                </article>
-                <article class="featured-card">
-                    <div class="fc-content">
-                        <span class="tech-stack">PostgreSQL • RBAC • Zero-Framework</span>
-                        <h3>FlowDesk</h3>
-                        <p>Secure, aesthetic, and high-performance task management system. Streamlines team collaboration with Role-Based Access Control, a zero-framework pure frontend, and robust PostgreSQL deployment on Railway.</p>
-                        <a href="https://github.com/farhanrhine/FlowDesk" target="_blank" class="card-link">View Source Code</a>
-                    </div>
-                    <div class="arch-diagram">
-                        <div class="arch-node">Pure HTML/CSS/JS Client</div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-node" style="border-color: var(--accent);">RESTful API Layer</div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-row"><div class="arch-node">RBAC Middleware</div><span class="arch-arrow">→</span><div class="arch-node" style="border-color: var(--accent);">PostgreSQL DB</div></div>
-                    </div>
-                </article>
-                <article class="featured-card">
-                    <div class="fc-content">
-                        <span class="tech-stack">MCP SDK • Claude Desktop • SQLite</span>
-                        <h3>Paytm Local MCP Server</h3>
-                        <p>Privacy-first Model Context Protocol (MCP) server for analyzing personal UPI transactions locally. Features standard stdio + SSE transport, processing 950+ transactions entirely on-device with zero data sharing.</p>
-                        <a href="https://github.com/farhanrhine/paytm-local-mcp-server" target="_blank" class="card-link">View Source Code</a>
-                    </div>
-                    <div class="arch-diagram">
-                        <div class="arch-node">Claude Desktop</div>
-                        <div class="arch-arrow">↓ (MCP Protocol)</div>
-                        <div class="arch-row"><div class="arch-node" style="border-color: var(--accent);">Local MCP Server</div></div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-row"><div class="arch-node">Schema Validation</div><span class="arch-arrow">→</span><div class="arch-node">Local DB / CSV</div></div>
-                    </div>
-                </article>
-            </div>
-        </section>
+        <!-- ====================================================================
+             CONTACT & FOOTER
+             ==================================================================== -->
+        <footer class="neo-footer-card">
+            <span class="footer-tag"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle;margin-right:4px;"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Let's Collaborate</span>
+            <h2 class="footer-headline">Ready to build something impactful?</h2>
+            <p class="footer-sub">
+                Whether you need an autonomous agent workflow, production RAG pipeline, local MCP server, or scalable ML infrastructure — let's connect.
+            </p>
 
-        <section id="projects">
-            <div class="section-label">Agentic Workflows & RAG</div>
-            <div class="projects-grid">
-                <a href="https://github.com/farhanrhine/multi-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">LangGraph • Llama 3 • FastAPI</span><h4>Multi-AI Agent System</h4><p>Production multi-agent application utilizing a custom LangGraph StateGraph, Llama 3, and Tavily Search. Implements real-time streaming via a FastAPI backend and deployed on GCP Cloud Run.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/OpenClaw-Retail-Support-Agent" target="_blank" class="project-card"><span class="tech-stack">OpenClaw • GLM-4.5 • APIs</span><h4>OpenClaw Retail Support</h4><p>Autonomous customer support assistant integrated natively with WhatsApp and Telegram. Resolves order queries via a sophisticated tool-invocation layer.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/discord-notion-sync" target="_blank" class="project-card"><span class="tech-stack">Discord API • Notion • AI Agents</span><h4>Discord-Notion-Sync</h4><p>Bot bridging Discord chat to Notion, featuring AI note refinement and an autonomous web search agent.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/discord-thread-notion-mind" target="_blank" class="project-card"><span class="tech-stack">Pydantic • LLM • Notion • Discord</span><h4>Student Study Assistant</h4><p>Study bot managing private threads with Pydantic structured LLM explanations and Notion-based progress tracking.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/Retail-AI-Agent" target="_blank" class="project-card"><span class="tech-stack">LangChain • Qwen3-32B • LangSmith</span><h4>Retail AI Agent</h4><p>Dual-purpose AI agent acting as a Personal Shopper and Support Assistant. Autonomously routes between 4 custom tools enforcing policies with zero hallucinations.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/ai-anime-recommender-rag" target="_blank" class="project-card"><span class="tech-stack">ChromaDB • Llama 3.1 • GKE</span><h4>AI Anime Recommender</h4><p>Production-grade RAG deployed on Kubernetes. Features ChromaDB vector store, FastAPI backend, and a complete CI/CD pipeline.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">FAISS • Flask • GCP Cloud Run</span><h4>Medical RAG Agent</h4><p>Healthcare chatbot with RAG-powered knowledge retrieval from GALE Encyclopedia. FAISS vector store and automated source citations.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">Argo CD • Kubernetes • LangChain</span><h4>Recall AI Study Agent</h4><p>Single-File Architecture study companion with teach-then-test workflows. Contextual quiz generation deployed via Argo CD.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/travel-planner-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">Whisper STT • Orpheus TTS • Folium</span><h4>Travel Planner AI</h4><p>AI agent featuring natural voice input, narrated summaries, and interactive mapping. Monitored via ELK stack on Kubernetes.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/research-deepagent" target="_blank" class="project-card"><span class="tech-stack">LangGraph • Subagents • Local FS</span><h4>Research DeepAgent</h4><p>Advanced agent with planning capabilities, filesystem backend, and subagent spawning for complex, long-running research tasks.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/flipkart-shopping-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">Cloud-Native • NLP • GCP</span><h4>Flipkart Shopping Agent</h4><p>Production-grade intelligent shopping assistant deployed on Google Cloud Platform featuring natural language product search and a full CI/CD pipeline.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/Multi-Agent-Wedding-Planner" target="_blank" class="project-card"><span class="tech-stack">Multi-Agent System • Planning</span><h4>Multi-Agent Wedding Planner</h4><p>Collaborative multi-agent system coordinating specialized agents to handle venue selection, catering, budgeting, and timeline management.</p><span class="card-link">View Project</span></a>
+            <div class="footer-action-row">
+                <a href="mailto:mohammadfarhanalam09@gmail.com" class="neo-btn neo-btn-primary neo-btn-lg">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle;margin-right:5px;"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>Send Email
+                </a>
+                <a href="https://drive.google.com/file/d/19Q-KK8EkbgBFiBuNjCR9i2lOLnOjxbdN/view?usp=sharing" target="_blank" class="neo-btn neo-btn-white neo-btn-lg">
+                    Download Resume ↗
+                </a>
+                <button class="neo-btn neo-btn-white neo-btn-lg copy-email-btn" data-email="mohammadfarhanalam09@gmail.com">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="display:inline-block;vertical-align:middle;margin-right:5px;"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>Copy Email Address
+                </button>
+                <a href="https://linkedin.com/in/farhanrhine" target="_blank" class="neo-btn neo-btn-white neo-btn-lg">
+                    Connect on LinkedIn ↗
+                </a>
+                <a href="https://github.com/farhanrhine" target="_blank" class="neo-btn neo-btn-white neo-btn-lg">
+                    GitHub Profile ↗
+                </a>
             </div>
 
-            <div class="section-label">Machine Learning & MLOps</div>
-            <div class="projects-grid">
-                <a href="https://github.com/farhanrhine/Deep_Learning-Tourism_Recommendation" target="_blank" class="project-card"><span class="tech-stack">PyTorch • Hybrid Deep Learning • NCF</span><h4>Tourism Recommendation</h4><p>Personalized travel engine utilizing Neural Collaborative Filtering (NCF) and content-based models via a learnable attention fusion mechanism.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/flight-satisfaction-mlops" target="_blank" class="project-card"><span class="tech-stack">LightGBM • MLflow • DVC • Jenkins</span><h4>Flight Satisfaction MLOps</h4><p>End-to-end pipeline handling data versioning and reproducible tracking. Deployed with Flask and Docker.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank" class="project-card"><span class="tech-stack">OpenCV • Llama 4 • Kubernetes</span><h4>Celebrity Face Detection</h4><p>Computer vision app combining OpenCV cascades with an LLM Q&A engine, deployed on GKE using CircleCI.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws" target="_blank" class="project-card"><span class="tech-stack">Regression • FastAPI • AWS EC2</span><h4>Insurance Prediction API</h4><p>Scalable ML regression model served via high-performance FastAPI, containerized, and scaled horizontally on AWS.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/IoT-Power-Consumption-Analysis" target="_blank" class="project-card"><span class="tech-stack">Scikit-Learn • Pandas • EDA</span><h4>IoT Power Analysis</h4><p>Processes electrical time-series data to compute power metrics, identify usage patterns, and isolate anomalies.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/quran-bigram-model" target="_blank" class="project-card"><span class="tech-stack">NLP • Bigram Analysis • Stats</span><h4>Quran Bigram Model</h4><p>Statistical language modeling exploring classical Arabic linguistic structures via extensive bigram analysis.</p><span class="card-link">View Project</span></a>
+            <div class="footer-credits">
+                <span>0 heavy frameworks used • 100% Pure High-Performance HTML, CSS & Vanilla JS</span>
+                <span>© 2026 Farhan. All rights reserved.</span>
             </div>
-
-            <div class="section-label">Software & Data Engineering</div>
-            <div class="projects-grid">
-                <a href="https://github.com/farhanrhine/Finlo" target="_blank" class="project-card"><span class="tech-stack">Raw SQL • Claude Code • Pure HTML</span><h4>Finlo</h4><p>Minimalist personal expense tracker built with raw SQL (no ORM) and zero frameworks, utilizing Spec-Driven Development via Claude Code.</p><span class="card-link">View Project</span></a>
-                <a href="https://github.com/farhanrhine/web-eater" target="_blank" class="project-card"><span class="tech-stack">Web Scraping • Data Extraction</span><h4>Web Eater</h4><p>Web scraping and structured data extraction pipeline optimized for downstream LLM consumption and RAG systems.</p><span class="card-link">View Project</span></a>
-            </div>
-        </section>
-
-        <section class="newsletter-container">
-            <h3 class="newsletter-title">Get in Touch</h3>
-            <p class="newsletter-desc">Interested in collaborating or have a project in mind? Drop your email and I'll reach out.</p>
-            <form id="newsletter-form" class="newsletter-form">
-                <input type="email" id="newsletter-email" class="newsletter-input" placeholder="your@email.com" required>
-                <button type="submit" class="newsletter-btn" id="newsletter-submit-btn">Send</button>
-            </form>
-            <div id="newsletter-status" class="form-feedback"></div>
-        </section>
-
-        <section id="contact">
-            <div class="section-label">Contact <span class="subtitle">Send me a message</span></div>
-            <div class="contact-container">
-                <form id="contact-form" class="contact-form">
-                    <div class="form-row-2">
-                        <div class="form-group">
-                            <label for="contact-name">Name</label>
-                            <input type="text" id="contact-name" class="form-control" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact-email">Email Address</label>
-                            <input type="email" id="contact-email" class="form-control" placeholder="your@email.com" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-subject">Subject</label>
-                        <input type="text" id="contact-subject" class="form-control" placeholder="What's this about?" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contact-message">Message</label>
-                        <textarea id="contact-message" class="form-control" placeholder="Your message..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" id="contact-submit-btn">Send Message</button>
-                    <div id="contact-status" class="form-feedback"></div>
-                </form>
-            </div>
-        </section>
-
-        <footer>
-            <p>0 frameworks were used to make this interface. Pure HTML & CSS.</p>
-            <p>&copy; 2026 Farhan. Built with a focus on correctness.</p>
         </footer>
     </main>
 
-    <div class="modal-backdrop" id="product-modal">
-        <div class="modal-wrapper">
-            <button class="modal-close" id="product-modal-close" aria-label="Close details">&times;</button>
-            <div id="modal-dynamic-content"></div>
-        </div>
-    </div>
+    <!-- Toast Notification Element -->
+    <div id="neoToast" class="neo-toast">Email copied to clipboard!</div>
 
+    <!-- ========================================================================
+         SCRIPTS: THEME SWITCHER & PROJECT SEARCH/FILTER
+         ======================================================================== -->
     <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
-        const htmlElement = document.documentElement;
-        const svgs = {
-            light: `<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z" />`,
-            dark: `<path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z" clip-rule="evenodd" />`
-        };
-        const getSavedTheme = () => localStorage.getItem('theme') || 'dark';
-        const setTheme = (theme) => { htmlElement.setAttribute('data-theme', theme); localStorage.setItem('theme', theme); themeIcon.innerHTML = theme === 'dark' ? svgs.dark : svgs.light; };
-        setTheme(getSavedTheme());
-        themeToggle.addEventListener('click', () => { const current = htmlElement.getAttribute('data-theme'); setTheme(current === 'dark' ? 'light' : 'dark'); });
+        (function() {
+            // Theme Management
+            const htmlEl = document.documentElement;
+            const themeChips = document.querySelectorAll('.theme-chip-btn');
 
-        const contactForm = document.getElementById('contact-form');
-        const contactSubmit = document.getElementById('contact-submit-btn');
-        const contactStatus = document.getElementById('contact-status');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault(); contactSubmit.disabled = true; contactSubmit.textContent = "Transmitting Message..."; contactStatus.className = 'form-feedback'; contactStatus.style.display = 'none';
-            const name = document.getElementById('contact-name').value; const email = document.getElementById('contact-email').value; const subject = document.getElementById('contact-subject').value; const message = document.getElementById('contact-message').value;
-            const accessKeyPlaceholder = "3e0667fa-57eb-42a8-923f-2be341337aaf";
-            const formData = { access_key: accessKeyPlaceholder, name, email, subject: `[Portfolio Contact Form Submission] ${subject}`, message };
-            if (formData.access_key === "YOUR_ACCESS_KEY_HERE") { setTimeout(() => { contactSubmit.disabled = false; contactSubmit.textContent = "Send Message"; contactStatus.classList.add('success'); contactStatus.innerHTML = `<strong>Demo Mode Bypassed:</strong> Thank you, ${name}! Your transmission was simulated successfully.`; contactForm.reset(); }, 1000); return; }
-            fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(formData) })
-            .then(async (response) => { let json = await response.json(); if (response.status == 200) { contactStatus.classList.add('success'); contactStatus.innerHTML = `<strong>Message sent! I'll get back to you soon.`; contactForm.reset(); } else { contactStatus.classList.add('error'); contactStatus.innerHTML = `<strong>Transmission Failed:</strong> ${json.message || "An error occurred dispatching your payload."}`; } })
-            .catch(error => { contactStatus.classList.add('error'); contactStatus.innerHTML = `<strong>Network Error:</strong> Unable to connect to the backend mail relay. Please check your network and try again.`; })
-            .then(() => { contactSubmit.disabled = false; contactSubmit.textContent = "Send Message"; });
-        });
+            function applyTheme(themeName) {
+                if (themeName !== 'neo-yellow' && themeName !== 'neo-dark') {
+                    themeName = 'neo-yellow';
+                }
+                htmlEl.setAttribute('data-theme', themeName);
+                localStorage.setItem('neo-portfolio-theme', themeName);
+                themeChips.forEach(chip => {
+                    if (chip.getAttribute('data-theme-val') === themeName) {
+                        chip.classList.add('active');
+                    } else {
+                        chip.classList.remove('active');
+                    }
+                });
+            }
 
-        const newsletterForm = document.getElementById('newsletter-form');
-        const newsletterSubmit = document.getElementById('newsletter-submit-btn');
-        const newsletterStatus = document.getElementById('newsletter-status');
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault(); newsletterSubmit.disabled = true; newsletterSubmit.textContent = "Sending..."; newsletterStatus.className = 'form-feedback'; newsletterStatus.style.display = 'none';
-            setTimeout(() => { const email = document.getElementById('newsletter-email').value; newsletterSubmit.disabled = false; newsletterSubmit.textContent = "Subscribe"; newsletterStatus.classList.add('success'); newsletterStatus.innerHTML = `<strong>Got it! I'll be in touch.`; newsletterForm.reset(); }, 600);
-        });
+            const rawSavedTheme = localStorage.getItem('neo-portfolio-theme') || 'neo-yellow';
+            const savedTheme = (rawSavedTheme === 'neo-dark') ? 'neo-dark' : 'neo-yellow';
+            applyTheme(savedTheme);
+
+            themeChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const selectedTheme = chip.getAttribute('data-theme-val');
+                    applyTheme(selectedTheme);
+                });
+            });
+
+            // Project Search & Category Filtering
+            const searchInput = document.getElementById('projectSearchInput');
+            const filterChips = document.querySelectorAll('.filter-chip-btn');
+            const projectCards = document.querySelectorAll('.project-item-card');
+            const countBadge = document.getElementById('projectCountBadge');
+            const noResultsMsg = document.getElementById('noResultsMsg');
+
+            let currentCategory = 'all';
+            let searchQuery = '';
+
+            function filterProjects() {
+                let visibleCount = 0;
+
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    const searchData = (card.getAttribute('data-search') || '').toLowerCase();
+                    const titleText = card.querySelector('.project-card-title').textContent.toLowerCase();
+                    const descText = card.querySelector('.project-card-desc').textContent.toLowerCase();
+                    const stackText = (card.querySelector('.project-card-stack')?.textContent || '').toLowerCase();
+
+                    const matchesCategory = (currentCategory === 'all' || cardCategory === currentCategory);
+                    const matchesSearch = !searchQuery || 
+                                          searchData.includes(searchQuery) || 
+                                          titleText.includes(searchQuery) || 
+                                          descText.includes(searchQuery) ||
+                                          stackText.includes(searchQuery);
+
+                    if (matchesCategory && matchesSearch) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                countBadge.textContent = `Showing ${visibleCount} Project${visibleCount === 1 ? '' : 's'}`;
+                noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+            }
+
+            filterChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    filterChips.forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+                    currentCategory = chip.getAttribute('data-category');
+                    filterProjects();
+                });
+            });
+
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    searchQuery = e.target.value.trim().toLowerCase();
+                    filterProjects();
+                });
+            }
+
+            // Copy Email with Toast Feedback
+            const toast = document.getElementById('neoToast');
+            let toastTimer;
+
+            document.querySelectorAll('.copy-email-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const email = btn.getAttribute('data-email') || 'mohammadfarhanalam09@gmail.com';
+                    navigator.clipboard.writeText(email).then(() => {
+                        toast.textContent = `Copied ${email} to clipboard!`;
+                        toast.classList.add('show');
+                        clearTimeout(toastTimer);
+                        toastTimer = setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 2600);
+                    }).catch(() => {
+                        window.location.href = `mailto:${email}`;
+                    });
+                });
+            });
+        })();
     </script>
 
     <!-- AgentLayer MCP Bridge Embed Script -->

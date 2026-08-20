@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="neo-yellow">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farhan | Open Source Repository Hub & Archive</title>
+    <meta name="description" content="Searchable and filterable archive of 22+ open-source AI agents, RAG pipelines, MLOps workflows, and backend engineering repositories by Farhan." />
+    
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:title" content="Farhan | Project Archive & Repository Hub" />
+    <meta property="og:description" content="Explore 22+ open-source Agentic AI, RAG, Computer Vision, and MLOps projects." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/124152754?v=4" />
+    <meta property="og:url" content="https://farhanrhine.github.io/projects.html" />
+
+    <!-- Modern Bold & Monospace Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ==========================================================================
+           NEO-BRUTALIST DESIGN SYSTEM & MULTI-THEME TOKENS
+           ========================================================================== */
+        :root {
+            --font-display: 'Archivo Black', 'Plus Jakarta Sans', sans-serif;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* Metrics & Brutalist Physics */
+            --border-thick: 2.5px solid #000000;
+            --border-medium: 2px solid #000000;
+            --border-thin: 1.5px solid #000000;
+            --shadow-neo-xs: 2px 2px 0px #000000;
+            --shadow-neo-sm: 3px 3px 0px #000000;
+            --shadow-neo: 4px 4px 0px #000000;
+            --shadow-neo-lg: 6px 6px 0px #000000;
+            --shadow-neo-xl: 8px 8px 0px #000000;
+            --shadow-neo-hover: 7px 7px 0px #000000;
+            --shadow-neo-active: 1px 1px 0px #000000;
+
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+            --radius-pill: 9999px;
+
+            /* Multi-Color Accent Swatches */
+            --color-yellow: #FFC700;
+            --color-yellow-light: #FFE885;
+            --color-blue: #2563EB;
+            --color-blue-light: #93C5FD;
+            --color-pink: #F472B6;
+            --color-pink-light: #FCE7F3;
+            --color-green: #22C55E;
+            --color-green-light: #BBF7D0;
+            --color-orange: #EA580C;
+            --color-orange-light: #FED7AA;
+            --color-purple: #8B5CF6;
+            --color-purple-light: #DDD6FE;
+            --color-cyan: #06B6D4;
+        }
+
+        /* THEME 1: NEO-YELLOW */
+        html, html[data-theme="neo-yellow"] {
+            --bg-canvas: #FAF8F5;
+            --bg-surface: #FFFFFF;
+            --bg-surface-alt: #F4EFE6;
+            --bg-surface-subtle: #FAF6ED;
+            --text-main: #000000;
+            --text-muted: #4B4B4B;
+            --text-secondary: #242424;
+            --primary: #FFC700;
+            --primary-hover: #E5B300;
+            --primary-contrast: #000000;
+            --card-bg: #FFFFFF;
+            --card-border: #000000;
+            --dot-color: rgba(0, 0, 0, 0.08);
+            --code-bg: #141414;
+            --code-text: #F2F1ED;
+        }
+
+        /* THEME 2: CYBER DARK NEO */
+        html[data-theme="neo-dark"] {
+            --bg-canvas: #0F0F12;
+            --bg-surface: #191920;
+            --bg-surface-alt: #23232C;
+            --bg-surface-subtle: #141418;
+            --text-main: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --text-secondary: #E4E4E7;
+            --primary: #FFC700;
+            --primary-hover: #FFE066;
+            --primary-contrast: #000000;
+            --card-bg: #191920;
+            --card-border: #FFFFFF;
+            --dot-color: rgba(255, 255, 255, 0.06);
+            --code-bg: #09090B;
+            --code-text: #F4F4F5;
+            --border-thick: 2.5px solid #FFFFFF;
+            --border-medium: 2px solid #FFFFFF;
+            --border-thin: 1.5px solid rgba(255, 255, 255, 0.5);
+            --shadow-neo-xs: 2px 2px 0px #FFC700;
+            --shadow-neo-sm: 3px 3px 0px #FFC700;
+            --shadow-neo: 4px 4px 0px #FFC700;
+            --shadow-neo-lg: 6px 6px 0px #FFC700;
+            --shadow-neo-xl: 8px 8px 0px #FFC700;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-canvas);
+            background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Neo Buttons */
+        .neo-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: var(--font-display);
+            font-size: 0.9375rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            text-decoration: none;
+            padding: 0.75rem 1.4rem;
+            border-radius: var(--radius-sm);
+            border: var(--border-thick);
+            box-shadow: var(--shadow-neo);
+            cursor: pointer;
+            transition: transform 0.12s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.12s cubic-bezier(0.2, 0, 0, 1), background-color 0.15s ease;
+            user-select: none;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .neo-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: var(--shadow-neo-hover);
+        }
+
+        .neo-btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: var(--shadow-neo-active);
+        }
+
+        .neo-btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-contrast);
+        }
+
+        .neo-btn-white {
+            background-color: var(--bg-surface);
+            color: var(--text-main);
+        }
+
+        .neo-btn-pill {
+            border-radius: var(--radius-pill);
+            padding: 0.6rem 1.25rem;
+        }
+
+        /* Navbar */
+        .neo-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--bg-surface);
+            border-bottom: var(--border-thick);
+            padding: 0.85rem 0;
+            transition: background-color 0.25s ease;
+        }
+
+        .neo-nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            gap: 1rem;
+        }
+
+        .neo-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .neo-logo-badge {
+            background: #000000;
+            color: var(--color-yellow);
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            padding: 0.35rem 0.65rem;
+            border-radius: var(--radius-xs);
+            border: 2px solid #000000;
+            box-shadow: 2px 2px 0px var(--color-yellow);
+            line-height: 1;
+        }
+
+        .neo-logo-role {
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: var(--color-yellow);
+            color: #000000;
+            padding: 0.3rem 0.65rem;
+            border-radius: var(--radius-pill);
+            border: 2px solid #000000;
+            box-shadow: 2px 2px 0px #000000;
+        }
+
+        .neo-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.75rem;
+            list-style: none;
+        }
+
+        .neo-nav-link {
+            font-family: var(--font-sans);
+            font-size: 0.9375rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .neo-nav-link:hover {
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+
+        .neo-nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .neo-theme-picker {
+            display: flex;
+            align-items: center;
+            background: var(--bg-surface-alt);
+            border: var(--border-medium);
+            border-radius: var(--radius-pill);
+            padding: 0.2rem 0.4rem;
+            gap: 0.35rem;
+            box-shadow: var(--shadow-neo-xs);
+        }
+
+        .theme-chip-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 1.5px solid #000000;
+            cursor: pointer;
+            transition: transform 0.12s ease;
+        }
+
+        .theme-chip-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .theme-chip-btn.active {
+            outline: 2px solid var(--text-main);
+            outline-offset: 2px;
+            transform: scale(1.08);
+        }
+
+        /* Hero Header */
+        .archive-hero-header {
+            padding: 3.5rem 0 2.5rem;
+            border-bottom: var(--border-thick);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .archive-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .archive-main-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.1;
+            color: var(--text-main);
+        }
+
+        .archive-sub {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-top: 0.6rem;
+            max-width: 650px;
+        }
+
+        /* Search & Filter Container */
+        .project-search-container {
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-neo-lg);
+            padding: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .search-input-row {
+            display: flex;
+            align-items: center;
+            position: relative;
+            margin-bottom: 1.25rem;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.25rem;
+            width: 20px;
+            height: 20px;
+            fill: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .project-search-input {
+            width: 100%;
+            background: var(--bg-surface-alt);
+            border: var(--border-medium);
+            border-radius: var(--radius-sm);
+            padding: 0.85rem 1rem 0.85rem 3rem;
+            font-family: var(--font-mono);
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-main);
+            outline: none;
+            transition: box-shadow 0.15s ease, background-color 0.15s ease;
+        }
+
+        .project-search-input:focus {
+            background: var(--bg-surface);
+            box-shadow: var(--shadow-neo-sm);
+            border-color: var(--primary);
+        }
+
+        .search-filter-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .filter-chip-btn {
+            background: var(--bg-surface-alt);
+            border: var(--border-medium);
+            border-radius: var(--radius-pill);
+            padding: 0.4rem 0.9rem;
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            color: var(--text-main);
+            cursor: pointer;
+            box-shadow: var(--shadow-neo-xs);
+            transition: transform 0.12s ease, background-color 0.12s ease, box-shadow 0.12s ease;
+            user-select: none;
+        }
+
+        .filter-chip-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: var(--shadow-neo-sm);
+            background: var(--primary-hover);
+        }
+
+        .filter-chip-btn.active {
+            background: var(--primary);
+            color: var(--primary-contrast);
+            transform: translate(-1px, -1px);
+            box-shadow: var(--shadow-neo-sm);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-item-card {
+            background: var(--card-bg);
+            border: var(--border-thick);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-neo);
+            padding: 1.65rem;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s cubic-bezier(0.2, 0, 0, 1);
+        }
+
+        .project-item-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: var(--shadow-neo-hover);
+        }
+
+        .card-top-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            gap: 0.5rem;
+        }
+
+        .project-cat-pill {
+            font-family: var(--font-mono);
+            font-size: 0.6875rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: var(--bg-surface-alt);
+            border: var(--border-thin);
+            padding: 0.2rem 0.55rem;
+            border-radius: var(--radius-pill);
+            color: var(--text-muted);
+        }
+
+        .tech-badge-solid {
+            background: var(--bg-surface-alt);
+            color: var(--text-main);
+            border: 1.5px solid var(--text-main);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-xs);
+            box-shadow: 1.5px 1.5px 0px var(--text-main);
+        }
+
+        .project-card-title {
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .project-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .project-card-stack {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            line-height: 1.4;
+        }
+
+        .project-card-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            font-weight: 800;
+            text-decoration: none;
+            color: var(--text-main);
+            background: var(--bg-surface-alt);
+            border: var(--border-medium);
+            border-radius: var(--radius-xs);
+            padding: 0.55rem 0.85rem;
+            box-shadow: var(--shadow-neo-xs);
+            transition: transform 0.12s ease, background-color 0.12s ease;
+            margin-top: auto;
+        }
+
+        .project-card-link:hover {
+            background: var(--primary);
+            color: var(--primary-contrast);
+            transform: translate(-2px, -2px);
+        }
+
+        .no-results-msg {
+            display: none;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3.5rem 1.5rem;
+            background: var(--bg-surface-alt);
+            border: var(--border-thick);
+            border-radius: var(--radius-lg);
+            font-family: var(--font-mono);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .neo-footer-card {
+            background: var(--bg-surface);
+            border: var(--border-thick);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-neo-xl);
+            padding: 3rem 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-credits {
+            font-family: var(--font-mono);
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navbar -->
+    <nav class="neo-navbar">
+        <div class="neo-nav-content">
+            <a href="index.html" class="neo-logo">
+                <span class="neo-logo-badge">F</span>
+                <span class="neo-logo-role">Agentic AI Engineer</span>
+            </a>
+
+            <ul class="neo-nav-links">
+                <li><a href="index.html#about" class="neo-nav-link">Home</a></li>
+                <li><a href="index.html#capabilities" class="neo-nav-link">Specializations</a></li>
+                <li><a href="index.html#flagships" class="neo-nav-link">Flagship Deep Dives</a></li>
+                <li><a href="projects.html" class="neo-nav-link" style="color:var(--primary);text-decoration:underline;">Archive</a></li>
+                <li><a href="index.html#experience" class="neo-nav-link">Experience</a></li>
+            </ul>
+
+            <div class="neo-nav-actions">
+                <div class="neo-theme-picker" title="Switch Theme (Neo Yellow / Cyber Dark)">
+                    <button class="theme-chip-btn active" data-theme-val="neo-yellow" style="background:#FFC700;" title="Neo Yellow"></button>
+                    <button class="theme-chip-btn" data-theme-val="neo-dark" style="background:#191920;" title="Cyber Dark"></button>
+                </div>
+
+                <a href="index.html" class="neo-btn neo-btn-white neo-btn-pill">
+                    ← Back Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Header -->
+        <header class="archive-hero-header">
+            <div>
+                <div class="archive-eyebrow">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z"/></svg>
+                    Open Source Repository Hub
+                </div>
+                <h1 class="archive-main-title">Archive & All Repositories</h1>
+                <p class="archive-sub">
+                    Explore all 22+ open-source AI agent workflows, MCP servers, RAG search engines, computer vision pipelines, and fullstack applications.
+                </p>
+            </div>
+            <div>
+                <a href="https://github.com/farhanrhine" target="_blank" class="neo-btn neo-btn-primary">
+                    GitHub Profile ↗
+                </a>
+            </div>
+        </header>
+
+        <!-- Search & Category Filters -->
+        <section class="project-search-container">
+            <div class="search-input-row">
+                <svg class="search-icon" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                <input type="text" id="projectSearchInput" class="project-search-input" placeholder="Search repository by name, technology (e.g. LangGraph, FastAPI, Docker, RAG, PyTorch)..." />
+            </div>
+
+            <div class="search-filter-chips">
+                <button class="filter-chip-btn active" data-category="all">All (22)</button>
+                <button class="filter-chip-btn" data-category="agentic">Agentic & LLMs (9)</button>
+                <button class="filter-chip-btn" data-category="rag">RAG & Vector DB (4)</button>
+                <button class="filter-chip-btn" data-category="mlops">MLOps & Vision (6)</button>
+                <button class="filter-chip-btn" data-category="backend">Software & Data (3)</button>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-grid" id="projectsGrid">
+            <!-- 0 -->
+            <article class="project-item-card" data-category="agentic" data-search="ai powered resume analyzer gemini 3.5 flash langchain pypdf2 streamlit ats keyword match gap analysis scoring">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">AI Orchestration</span>
+                    <span class="tech-badge-solid">Gemini 3.5 Flash</span>
+                </div>
+                <h3 class="project-card-title">AI Resume Analyzer</h3>
+                <p class="project-card-desc">ATS alignment platform evaluating candidate resumes against job descriptions with Gemini 3.5 Flash, computing match scores, identifying skill gaps, and generating actionable improvement recommendations.</p>
+                <span class="project-card-stack">Gemini 3.5 Flash • LangChain • PyPDF2 • Streamlit</span>
+                <a href="https://github.com/farhanrhine" target="_blank" class="project-card-link">View Project ↗</a>
+            </article>
+
+            <!-- 1 -->
+            <article class="project-item-card" data-category="agentic" data-search="multi ai agent system langgraph llama 3 fastapi gcp cloud run tavily">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Agentic AI</span>
+                    <span class="tech-badge-solid">GCP Cloud Run</span>
+                </div>
+                <h3 class="project-card-title">Multi-AI Agent System</h3>
+                <p class="project-card-desc">Production multi-agent application utilizing custom LangGraph StateGraph, Llama 3, and Tavily Search with real-time streaming backend.</p>
+                <span class="project-card-stack">LangGraph • Llama 3 • FastAPI • GCP</span>
+                <a href="https://github.com/farhanrhine/multi-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 2 -->
+            <article class="project-item-card" data-category="agentic" data-search="openclaw retail support autonomous customer assistant glm 4.5 whatsapp telegram tool invocation">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Agentic AI</span>
+                    <span class="tech-badge-solid">Messaging Bot</span>
+                </div>
+                <h3 class="project-card-title">OpenClaw Retail Support</h3>
+                <p class="project-card-desc">Autonomous customer support assistant integrated natively with WhatsApp and Telegram, resolving queries via custom tool-invocation.</p>
+                <span class="project-card-stack">OpenClaw • GLM-4.5 • Tool Calling</span>
+                <a href="https://github.com/farhanrhine/OpenClaw-Retail-Support-Agent" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 3 -->
+            <article class="project-item-card" data-category="agentic" data-search="discord notion sync ai note refinement web search agent bot">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Agentic AI</span>
+                    <span class="tech-badge-solid">Automation</span>
+                </div>
+                <h3 class="project-card-title">Discord-Notion-Sync</h3>
+                <p class="project-card-desc">Bot bridging Discord communication directly into Notion workspace, featuring automated AI note refinement and web search capabilities.</p>
+                <span class="project-card-stack">Discord API • Notion • AI Agents</span>
+                <a href="https://github.com/farhanrhine/discord-notion-sync" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 4 -->
+            <article class="project-item-card" data-category="agentic" data-search="student study assistant discord pydantic llm notion progress tracking">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Agentic AI</span>
+                    <span class="tech-badge-solid">EdTech</span>
+                </div>
+                <h3 class="project-card-title">Student Study Assistant</h3>
+                <p class="project-card-desc">Study bot managing private threads with Pydantic structured LLM explanations and Notion-based learning progress tracking.</p>
+                <span class="project-card-stack">Pydantic • LLM • Notion • Discord</span>
+                <a href="https://github.com/farhanrhine/discord-thread-notion-mind" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 5 -->
+            <article class="project-item-card" data-category="agentic" data-search="retail ai agent langchain qwen3 langsmith personal shopper support routing">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Agentic AI</span>
+                    <span class="tech-badge-solid">E-Commerce</span>
+                </div>
+                <h3 class="project-card-title">Retail AI Agent</h3>
+                <p class="project-card-desc">Dual-purpose personal shopper and customer support assistant routing intelligently across 4 specialized custom tools with zero hallucinations.</p>
+                <span class="project-card-stack">LangChain • Qwen 3 • LangSmith</span>
+                <a href="https://github.com/farhanrhine/Retail-AI-Agent" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 6 -->
+            <article class="project-item-card" data-category="mlops" data-search="iot power consumption analysis time series eda anomaly detection energy">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Time-Series & Analytics</span>
+                    <span class="tech-badge-solid">EDA Engine</span>
+                </div>
+                <h3 class="project-card-title">IoT Power Analysis</h3>
+                <p class="project-card-desc">Exploratory time-series analysis on IoT telemetry data featuring statistical anomaly detection for atypical power surges.</p>
+                <span class="project-card-stack">Python • Pandas • Seaborn • Stats</span>
+                <a href="https://github.com/farhanrhine/IoT-Power-Consumption-Analysis" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 7 -->
+            <article class="project-item-card" data-category="rag" data-search="medical rag ai agent gale medical encyclopedia chromadb fastapi context preservation">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">RAG & Vector</span>
+                    <span class="tech-badge-solid">Healthcare RAG</span>
+                </div>
+                <h3 class="project-card-title">Medical RAG AI Agent</h3>
+                <p class="project-card-desc">RAG pipeline over the GALE Medical Encyclopedia implementing custom chunking boundaries to preserve intricate medical definitions.</p>
+                <span class="project-card-stack">ChromaDB • Sentence-Transformers • FastAPI</span>
+                <a href="https://github.com/farhanrhine/medical-rag-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 8 -->
+            <article class="project-item-card" data-category="agentic" data-search="recall ai study agent argo cd kubernetes langchain quiz flashcards">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Agentic AI</span>
+                    <span class="tech-badge-solid">GitOps</span>
+                </div>
+                <h3 class="project-card-title">Recall AI Study Agent</h3>
+                <p class="project-card-desc">Single-file architecture study companion with teach-then-test workflows and contextual quiz generation deployed via Argo CD.</p>
+                <span class="project-card-stack">Argo CD • Kubernetes • LangChain</span>
+                <a href="https://github.com/farhanrhine/recall-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 9 -->
+            <article class="project-item-card" data-category="rag" data-search="travel planner ai agent whisper stt orpheus tts folium elk kubernetes voice maps">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">RAG & Vector</span>
+                    <span class="tech-badge-solid">Voice & TTS</span>
+                </div>
+                <h3 class="project-card-title">Travel Planner AI</h3>
+                <p class="project-card-desc">AI travel companion featuring natural voice input, narrated audio summaries, and interactive geospatial mapping monitored on ELK.</p>
+                <span class="project-card-stack">Whisper STT • Orpheus TTS • Folium</span>
+                <a href="https://github.com/farhanrhine/travel-planner-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 10 -->
+            <article class="project-item-card" data-category="agentic" data-search="research deepagent langgraph subagents planning local filesystem long running">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Agentic AI</span>
+                    <span class="tech-badge-solid">Deep Research</span>
+                </div>
+                <h3 class="project-card-title">Research DeepAgent</h3>
+                <p class="project-card-desc">Advanced agent with planning capabilities, filesystem memory backend, and subagent spawning for complex multi-step research.</p>
+                <span class="project-card-stack">LangGraph • Subagents • FS Memory</span>
+                <a href="https://github.com/farhanrhine/research-deepagent" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 11 -->
+            <article class="project-item-card" data-category="agentic" data-search="flipkart shopping agent cloud native nlp gcp cicd pipeline">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Agentic AI</span>
+                    <span class="tech-badge-solid">Cloud Native</span>
+                </div>
+                <h3 class="project-card-title">Flipkart Shopping Agent</h3>
+                <p class="project-card-desc">Production-grade intelligent shopping assistant deployed on Google Cloud Platform with NLP product matching and automated CI/CD.</p>
+                <span class="project-card-stack">Cloud-Native • NLP • GCP Pipeline</span>
+                <a href="https://github.com/farhanrhine/flipkart-shopping-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 12 -->
+            <article class="project-item-card" data-category="agentic" data-search="multi agent wedding planner collaborative coordination budgeting venue">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Agentic AI</span>
+                    <span class="tech-badge-solid">Multi-Agent</span>
+                </div>
+                <h3 class="project-card-title">Multi-Agent Wedding Planner</h3>
+                <p class="project-card-desc">Collaborative multi-agent system coordinating specialized agents across venue selection, catering, budgeting, and timelines.</p>
+                <span class="project-card-stack">Multi-Agent System • Planning Nodes</span>
+                <a href="https://github.com/farhanrhine/Multi-Agent-Wedding-Planner" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 13 -->
+            <article class="project-item-card" data-category="mlops" data-search="tourism recommendation deep learning pytorch ncf neural collaborative filtering attention">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">ML & Deep Learning</span>
+                    <span class="tech-badge-solid">PyTorch</span>
+                </div>
+                <h3 class="project-card-title">Tourism Recommendation</h3>
+                <p class="project-card-desc">Personalized travel engine utilizing Neural Collaborative Filtering (NCF) and content embeddings fused with learnable attention.</p>
+                <span class="project-card-stack">PyTorch • Hybrid NCF • Attention</span>
+                <a href="https://github.com/farhanrhine/Deep_Learning-Tourism_Recommendation" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 14 -->
+            <article class="project-item-card" data-category="mlops" data-search="flight satisfaction mlops lightgbm mlflow dvc jenkins flask docker reproducible">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">MLOps</span>
+                    <span class="tech-badge-solid">MLflow & DVC</span>
+                </div>
+                <h3 class="project-card-title">Flight Satisfaction MLOps</h3>
+                <p class="project-card-desc">End-to-end production ML pipeline handling dataset versioning, reproducible experiment tracking, and Dockerized serving.</p>
+                <span class="project-card-stack">LightGBM • MLflow • DVC • Jenkins</span>
+                <a href="https://github.com/farhanrhine/flight-satisfaction-mlops" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 15 -->
+            <article class="project-item-card" data-category="mlops" data-search="celebrity face detection opencv llama 4 kubernetes circleci computer vision">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Computer Vision</span>
+                    <span class="tech-badge-solid">CircleCI</span>
+                </div>
+                <h3 class="project-card-title">Celebrity Face Detection</h3>
+                <p class="project-card-desc">Vision inference agent powered by OpenCV and Llama 4, deployed on Kubernetes cluster with automated CircleCI testing.</p>
+                <span class="project-card-stack">OpenCV • Llama 4 • K8s • CircleCI</span>
+                <a href="https://github.com/farhanrhine/face-detect-ai-agent-gcp" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 16 -->
+            <article class="project-item-card" data-category="mlops" data-search="insurance premium prediction fastapi docker aws ec2 regression scikit learn">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">MLOps</span>
+                    <span class="tech-badge-solid">AWS EC2</span>
+                </div>
+                <h3 class="project-card-title">Insurance Premium Prediction</h3>
+                <p class="project-card-desc">Regression serving pipeline containerized with Docker and deployed on AWS EC2 with FastAPI REST endpoint.</p>
+                <span class="project-card-stack">Scikit-Learn • FastAPI • Docker • AWS</span>
+                <a href="https://github.com/farhanrhine/insurance-premium-prediction-fastapi-docker-aws" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 17 -->
+            <article class="project-item-card" data-category="rag" data-search="ai anime recommender rag chromadb groq llama 3.1 gke kubernetes hybrid search">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">RAG & Vector</span>
+                    <span class="tech-badge-solid">GKE Cloud</span>
+                </div>
+                <h3 class="project-card-title">Anime Recommender RAG</h3>
+                <p class="project-card-desc">Production recommendation engine combining ChromaDB vector similarity with Groq-hosted Llama 3.1 on Google Kubernetes Engine.</p>
+                <span class="project-card-stack">ChromaDB • Groq • Llama 3.1 • GKE</span>
+                <a href="https://github.com/farhanrhine/ai-anime-recommender-rag" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 18 -->
+            <article class="project-item-card" data-category="mlops" data-search="quran bigram model nlp statistical language modeling arabic linguistic corpus">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Statistical NLP</span>
+                    <span class="tech-badge-solid">Language Model</span>
+                </div>
+                <h3 class="project-card-title">Quran Bigram Model</h3>
+                <p class="project-card-desc">Statistical language modeling exploring classical Arabic linguistic structures via corpus-wide n-gram probabilistic modeling.</p>
+                <span class="project-card-stack">NLP • Bigram Analysis • Stats</span>
+                <a href="https://github.com/farhanrhine/quran-bigram-model" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 19 -->
+            <article class="project-item-card" data-category="backend" data-search="finlo raw sql claude code pure html expense tracker zero frameworks spec driven">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Software Engineering</span>
+                    <span class="tech-badge-solid">Raw SQL</span>
+                </div>
+                <h3 class="project-card-title">Finlo Expense Tracker</h3>
+                <p class="project-card-desc">Minimalist personal expense tracker built with raw SQL (zero ORM) and pure HTML/CSS, following Spec-Driven Development with Claude Code.</p>
+                <span class="project-card-stack">Raw SQL • Claude Code • Pure HTML</span>
+                <a href="https://github.com/farhanrhine/Finlo" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 20 -->
+            <article class="project-item-card" data-category="backend" data-search="web eater web scraping structured data extraction pipeline llm rag">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Data Engineering</span>
+                    <span class="tech-badge-solid">Web Scraping</span>
+                </div>
+                <h3 class="project-card-title">Web Eater</h3>
+                <p class="project-card-desc">High-speed web scraping and structured data extraction pipeline optimized for downstream LLM consumption and RAG indexers.</p>
+                <span class="project-card-stack">Python • Data Extraction • RAG</span>
+                <a href="https://github.com/farhanrhine/web-eater" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- 21 -->
+            <article class="project-item-card" data-category="backend" data-search="flowdesk task management platform zero framework pure html css javascript postgresql rbac railway access control">
+                <div class="card-top-meta">
+                    <span class="project-cat-pill">Fullstack & RBAC</span>
+                    <span class="tech-badge-solid">Zero-Framework</span>
+                </div>
+                <h3 class="project-card-title">FlowDesk Task Platform</h3>
+                <p class="project-card-desc">High-performance task management system engineered with pure HTML/CSS/JS (zero runtime overhead) and PostgreSQL backend on Railway with RBAC security.</p>
+                <span class="project-card-stack">PostgreSQL • RBAC • Pure JS • Railway</span>
+                <a href="https://github.com/farhanrhine/FlowDesk" target="_blank" class="project-card-link">View Repository ↗</a>
+            </article>
+
+            <!-- Empty State -->
+            <div class="no-results-msg" id="noResultsMsg">
+                No matching projects found. Try a different search term or category filter!
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="neo-footer-card">
+            <div class="footer-credits">
+                <span>0 heavy frameworks used • 100% Pure High-Performance HTML, CSS & Vanilla JS</span>
+                <span>© 2026 Farhan. All rights reserved.</span>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        (function() {
+            // Theme Picker
+            const themeBtns = document.querySelectorAll('.theme-chip-btn');
+            const savedTheme = localStorage.getItem('neo-portfolio-theme') || 'neo-yellow';
+            
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            themeBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-theme-val') === savedTheme);
+                btn.addEventListener('click', () => {
+                    const themeVal = btn.getAttribute('data-theme-val');
+                    document.documentElement.setAttribute('data-theme', themeVal);
+                    localStorage.setItem('neo-portfolio-theme', themeVal);
+                    themeBtns.forEach(b => b.classList.toggle('active', b === btn));
+                });
+            });
+
+            // Instant Search & Category Filtering
+            const searchInput = document.getElementById('projectSearchInput');
+            const filterBtns = document.querySelectorAll('.filter-chip-btn');
+            const projectCards = document.querySelectorAll('.project-item-card');
+            const noResults = document.getElementById('noResultsMsg');
+
+            let currentCategory = 'all';
+            let currentSearchTerm = '';
+
+            function updateProjectsFilter() {
+                let visibleCount = 0;
+                projectCards.forEach(card => {
+                    const cardCat = card.getAttribute('data-category');
+                    const searchData = (card.getAttribute('data-search') || '').toLowerCase();
+                    const titleText = (card.querySelector('.project-card-title')?.textContent || '').toLowerCase();
+                    const descText = (card.querySelector('.project-card-desc')?.textContent || '').toLowerCase();
+                    
+                    const matchesCategory = (currentCategory === 'all') || (cardCat === currentCategory);
+                    const combinedText = titleText + ' ' + descText + ' ' + searchData;
+                    const matchesSearch = !currentSearchTerm || combinedText.includes(currentSearchTerm);
+
+                    if (matchesCategory && matchesSearch) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                if (noResults) {
+                    noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+                }
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    currentSearchTerm = e.target.value.trim().toLowerCase();
+                    updateProjectsFilter();
+                });
+            }
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    currentCategory = btn.getAttribute('data-category');
+                    updateProjectsFilter();
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

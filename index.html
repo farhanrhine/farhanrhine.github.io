@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="neo-yellow">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farhan | ML & AI Engineer</title>
-    <meta name="description" content="Farhan | ML & AI Engineer building Agentic AI, LLMs, and MLOps pipelines.">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farhan | ML & AI Engineer — Neo Portfolio</title>
+    <meta name="description" content="Farhan | ML & AI Engineer building Agentic AI, MCP Servers, LLMs, RAG Pipelines, and Production MLOps." />
     
     <!-- Open Graph / Social Meta Tags -->
     <meta property="og:title" content="Farhan | ML & AI Engineer">
@@ -51,6 +51,9 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
+        /* ==========================================================================
+           NEO-BRUTALIST DESIGN SYSTEM & MULTI-THEME TOKENS
+           ========================================================================== */
         :root {
             --ink: #1a1816;
             --ink-soft: #3d3a36;
@@ -66,41 +69,76 @@
             --border-dark: #1a1816;
             --glass: rgba(250, 249, 245, 0.85);
 
-            --font-serif: 'DM Serif Display', Georgia, serif;
-            --font-sans: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-            --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-            
-            --max-width: 1200px;
-            --radius-sm: 6px;
+            /* Metrics & Brutalist Physics */
+            --border-thick: 2.5px solid #000000;
+            --border-medium: 2px solid #000000;
+            --border-thin: 1.5px solid #000000;
+            --shadow-neo-xs: 2px 2px 0px #000000;
+            --shadow-neo-sm: 3px 3px 0px #000000;
+            --shadow-neo: 4px 4px 0px #000000;
+            --shadow-neo-lg: 6px 6px 0px #000000;
+            --shadow-neo-xl: 8px 8px 0px #000000;
+            --shadow-neo-hover: 7px 7px 0px #000000;
+            --shadow-neo-active: 1px 1px 0px #000000;
+
+            --radius-xs: 4px;
+            --radius-sm: 8px;
             --radius-md: 12px;
-            --radius-lg: 20px;
+            --radius-lg: 18px;
+            --radius-xl: 24px;
+            --radius-pill: 9999px;
+
+            /* Multi-Color Accent Swatches */
+            --color-yellow: #FFC700;
+            --color-yellow-light: #FFE885;
+            --color-blue: #2563EB;
+            --color-blue-light: #93C5FD;
+            --color-pink: #F472B6;
+            --color-pink-light: #FCE7F3;
+            --color-green: #22C55E;
+            --color-green-light: #BBF7D0;
+            --color-orange: #EA580C;
+            --color-orange-light: #FED7AA;
+            --color-purple: #8B5CF6;
+            --color-purple-light: #DDD6FE;
+            --color-cyan: #06B6D4;
         }
 
-        [data-theme="dark"] {
-            --ink: #f5f3f0;
-            --ink-soft: #d9d4cf;
-            --ink-muted: #b8b0a8;
-            --ink-faint: #8f8680;
-            --paper: #1c1b19;
-            --paper-warm: #282624;
-            --paper-card: #22201e;
-            --accent: #E52b50;
-            --accent-light: #5a2d3a;
-            --border: #4a4540;
-            --border-soft: #3a3530;
-            --border-dark: #f5f3f0;
-            --glass: rgba(28, 27, 25, 0.85);
+        /* --------------------------------------------------------------------------
+           THEME 1: NEO-YELLOW (Default High-Voltage Editorial)
+           -------------------------------------------------------------------------- */
+        html, html[data-theme="neo-yellow"] {
+            --bg-canvas: #FAF8F5;
+            --bg-surface: #FFFFFF;
+            --bg-surface-alt: #F4EFE6;
+            --bg-surface-subtle: #FAF6ED;
+            --text-main: #000000;
+            --text-muted: #4B4B4B;
+            --text-secondary: #242424;
+            --primary: #FFC700;
+            --primary-hover: #E5B300;
+            --primary-contrast: #000000;
+            --card-bg: #FFFFFF;
+            --card-border: #000000;
+            --dot-color: rgba(0, 0, 0, 0.08);
+            --code-bg: #141414;
+            --code-text: #F2F1ED;
+            --accent-pill: #000000;
+            --accent-pill-text: #FFC700;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         ::selection { background: var(--accent); color: #fff; }
 
         body {
+            background-color: var(--bg-canvas);
+            background-image: radial-gradient(var(--dot-color) 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+            color: var(--text-main);
             font-family: var(--font-sans);
             line-height: 1.6;
-            color: var(--ink);
-            background-color: var(--paper);
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 15px;
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             padding-top: 80px;
         }
@@ -180,7 +218,6 @@
             background: var(--ink); color: var(--paper) !important;
             font-weight: 500; font-size: 0.85rem; transition: opacity 0.2s;
         }
-        .resume-btn:hover { opacity: 0.9; }
 
         .skill-group { margin-bottom: 32px; width: 100%; }
         .skill-group:last-child { margin-bottom: 0; }
@@ -190,7 +227,6 @@
             border: 1px solid var(--border); padding: 8px 16px; border-radius: 99px;
             font-size: 0.8rem; font-weight: 500; transition: all 0.2s; cursor: default;
         }
-        .skill-tag:hover { border-color: var(--ink); background: var(--paper-warm); transform: translateY(-1px); }
 
         .featured-grid { display: flex; flex-direction: column; gap: 32px; margin-bottom: 64px; }
         .featured-card {
@@ -310,16 +346,36 @@
                         <span class="skill-tag">LangChain</span><span class="skill-tag">LangGraph</span><span class="skill-tag">LangSmith</span><span class="skill-tag">RAG</span><span class="skill-tag">MCP</span><span class="skill-tag">Ollama</span><span class="skill-tag">HuggingFace</span><span class="skill-tag">OpenAI</span><span class="skill-tag">Anthropic</span><span class="skill-tag">Llama 3</span>
                     </div>
                 </div>
-                <div class="skill-group" style="margin-top: 32px;">
-                    <p>Machine Learning & MLOps</p>
-                    <div class="skills">
-                        <span class="skill-tag">PyTorch</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Scikit-Learn</span><span class="skill-tag">Pandas</span><span class="skill-tag">Docker</span><span class="skill-tag">Kubernetes</span><span class="skill-tag">MLflow</span><span class="skill-tag">DVC</span><span class="skill-tag">Jenkins</span><span class="skill-tag">GCP</span><span class="skill-tag">AWS</span>
-                    </div>
-                </div>
-                <div class="skill-group" style="margin-top: 32px;">
-                    <p>Software Engineering & Backend</p>
-                    <div class="skills">
-                        <span class="skill-tag">Python</span><span class="skill-tag">FastAPI</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">Raw SQL</span><span class="skill-tag">SQLite</span><span class="skill-tag">REST APIs</span>
+
+                <!-- Right Card -->
+                <div class="hero-right">
+                    <div class="hero-avatar-card">
+                        <div class="avatar-img-wrap">
+                            <img src="https://avatars.githubusercontent.com/u/124152754?v=4" alt="Farhan" class="avatar-img" />
+                            <span class="avatar-verified-pill">✓ Verified</span>
+                        </div>
+                        <h2 class="avatar-name">Farhan</h2>
+                        <p class="avatar-sub">Agentic AI Engineer</p>
+
+                        <!-- Quick metrics -->
+                        <div class="hero-metrics-grid">
+                            <div class="hero-mini-stat stat-yellow">
+                                <div class="mini-stat-num">20+</div>
+                                <div class="mini-stat-label">AI Systems</div>
+                            </div>
+                            <div class="hero-mini-stat stat-blue">
+                                <div class="mini-stat-num">950+</div>
+                                <div class="mini-stat-label">MCP Txns Analyzed</div>
+                            </div>
+                            <div class="hero-mini-stat stat-green">
+                                <div class="mini-stat-num">90%</div>
+                                <div class="mini-stat-label">Model Accuracy</div>
+                            </div>
+                            <div class="hero-mini-stat stat-pink">
+                                <div class="mini-stat-num">Agentic</div>
+                                <div class="mini-stat-label">AI Workflows</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -473,7 +529,7 @@
             <p>0 frameworks were used to make this interface. Pure HTML & CSS.</p>
             <p>&copy; 2026 Farhan. Built with a focus on correctness.</p>
         </footer>
-    </div>
+    </main>
 
     <div class="modal-backdrop" id="product-modal">
         <div class="modal-wrapper">
@@ -518,5 +574,8 @@
             setTimeout(() => { const email = document.getElementById('newsletter-email').value; newsletterSubmit.disabled = false; newsletterSubmit.textContent = "Subscribe"; newsletterStatus.classList.add('success'); newsletterStatus.innerHTML = `<strong>Got it! I'll be in touch.`; newsletterForm.reset(); }, 600);
         });
     </script>
+
+    <!-- AgentLayer MCP Bridge Embed Script -->
+    <script src="agentlayer.js" async></script>
 </body>
 </html>
